@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Profitability Analysis · ALK</title>
+<meta name="description" content="Rangkuman visual materi Kelompok 1: Profitability Analysis and Interpretation (EMS Chapter 3).">
+<meta name="theme-color" content="#07090B">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=5">
+<style>
+  .lev{display:flex;flex-direction:column;height:180px;border-radius:12px;overflow:hidden;font:600 13px var(--f-mono);border:1px solid var(--line)}
+  .lev div{display:grid;place-items:center;transition:flex-basis .4s}
+  .lev .d{background:#FF8C8C;color:#2A0505}.lev .e{background:#7DEBC4;color:#06110D}
+  .ccc{position:relative;height:auto;display:grid;gap:6px}
+  .ccc .row{display:grid;grid-template-columns:70px 1fr;gap:8px;align-items:center;font:600 12.5px var(--f-mono)}
+  .ccc .track{position:relative;height:26px;background:var(--surface-2);border-radius:7px}
+  .ccc .seg{position:absolute;top:0;height:100%;border-radius:7px;display:grid;place-items:center;color:#06110D;font-size:11.5px;overflow:hidden;white-space:nowrap;transition:left .4s,width .4s}
+  .sorter .item{font:700 clamp(20px,3.5vw,26px)/1.2 var(--f-body);text-align:center;padding:18px 12px;border-radius:12px;background:var(--surface-2)}
+  .sorter .choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:8px}
+  .sorter .choices button{font:600 14px var(--f-body);padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+  .sorter .choices button.right{background:var(--good-soft);border-color:var(--good)}
+  .sorter .choices button.wrong{background:var(--bad-soft);border-color:var(--bad)}
+  .tradeoff svg text{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+  .tradeoff svg .lbl{fill:var(--ink);font-family:var(--f-body);font-size:12px;font-weight:700}
+</style>
+</head>
+<body class="k1" data-page="k1">
+<header class="site"></header>
+<nav class="toc" aria-label="Isi halaman"><div class="row">
+  <a href="#dupont">DuPont</a><a href="#roe">LO-1 ROE</a><a href="#lev">LO-2 Leverage</a><a href="#roa">LO-3 ROA</a><a href="#wc">LO-3 Working Capital</a><a href="#noa">LO-4 NOA</a><a href="#nopat">LO-5 NOPAT</a><a href="#rnoa">LO-6/7 RNOA</a><a href="#nonop">LO-8 Non-op Return</a><a href="#vh">LO-9 Vertical/Horizontal</a><a href="#qna">Q&amp;A</a><a href="#kuis">Kuis</a>
+</div></nav>
+
+<main class="wrap">
+<section class="hero">
+  <span class="feb" aria-hidden="true">FEB</span>
+  <div class="hero-tag"><span class="lo"><b>Chapter 3</b><span>Financial Statement Analysis Week 2</span></span></div>
+  <h1>Profitability Analysis<br>and Interpretation</h1>
+  <p class="hero-sub">"Profitability is not just about the return you earn, but understanding what truly drives it."</p>
+  <div class="hero-meta"><span>Kelompok 1 · Adro Mediantoro · Aprilia Reikha N · Dhiah Rahmawati · I Dewa Gede V S</span><span>7 September 2026 · EMS 7th ed.</span></div>
+  <div class="stats">
+    <div class="stat"><span class="v">21,24%</span><span class="l">ROE Boston Scientific 2018</span></div>
+    <div class="stat"><span class="v">−73,6 hari</span><span class="l">CCC Apple 2018</span></div>
+    <div class="stat"><span class="v">11,48%</span><span class="l">RNOA Perusahaan EMP</span></div>
+    <div class="stat"><span class="v">12,38%</span><span class="l">ROE EMP = RNOA + non-op</span></div>
+  </div>
+</section>
+
+<section class="sec" id="dupont">
+  <div class="sec-head"><div class="t"><span class="lo"><b>Key idea</b><span>DuPont Analysis</span></span><h2>Satu pohon, tiga pertanyaan</h2></div><button class="done" data-done="k1-dupont"></button></div>
+  <div class="tree">
+    <div class="node root">ROE <small>Berapa return yang diperoleh shareholder?</small></div>
+    <div class="lvl" style="--n:2">
+      <div class="tree" style="gap:12px">
+        <div class="node">ROA <small>Dari mana return berasal?</small></div>
+        <div class="lvl" style="--n:2">
+          <div class="node">Profitability <small>Profit margin</small></div>
+          <div class="node">Productivity <small>Asset turnover</small></div>
+        </div>
+        <small class="muted">Faktor operasional apa yang mendorong return?</small>
+      </div>
+      <div class="node" style="align-self:start">Financial Leverage <small>Struktur pendanaan</small></div>
+    </div>
+  </div>
+  <div class="formula"><span class="n">ROE</span><span class="op">=</span><span>Profit margin</span><span class="op">×</span><span>Asset turnover</span><span class="op">×</span><span>Financial leverage</span></div>
+</section>
+
+<section class="sec" id="roe">
+  <div class="sec-head"><div class="t"><span class="lo"><b>LO-1</b><span>Return on Equity</span></span><h2>ROE: laba per $1 modal pemegang saham</h2></div><button class="done" data-done="k1-roe"></button></div>
+  <div class="w-grid">
+    <div class="formula"><span class="n">ROE</span><span class="op">=</span><span class="frac"><span>Net income</span><span>Average stockholders' equity</span></span></div>
+    <div class="card"><h4>Boston Scientific 2018</h4>
+      <div class="bars"><div class="bar"><span class="lab">Net income</span><span class="tr"><span class="fill" style="--w:19%"></span></span><span class="v">$1.671m</span></div><div class="bar"><span class="lab">Equity 2018</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">$8.726m</span></div><div class="bar"><span class="lab">Equity 2017</span><span class="tr"><span class="fill" style="--w:80%"></span></span><span class="v">$7.012m</span></div></div>
+      <p class="mono small">1.671 / [(8.726 + 7.012) / 2] = <b class="k">21,24%</b></p></div>
+  </div>
+  <div class="grid" style="--min:260px">
+    <p class="callout k"><span class="lbl">Kenapa rata-rata ekuitas?</span>Net income dihasilkan sepanjang tahun, jadi pembandingnya modal rata-rata selama periode itu.</p>
+    <p class="callout"><span class="lbl">Catatan</span>ROE tinggi belum otomatis baik: equity bisa kecil karena leverage atau buyback saham.</p>
+  </div>
+  <div class="sub"><h3>Adjusted ROE</h3>
+    <div class="grid" style="--min:280px">
+      <div class="card"><h4>Ada preferred stock → ROCE</h4><div class="formula" style="font-size:13px"><span class="frac"><span>Net income − Preferred dividends</span><span>Avg equity − Avg preferred equity</span></span></div></div>
+      <div class="card"><h4>Ada noncontrolling interests</h4><div class="formula" style="font-size:13px"><span class="frac"><span>NI attributable to company shareholders</span><span>Avg equity attributable to company shareholders</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="lev">
+  <div class="sec-head"><div class="t"><span class="lo"><b>LO-2</b><span>ROE Disaggregation</span></span><h2>Same ROE ≠ same story</h2></div><button class="done" data-done="k1-lev"></button></div>
+  <div class="vs">
+    <div class="card"><h4>ROA = Business performance</h4><div class="formula" style="font-size:13px"><span>Net income ÷ Avg total assets</span></div><p class="small muted">Seberapa baik seluruh aset menghasilkan laba.</p></div>
+    <span class="mid">×</span>
+    <div class="card"><h4>FL = Financing structure</h4><div class="formula" style="font-size:13px"><span>Avg total assets ÷ Avg equity</span></div><p class="small muted">Seberapa besar aset dibiayai debt dibanding equity.</p></div>
+  </div>
+  <div class="widget">
+    <div class="w-title">Geser porsi utang: lihat FL &amp; ROE berubah</div>
+    <div class="w-grid">
+      <div style="display:grid;gap:12px">
+        <div class="ctrl"><label for="debt">Debt / Assets <output id="debtO">50%</output></label><input type="range" id="debt" min="0" max="90" step="5" value="50"></div>
+        <div class="ctrl"><label for="roaI">ROA (asumsi tetap) <output id="roaO">8%</output></label><input type="range" id="roaI" min="1" max="20" step="1" value="8"></div>
+        <div class="seg" id="levPre"><button data-v="50" aria-pressed="true">Case A · balanced</button><button data-v="75">Case B · more debt</button></div>
+      </div>
+      <div class="lev" aria-label="Komposisi pendanaan"><div class="d" id="levD">Debt 50%</div><div class="e" id="levE">Equity 50%</div></div>
+      <div class="out"><span class="cap">Financial leverage</span><span class="big" id="flO">2,0×</span><span class="cap">ROE = ROA × FL</span><span class="big" id="roeO" style="font-size:24px">16,0%</span><span class="cap" id="levNote"></span></div>
+    </div>
+  </div>
+  <div class="grid" style="--min:260px">
+    <div class="card"><h4>Total liabilities to equity</h4><p class="mono k">1,5×</p><p class="small">Setiap $1 equity menopang $1,5 liabilities. <span class="pill bad">↑ rasio → ↑ leverage → ↑ risk</span></p></div>
+    <div class="card"><h4>Times interest earned</h4><p class="mono k">EBIT ÷ Interest = 5×</p><p class="small">EBIT menutup bunga 5 kali. <span class="pill good">↑ rasio → ↑ coverage → ↓ risk</span></p></div>
+  </div>
+  <p class="callout"><span class="lbl">Rule of reading</span>Tidak ada satu level leverage yang ideal. Bandingkan <b>tren</b>, <b>industry peers</b>, dan <b>stabilitas cash flow</b>. Return ↑ tapi risk ↑: debt menambah kewajiban bunga &amp; pokok, financial risk, dan default risk.</p>
+</section>
+
+<section class="sec" id="roa">
+  <div class="sec-head"><div class="t"><span class="lo"><b>LO-3</b><span>ROA Disaggregation</span></span><h2>ROA = margin × turnover</h2></div><button class="done" data-done="k1-roa"></button></div>
+  <div class="formula"><span class="n">ROA</span><span class="op">=</span><span class="frac"><span>Net income</span><span>Sales</span></span><span class="op">×</span><span class="frac"><span>Sales</span><span>Avg total assets</span></span></div>
+  <p class="sec-lead">Tak harus dua-duanya tinggi. Yang penting kombinasinya menghasilkan return atas aset. <b>Adjusted ROA</b> = [NI + net interest expense × (1 − tax rate)] ÷ avg total assets.</p>
+  <div class="grid" style="--min:280px">
+    <div class="card"><div class="card-h">Gross profit margin = GP ÷ Sales</div><p class="small">Spread harga jual vs biaya buat/beli. Contoh: cost $6, jual $10 → <b>40%</b>.</p><p class="small muted">Margin turun? Cek price pressure, kenaikan biaya, product mix, volume/overhead.</p></div>
+    <div class="card"><div class="card-h">Operating expense margin = SG&amp;A ÷ Sales</div><p class="small">Biaya operasi umum per $1 penjualan.</p><p class="small"><b>Lower is not always better:</b> memangkas R&amp;D, marketing, atau people bisa merusak kinerja jangka panjang.</p></div>
+  </div>
+  <p class="callout k"><span class="lbl">Sustainable profitability</span>Pricing power + cost efficiency + healthy operating investment. Jangan hanya lihat naik/turun, cari <b>penyebab</b> dan apakah <b>sustainable</b>.</p>
+  <div class="sub"><h3>Productivity: PPE turnover</h3>
+    <div class="grid" style="--min:280px">
+      <div class="card"><div class="formula" style="font-size:13px"><span>PPE turnover = Sales ÷ Avg gross PPE</span></div><p class="small">Lebih rendah → capital intensity lebih tinggi. Normal di industri padat modal, tapi <b>penurunan</b> bisa berarti idle capacity.</p></div>
+      <div class="card"><h4>Opsi perbaikan</h4><p class="small"><span class="pill k">Divestasi aset tak produktif</span> <span class="pill k">Joint venture berbagi fasilitas</span> <span class="pill k">Divestasi fasilitas produksi</span> <span class="pill k">Sale-and-leaseback</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="wc">
+  <div class="sec-head"><div class="t"><span class="lo"><b>LO-3</b><span>Working Capital</span></span><h2>Turnover &amp; days: berapa lama kas terikat?</h2></div><button class="done" data-done="k1-wc"></button></div>
+  <div class="tbl"><table><thead><tr><th>Turnover</th><th>Rumus</th><th>Days</th><th>Arah baik</th></tr></thead><tbody>
+    <tr><td><b>AR turnover</b></td><td>Sales ÷ Avg AR</td><td>DSO = 365 ÷ ART</td><td><span class="pill good">DSO ↓ tagih lebih cepat</span></td></tr>
+    <tr><td><b>Inventory turnover</b></td><td>COGS ÷ Avg inventory</td><td>DIO = 365 ÷ INVT</td><td><span class="pill good">DIO ↓ jual lebih cepat</span></td></tr>
+    <tr><td><b>AP turnover</b></td><td>COGS ÷ Avg AP</td><td>DPO = 365 ÷ APT</td><td><span class="pill good">DPO ↑ bayar supplier belakangan</span></td></tr>
+  </tbody></table></div>
+  <div class="widget">
+    <div class="w-title">Bangun Cash Conversion Cycle</div>
+    <div class="formula"><span class="n">CCC</span><span class="op">=</span><span>DSO + DIO − DPO</span></div>
+    <div class="w-grid">
+      <div style="display:grid;gap:10px">
+        <div class="ctrl"><label for="dso">DSO <output id="dsoO"></output></label><input type="range" id="dso" min="0" max="120" step="0.1" value="28.2"></div>
+        <div class="ctrl"><label for="dio">DIO <output id="dioO"></output></label><input type="range" id="dio" min="0" max="150" step="0.1" value="9.8"></div>
+        <div class="ctrl"><label for="dpo">DPO <output id="dpoO"></output></label><input type="range" id="dpo" min="0" max="150" step="0.1" value="111.6"></div>
+        <div class="seg" id="cccPre"><button data-v="apple" aria-pressed="true">Apple 2018</button><button data-v="norm">Contoh biasa</button></div>
+      </div>
+      <div style="display:grid;gap:10px">
+        <div class="ccc" id="cccViz"></div>
+        <div class="out"><span class="cap">Cash conversion cycle</span><span class="big" id="cccO"></span><span class="cap" id="cccN"></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="grid" style="--min:260px">
+    <div class="card"><h4>Apple 2018: CCC negatif</h4><p class="mono small">28,2 + 9,8 − 111,6 = <b class="k">−73,6 hari</b></p><p class="small muted">Kas dari pelanggan masuk sebelum supplier dibayar.</p></div>
+    <div class="card"><h4>Merck: CCC membaik</h4><p class="mono small">121,9 → <b class="k">116,7 hari</b></p></div>
+  </div>
+  <p class="callout"><span class="lbl">Hati-hati</span>CCC lebih pendek umumnya lebih baik, tapi efisiensi terlalu agresif bisa mengorbankan penjualan, ketersediaan persediaan, atau hubungan dengan supplier. Konfirmasi dengan days measures &amp; business model.</p>
+</section>
+
+<section class="sec" id="noa">
+  <div class="sec-head"><div class="t"><span class="lo"><b>LO-4</b><span>Balance sheet operating items &amp; NOA</span></span><h2>Pisahkan operasi dari non-operasi</h2></div><button class="done" data-done="k1-noa"></button></div>
+  <div class="vs">
+    <div class="card soft"><h4>Aktivitas operasi</h4><p class="small">Bisnis inti: produksi &amp; penjualan barang/jasa. Kontributor laba terbesar.</p></div>
+    <span class="mid">VS</span>
+    <div class="card"><h4>Aktivitas non-operasi</h4><p class="small">Investasi nonstrategis (sekuritas), pendanaan (utang), aktivitas lain di luar operasi inti.</p></div>
+  </div>
+  <div class="formula"><span class="n">ROE</span><span class="op">=</span><span>Operating return</span><span class="op">+</span><span>Non-operating return</span></div>
+  <p class="small muted">Operating return lebih berkelanjutan. Non-operating return (pendanaan, investasi kas, leverage) bisa menaikkan ROE signifikan tapi lebih volatil. Investor lebih suka ROE yang ditopang operasi inti.</p>
+  <div class="grid" style="--min:260px">
+    <div class="card"><div class="card-h">Operating liabilities</div><p class="small">AP · accrued expenses · deferred revenue</p><p class="small"><span class="pill good">interest-free</span> <span class="pill good">muncul dari operasi</span> <span class="pill good">self-liquidating</span></p></div>
+    <div class="card"><div class="card-h">Non-operating liabilities</div><p class="small">ST &amp; LT debt · lease obligations · interest payable · dividends payable · held-for-sale liab. · derivative liab.</p><p class="small"><span class="pill bad">interest-bearing</span> <span class="pill bad">contractual</span> <span class="pill bad">default risk</span></p></div>
+  </div>
+  <div class="grid" style="--min:280px">
+    <div class="formula"><span class="n">NOA</span><span class="op">=</span><span>Operating assets − Operating liabilities</span></div>
+    <div class="formula"><span class="n">NNO</span><span class="op">=</span><span>Nonoperating liabilities − Nonoperating assets</span></div>
+  </div>
+  <div class="grid" style="--min:280px">
+    <p class="callout k"><span class="lbl">Aturan cepat</span>Jika liabilitas menimbulkan <b>interest expense</b> atau aset menghasilkan <b>interest/dividend income</b> → non-operasi. Kas &amp; setara kas umumnya non-operasi.</p>
+    <p class="callout"><span class="lbl">Pos "other"</span>Umumnya dianggap operating, kecuali footnote menunjukkan sebaliknya.</p>
+  </div>
+  <div class="widget sorter">
+    <div class="w-title">Mini game: tebak klasifikasinya <span class="mono small" id="sortScore" style="margin-left:auto"></span></div>
+    <div class="item" id="sortItem"></div>
+    <div class="choices" id="sortCh"><button data-v="OA">Operating asset</button><button data-v="OL">Operating liability</button><button data-v="NA">Nonoperating asset</button><button data-v="NL">Nonoperating liability</button></div>
+    <p class="small" id="sortFb" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="sec" id="nopat">
+  <div class="sec-head"><div class="t"><span class="lo"><b>LO-5</b><span>Income statement operating items &amp; NOPAT</span></span><h2>Dari laba rugi ke NOPAT</h2></div><button class="done" data-done="k1-nopat"></button></div>
+  <ol class="steps">
+    <li><h4>Pisahkan</h4><p class="small">Income statement → operating &amp; non-operating.</p></li>
+    <li><h4>Hitung NOPBT</h4><p class="small">Net operating profit before tax.</p></li>
+    <li><h4>Kurangi pajak operasi</h4><p class="small">Tax on operating profit → <b>NOPAT</b>.</p></li>
+  </ol>
+  <div class="grid" style="--min:280px">
+    <div class="card"><div class="card-h">Pos operasi</div><ul class="small"><li>Revenues, COGS</li><li>SG&amp;A (gaji, iklan, asuransi, D&amp;A, litigasi, restrukturisasi)</li><li>R&amp;D</li><li>Impairment aset operasi (mis. goodwill)</li><li>Income from strategic investments (JV, equity method)</li><li>Gain/loss pelepasan aset operasi</li><li>"Other" operating, kecuali CaLK bilang non-operasi</li></ul></div>
+    <div class="card"><div class="card-h">Pos non-operasi</div><ul class="small"><li>Interest expense on debt &amp; lease</li><li>Discontinued operations</li><li>Debt issuance &amp; retirement costs</li><li>Interest/dividend income investasi nonstrategis</li><li>Gain/loss jual investasi nonstrategis</li><li>"Other" yang dilaporkan terpisah dari operating income</li></ul></div>
+  </div>
+  <div class="formula"><span class="n">NOPAT</span><span class="op">=</span><span>Net income</span><span class="op">+</span><span>NNE</span></div>
+  <p class="callout k"><span class="lbl">Key concept</span>Beban non-operasi pre-tax memberi <b>tax shield</b>. Setelah pajak jadi <b>Net Non-operating Expense (NNE)</b>. Karena net income sudah after-tax &amp; masih memuat non-operasi, NNE <b>ditambahkan kembali</b>. Net income ≠ NOPAT.</p>
+</section>
+
+<section class="sec" id="rnoa">
+  <div class="sec-head"><div class="t"><span class="lo"><b>LO-6 · LO-7</b><span>RNOA</span></span><h2>RNOA &amp; trade-off margin–turnover</h2></div><button class="done" data-done="k1-rnoa"></button></div>
+  <div class="formula"><span class="n">RNOA</span><span class="op">=</span><span class="frac"><span>NOPAT</span><span>Average NOA</span></span><span class="op">=</span><span class="frac"><span>113.008.417</span><span>984.373.627</span></span><span class="op">=</span><span class="n">11,48%</span></div>
+  <div class="tbl"><table><thead><tr><th>Aspek</th><th>ROA</th><th>RNOA</th></tr></thead><tbody>
+    <tr><td>Fokus / penyebut</td><td>Total assets</td><td>Net operating assets (avg)</td></tr>
+    <tr><td>Pembilang</td><td>Net income</td><td>NOPAT</td></tr>
+    <tr><td>Ruang lingkup</td><td>Operating + non-operating</td><td>Operating only</td></tr>
+    <tr class="hl"><td>Perusahaan EMP</td><td class="mono">18,39% × 0,2925 = 5,38%</td><td class="mono">11,48%</td></tr>
+  </tbody></table></div>
+  <div class="grid" style="--min:260px">
+    <div class="card"><div class="card-h">NOPM = NOPAT ÷ Sales</div><p class="mono">113.008.417 ÷ 498.126.837 = <b class="k">22,69%</b></p><p class="small muted">Setiap Rp1 penjualan → 22,69% laba operasi setelah pajak.</p></div>
+    <div class="card"><div class="card-h">NOAT = Sales ÷ Avg NOA</div><p class="mono">498.126.837 ÷ 984.373.627 = <b class="k">0,506</b></p><p class="small muted">Setiap Rp1 NOA → Rp0,506 penjualan.</p></div>
+  </div>
+  <p class="small">Interpretasi RNOA: <span class="pill k">lebih tinggi = aset operasi lebih efektif</span> <span class="pill k">lihat tren tahun ke tahun</span> <span class="pill k">bandingkan dengan rata-rata industri</span></p>
+  <div class="card tradeoff">
+    <h4>Trade-off: setiap industri punya jalan berbeda ke RNOA yang baik</h4>
+    <svg viewBox="0 0 520 260" role="img" aria-label="Kurva trade-off margin dan turnover (ilustrasi)">
+      <line x1="50" y1="220" x2="500" y2="220" stroke="currentColor" opacity=".3"/><line x1="50" y1="20" x2="50" y2="220" stroke="currentColor" opacity=".3"/>
+      <path d="M70 30 C 110 120, 200 170, 490 200" fill="none" stroke="#7DEBC4" stroke-width="3"/>
+      <circle cx="92" cy="72" r="8" fill="#F2C94C"/><text class="lbl" x="108" y="68">Railroads, oil &amp; gas</text><text x="108" y="84">NOAT rendah → butuh NOPM tinggi</text>
+      <circle cx="400" cy="192" r="8" fill="#FF8C8C"/><text class="lbl" x="255" y="160">Automotive retail, apparel</text><text x="255" y="176">NOAT tinggi → NOPM boleh rendah</text>
+      <text x="380" y="245">NOAT (turnover) →</text><text x="8" y="16">NOPM ↑</text><text x="320" y="214" fill="#7DEBC4">RNOA sama</text>
+    </svg>
+    <p class="small muted">Ilustrasi konsep dari slide; posisi bukan angka aktual.</p>
+  </div>
+</section>
+
+<section class="sec" id="nonop">
+  <div class="sec-head"><div class="t"><span class="lo"><b>LO-8</b><span>Non-operating return</span></span><h2>ROE = RNOA + FLEV × Spread</h2></div><button class="done" data-done="k1-nonop"></button></div>
+  <div class="grid" style="--min:220px">
+    <div class="formula"><span class="n">FLEV</span><span class="op">=</span><span>Avg NNO ÷ Avg equity</span></div>
+    <div class="formula"><span class="n">NNEP</span><span class="op">=</span><span>NNE ÷ Avg NNO</span></div>
+    <div class="formula"><span class="n">Spread</span><span class="op">=</span><span>RNOA − NNEP</span></div>
+  </div>
+  <div class="widget">
+    <div class="w-title">Kalkulator ROE (default: Perusahaan EMP)</div>
+    <div class="w-grid">
+      <div style="display:grid;gap:10px">
+        <div class="ctrl"><label for="rn">RNOA <output id="rnO"></output></label><input type="range" id="rn" min="0" max="30" step="0.01" value="11.48"></div>
+        <div class="ctrl"><label for="nn">NNEP (biaya utang bersih) <output id="nnO"></output></label><input type="range" id="nn" min="0" max="30" step="0.01" value="8.75"></div>
+        <div class="ctrl"><label for="fl">FLEV <output id="flO2"></output></label><input type="range" id="fl" min="0" max="3" step="0.0001" value="0.3303"></div>
+      </div>
+      <div class="out"><span class="cap">Spread</span><span class="big" id="spO" style="font-size:22px"></span><span class="cap">Non-operating return = FLEV × Spread</span><span class="big" id="noO" style="font-size:22px"></span><span class="cap">ROE</span><span class="big" id="roeK"></span><span class="cap" id="nonNote"></span></div>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>EMP</th><th class="n">2024</th><th class="n">2025</th><th class="n">Rata-rata</th></tr></thead><tbody>
+    <tr><td>Nonoperating assets (cash, restricted cash)</td><td class="n">189.661.781</td><td class="n">148.614.979</td><td></td></tr>
+    <tr><td>Operating assets</td><td class="n">1.632.659.352</td><td class="n">1.434.643.806</td><td></td></tr>
+    <tr><td>Nonoperating liabilities (musyarakah, lease &amp; loans)</td><td class="n">427.142.821</td><td class="n">400.000.464</td><td></td></tr>
+    <tr><td>Operating liabilities</td><td class="n">572.438.201</td><td class="n">526.117.703</td><td></td></tr>
+    <tr class="hl"><td><b>NOA</b></td><td class="n">1.060.221.151</td><td class="n">908.526.103</td><td class="n">984.373.627</td></tr>
+    <tr class="hl"><td><b>NNO</b></td><td class="n">237.482.040</td><td class="n">251.385.485</td><td class="n">244.433.263</td></tr>
+  </tbody></table></div>
+  <p class="small mono">FLEV = 244.433.263 / 739.940.365 = 0,3303 · NNEP = 21.395.651 / 244.433.263 = 8,75% · Spread 2,73% · Non-op 0,90% · ROE 12,38%</p>
+  <div class="vs">
+    <div class="card"><h4>DuPont approach</h4><p class="small muted">"Seberapa besar leverage perusahaan?"</p><p class="mono">ROE = ROA × FL = 5,38% × 2,3013 = <b class="k">12,38%</b></p></div>
+    <span class="mid">=</span>
+    <div class="card"><h4>Operating approach</h4><p class="small muted">"Seberapa besar ROE dipengaruhi non-operasi/leverage?"</p><p class="mono">ROE = RNOA + non-op = 11,48% + 0,90% = <b class="k">12,38%</b></p></div>
+  </div>
+  <div class="grid" style="--min:260px">
+    <div class="card t-mid"><h4>Menaikkan kewajiban (NNO ↑)</h4><p class="small">FLEV naik, tapi NNE ikut naik. Jika biaya melebihi RNOA → <b>minus spread</b> → ROE turun drastis.</p></div>
+    <div class="card t-good"><h4>Menurunkan beban</h4><p class="small">Restrukturisasi utang · manfaatkan tax shield bunga · reinvestasi excess debt di return lebih tinggi.</p></div>
+  </div>
+  <p class="callout k"><span class="lbl">Kapan leverage menguntungkan?</span>Hanya jika return aset lebih tinggi daripada biaya utang. Asumsi kasus EMP: debt hanya untuk aktivitas non-operasi.</p>
+</section>
+
+<section class="sec" id="vh">
+  <div class="sec-head"><div class="t"><span class="lo"><b>LO-9</b><span>Vertical &amp; Horizontal</span></span><h2>Membandingkan lapkeu yang berbeda</h2></div><button class="done" data-done="k1-vh"></button></div>
+  <div class="vs">
+    <div class="card"><div class="card-h">Vertical analysis</div><p class="small">Rasio dalam satu periode: % terhadap penjualan, % neraca terhadap total aset. <b>Common-size</b> membantu membandingkan perusahaan beda ukuran.</p></div>
+    <span class="mid">VS</span>
+    <div class="card"><div class="card-h">Horizontal analysis</div><p class="small">Membandingkan <b>dua periode atau lebih</b> berurutan → tren &amp; forecasting.</p></div>
+  </div>
+  <p class="small muted">Rasio bebas satuan, jadi bisa membandingkan perusahaan dengan mata uang berbeda.</p>
+  <div class="sub"><h3>Keterbatasan rasio</h3>
+    <div class="flips">
+      <button class="flip"><span class="flip-in"><span class="face front"><h4>Saldo negatif</h4><span class="hint">ketuk</span></span><span class="face back">Perubahan saldo dari negatif perlu penilaian absolut.</span></span></button>
+      <button class="flip"><span class="flip-in"><span class="face front"><h4>Aset tak tercatat</h4><span class="hint">ketuk</span></span><span class="face back">GAAP tidak mencatat brand, skill karyawan, rantai pasok unggul. Beban yang tak dikapitalisasi menekan kinerja; revaluasi tak selalu tampil.</span></span></button>
+      <button class="flip"><span class="flip-in"><span class="face front"><h4>Perubahan skala</h4><span class="hint">ketuk</span></span><span class="face back">M&amp;A atau divestasi. Perusahaan kecil berubah lebih cepat dari yang besar.</span></span></button>
+      <button class="flip"><span class="flip-in"><span class="face front"><h4>Konglomerasi</h4><span class="hint">ketuk</span></span><span class="face back">Kompleks, perlu dianalisis per anak perusahaan.</span></span></button>
+      <button class="flip"><span class="flip-in"><span class="face front"><h4>Hanya angka</h4><span class="hint">ketuk</span></span><span class="face back">Banyak kriteria kinerja lain; angka tak serta-merta memprediksi masa depan.</span></span></button>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="qna">
+  <div class="sec-head"><div class="t"><span class="lo"><b>Q&amp;A</b><span>Pertanyaan diskusi</span></span><h2>Pertanyaan dari kelas</h2></div><button class="done" data-done="k1-qna"></button></div>
+  <p class="callout"><span class="lbl">Catatan</span>Slide Kelompok 1 hanya memuat pertanyaannya. Poin di bawah adalah <b>petunjuk dari materi slide yang relevan</b>, bukan jawaban resmi kelompok.</p>
+  <div>
+    <details class="qa"><summary><span>Bunga kredit turun: sebaiknya tambah utang agar ROE naik? Bagaimana tahu ROE tinggi karena kinerja atau utang?<span class="who">Fadiyani Teja Syarifa</span></span></summary><div class="ans"><ul><li>Pecah ROE: <b>ROA × FL</b> atau <b>RNOA + FLEV × Spread</b>. Kinerja bisnis tercermin di ROA/RNOA.</li><li>Leverage menguntungkan hanya jika return aset &gt; biaya utang (spread positif).</li><li>Cek risiko: liabilities-to-equity &amp; times interest earned.</li></ul></div></details>
+    <details class="qa"><summary><span>Apakah leverage tinggi selalu buruk? Jika profit negatif &amp; leverage tinggi, mana yang diperbaiki dulu?<span class="who">Netta An'amta Desli Sanati</span></span></summary><div class="ans"><ul><li>Tak ada level leverage ideal: bandingkan tren, peers, stabilitas cash flow.</li><li>Leverage produktif jika spread positif; jika RNOA &lt; NNEP, leverage menurunkan ROE.</li><li>Operating return lebih berkelanjutan daripada non-operating return.</li></ul></div></details>
+    <details class="qa"><summary><span>Profitabilitas vs cash flow: mana diprioritaskan, terkait trade-off margin–turnover?<span class="who">Hasbie</span></span></summary><div class="ans"><ul><li>Margin &amp; turnover sama-sama jalan ke RNOA; industri berbeda punya kombinasi berbeda.</li><li>Kas terkait working capital: lihat DSO, DIO, DPO, dan CCC.</li></ul></div></details>
+    <details class="qa"><summary><span>Rasio bisa "dipercantik" dengan memangkas investasi, inventory, kredit pelanggan, dan menunda bayar supplier. Bedanya dengan efisiensi sungguhan?<span class="who">Efraim Walesasi</span></span></summary><div class="ans"><ul><li>Lower opex is not always better: memangkas R&amp;D/marketing/people merusak jangka panjang.</li><li>CCC terlalu agresif bisa mengorbankan penjualan, stok, dan hubungan supplier.</li><li>Cari penyebab perubahan margin dan apakah sustainable.</li></ul></div></details>
+  </div>
+</section>
+
+<section class="sec" id="kuis">
+  <div class="sec-head"><div class="t"><span class="lo"><b>Latihan</b><span>Kuis K1</span></span><h2>Uji pemahaman</h2></div><button class="done" data-done="k1-kuis"></button></div>
+  <div class="quiz" data-quiz="k1"></div>
+</section>
+
+<nav class="pager" data-auto aria-label="Navigasi bab"></nav>
+<footer class="foot">Disusun dari presentasi Kelompok 1 · Chapter 3 EMS · Analisis Laporan Keuangan 2026/2027.</footer>
+</main>
+
+<script src="assets/quiz-data.js?v=5"></script>
+<script src="assets/app.js?v=5"></script>
+<script>
+(function(){
+  var A=window.ALK,$=A.$,fmt=A.fmt;
+  /* leverage */
+  function lev(){var d=+$('#debt').value,r=+$('#roaI').value,e=100-d,fl=100/e;$('#debtO').textContent=d+'%';$('#roaO').textContent=r+'%';
+    $('#levD').style.flexBasis=d+'%';$('#levE').style.flexBasis=e+'%';$('#levD').textContent=d?'Debt '+d+'%':'';$('#levE').textContent='Equity '+e+'%';
+    $('#flO').textContent=fmt(fl,1)+'×';$('#roeO').textContent=fmt(r*fl,1)+'%';
+    $('#levNote').innerHTML=d>=70?'<b class="bad">Return ↑ tapi risk ↑</b>: bunga &amp; pokok makin berat.':'Equity ↓ → FL ↑ → ROE bisa ↑';}
+  ['debt','roaI'].forEach(function(id){$('#'+id).addEventListener('input',lev)});
+  A.seg($('#levPre'),function(v){$('#debt').value=v;lev();});
+
+  /* CCC */
+  var pre={apple:[28.2,9.8,111.6],norm:[45,60,40]};
+  function ccc(){var s=+$('#dso').value,i=+$('#dio').value,p=+$('#dpo').value,c=s+i-p;
+    $('#dsoO').textContent=fmt(s,1)+' hari';$('#dioO').textContent=fmt(i,1)+' hari';$('#dpoO').textContent=fmt(p,1)+' hari';
+    var max=Math.max(s+i,p,1)*1.05,pc=function(x){return x/max*100};
+    $('#cccViz').innerHTML='<div class="row"><span>Masuk</span><div class="track"><span class="seg" style="left:0;width:'+pc(i)+'%;background:#F2C94C">DIO</span><span class="seg" style="left:'+pc(i)+'%;width:'+pc(s)+'%;background:#7DEBC4">DSO</span></div></div><div class="row"><span>Keluar</span><div class="track"><span class="seg" style="left:0;width:'+pc(p)+'%;background:#FF8C8C">DPO</span></div></div>';
+    $('#cccO').textContent=fmt(c,1)+' hari';$('#cccO').style.color=c<0?'var(--good)':'var(--k)';
+    $('#cccN').innerHTML=c<0?'Negatif: kas pelanggan masuk sebelum supplier dibayar.':'Hari dana terikat sebelum kembali jadi kas.';}
+  ['dso','dio','dpo'].forEach(function(id){$('#'+id).addEventListener('input',ccc)});
+  A.seg($('#cccPre'),function(v){['dso','dio','dpo'].forEach(function(id,k){$('#'+id).value=pre[v][k]});ccc();});
+
+  /* sorter */
+  var items=[['Accounts receivable','OA'],['Inventories','OA'],['Prepaids & supplies','OA'],['PPE / leased assets for operations','OA'],['Intangibles & goodwill','OA'],['Strategic equity-method investments','OA'],['Accounts payable','OL'],['Accrued expenses','OL'],['Deferred revenue','OL'],['Cash & cash equivalents','NA'],['Marketable securities','NA'],['Held-for-sale assets','NA'],['Derivative assets','NA'],['Short-term & long-term debt','NL'],['Lease obligations','NL'],['Interest payable','NL'],['Dividends payable','NL'],['Derivative liabilities','NL']];
+  var names={OA:'Operating asset',OL:'Operating liability',NA:'Nonoperating asset',NL:'Nonoperating liability'};
+  var order=[],pos=0,score=0,tried=0,lock=false;
+  function shuffle(){order=items.map(function(_,i){return i}).sort(function(){return Math.random()-.5});pos=0;score=0;tried=0;}
+  function show(){lock=false;$('#sortCh').querySelectorAll('button').forEach(function(b){b.className=''});
+    if(pos>=order.length){$('#sortItem').textContent='Selesai! Skor '+score+' / '+tried;$('#sortFb').innerHTML='<button class="btn ghost" type="button" id="again">Main lagi</button>';$('#again').onclick=function(){shuffle();show();};return;}
+    $('#sortItem').textContent=items[order[pos]][0];$('#sortFb').textContent='';$('#sortScore').textContent=score+' / '+tried;}
+  $('#sortCh').querySelectorAll('button').forEach(function(b){b.type='button';b.addEventListener('click',function(){if(lock||pos>=order.length)return;lock=true;tried++;var ans=items[order[pos]][1];
+    if(b.dataset.v===ans){score++;b.className='right';$('#sortFb').innerHTML='<b class="good">Benar!</b>';}else{b.className='wrong';$('#sortCh').querySelector('[data-v="'+ans+'"]').className='right';$('#sortFb').innerHTML='<b class="bad">Bukan.</b> Jawaban: '+names[ans]+'.';}
+    $('#sortScore').textContent=score+' / '+tried;setTimeout(function(){pos++;show();},1100);});});
+  shuffle();show();
+
+  /* ROE operating approach */
+  function roe(){var r=+$('#rn').value,n=+$('#nn').value,f=+$('#fl').value,s=r-n,no=f*s;
+    $('#rnO').textContent=fmt(r,2)+'%';$('#nnO').textContent=fmt(n,2)+'%';$('#flO2').textContent=fmt(f,4);
+    $('#spO').textContent=fmt(s,2)+'%';$('#spO').style.color=s<0?'var(--bad)':'var(--good)';$('#noO').textContent=fmt(no,2)+'%';$('#roeK').textContent=fmt(r+no,2)+'%';
+    $('#nonNote').innerHTML=s<0?'<b class="bad">Minus spread:</b> leverage justru menurunkan ROE di bawah RNOA.':'Spread positif: leverage menambah ROE.';}
+  ['rn','nn','fl'].forEach(function(id){$('#'+id).addEventListener('input',roe)});roe();
+})();
+</script>
+</body>
+</html>

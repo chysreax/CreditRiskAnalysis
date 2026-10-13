@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bank Rumus · ALK</title>
+<meta name="description" content="Semua rumus dari 6 presentasi ALK dalam satu halaman yang bisa dicari.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=5">
+<style>
+  .tools{position:sticky;top:calc(env(safe-area-inset-top,0px) + 53px);z-index:10;background:var(--bg);padding-block:12px;display:grid;gap:10px;border-bottom:1px solid var(--line)}
+  .fl{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr))}
+  .f{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--c,var(--k));border-radius:12px;padding:12px 14px;display:grid;gap:6px;min-width:0}
+  .f .h{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .f .h b{font-size:15px}
+  .f .h span{font:600 11.5px var(--f-mono);color:var(--c,var(--k));white-space:nowrap}
+  .f code{font:500 13.5px/1.5 var(--f-mono);background:var(--surface-2);border-radius:8px;padding:7px 9px;display:block;overflow-wrap:anywhere}
+  .f p{font-size:13.5px;color:var(--muted)}
+  .empty{padding:30px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body data-page="rumus">
+<header class="site"></header>
+<main class="wrap">
+  <section class="hero" style="padding-bottom:10px">
+    <span class="lo">Semua kelompok</span>
+    <h1>Bank Rumus</h1>
+    <p class="hero-sub">Setiap rumus dari keenam presentasi, lengkap dengan arah bacanya. Cari dengan kata kunci atau saring per kelompok.</p>
+  </section>
+  <div class="tools">
+    <label class="sr" for="q">Cari rumus</label>
+    <input type="search" id="q" placeholder="Cari: DSO, ROE, bond, EPS…" autocomplete="off">
+    <div class="seg" id="fk"><button data-v="all" aria-pressed="true">Semua</button><button data-v="k1">K1</button><button data-v="k2">K2</button><button data-v="k3">K3</button><button data-v="k4">K4</button><button data-v="k5">K5</button><button data-v="k6">K6</button></div>
+  </div>
+  <p class="small muted" id="cnt" style="margin-top:12px"></p>
+  <div class="fl" id="list" style="margin-top:10px"></div>
+  <footer class="foot">Rumus disalin dari slide presentasi kelompok. Arah "tinggi =" mengikuti interpretasi di slide.</footer>
+</main>
+<script src="assets/app.js?v=5"></script>
+<script>
+(function(){
+  var A=window.ALK,$=A.$;
+  var F=[
+    ['k1','ROE','Net income ÷ Average stockholders\' equity','Laba per $1 modal rata-rata. Boston Scientific 2018: 21,24%.'],
+    ['k1','ROE (DuPont)','ROA × Financial leverage','Same ROE ≠ same story.'],
+    ['k1','ROA','Net income ÷ Avg total assets = Profit margin × Asset turnover','Business performance.'],
+    ['k1','Financial leverage (FL)','Avg total assets ÷ Avg equity','Equity 25% → FL 4,0×. Return ↑, risk ↑.'],
+    ['k1','ROCE (ada preferred)','(NI − Preferred dividends) ÷ (Avg equity − Avg preferred equity)','Adjusted ROE.'],
+    ['k1','ROE (ada NCI)','NI attributable to company ÷ Avg equity attributable to company','Adjusted ROE.'],
+    ['k1','Adjusted ROA','[NI + Net interest expense × (1 − tax rate)] ÷ Avg total assets',''],
+    ['k1','Profit margin','Net income ÷ Sales',''],
+    ['k1','Asset turnover','Sales ÷ Avg total assets',''],
+    ['k1','Gross profit margin','Gross profit ÷ Sales','Cost $6, jual $10 → 40%.'],
+    ['k1','Operating expense margin','SG&A ÷ Sales','Lebih rendah tak selalu lebih baik.'],
+    ['k1','Total liabilities to equity','Total liabilities ÷ Stockholders\' equity','↑ rasio → ↑ risiko.'],
+    ['k1','Times interest earned','EBIT ÷ Interest expense','↑ rasio → ↓ risiko.'],
+    ['k1','AR turnover','Sales ÷ Avg AR','Tinggi = tagih lebih cepat.'],
+    ['k1','Inventory turnover','COGS ÷ Avg inventory','Tinggi = jual lebih cepat.'],
+    ['k1','AP turnover','COGS ÷ Avg AP','Rendah = tahan kas lebih lama.'],
+    ['k1','DSO · DIO · DPO','365 ÷ AR turnover · 365 ÷ Inv. turnover · 365 ÷ AP turnover',''],
+    ['k1','Cash conversion cycle','DSO + DIO − DPO','Apple 2018: 28,2 + 9,8 − 111,6 = −73,6 hari.'],
+    ['k1','PPE turnover','Sales ÷ Avg gross PPE','Rendah → capital intensity tinggi.'],
+    ['k1','NOA','Operating assets − Operating liabilities',''],
+    ['k1','NNO','Nonoperating liabilities − Nonoperating assets',''],
+    ['k1','NOPAT','Net income + NNE (net nonoperating expense)','NOPBT − pajak operasi.'],
+    ['k1','RNOA','NOPAT ÷ Avg NOA = NOPM × NOAT','EMP: 11,48%.'],
+    ['k1','NOPM · NOAT','NOPAT ÷ Sales · Sales ÷ Avg NOA','EMP: 22,69% · 0,506.'],
+    ['k1','ROE (operating approach)','RNOA + FLEV × Spread','EMP: 11,48% + 0,90% = 12,38%.'],
+    ['k1','FLEV · NNEP · Spread','Avg NNO ÷ Avg equity · NNE ÷ Avg NNO · RNOA − NNEP','Spread negatif → ROE turun.'],
+    ['k2','Expected credit loss','Chance of default × Loss given default',''],
+    ['k2','Times interest earned','EBIT ÷ Gross interest expense','HD: 14,5×. Tinggi = aman.'],
+    ['k2','EBITDA coverage','(EBIT + Depreciation + Amortization) ÷ Gross interest expense','HD: 16,5×.'],
+    ['k2','CFO to total debt','Cash from operations ÷ Total debt (ST + LT)','HD: 0,44×. Untuk pokok.'],
+    ['k2','Free OCF to total debt','(CFO − CAPEX) ÷ Total debt','HD: 0,35×.'],
+    ['k2','Current ratio','Current assets ÷ Current liabilities','HD: 1,11×.'],
+    ['k2','Quick ratio','(Kas + Marketable securities + Piutang) ÷ Current liabilities','HD: 0,22×. Tanpa persediaan & prepaid.'],
+    ['k2','Net working capital','Current assets − Current liabilities','HD: 1.813.'],
+    ['k2','Liabilities-to-equity','Total liabilities ÷ Stockholders\' equity','Tinggi = kurang solven.'],
+    ['k2','Total debt-to-equity','(LT debt incl. current + ST debt) ÷ Stockholders\' equity','Tanpa A/P, utang gaji, pajak.'],
+    ['k2','Cost of debt','Risk-free rate + Risk premium (spread)','Rating ↓ → cost ↑.'],
+    ['k2','Altman Z-score','1,2X₁ + 1,4X₂ + 3,3X₃ + 0,6X₄ + 0,99X₅','> 3,00 aman · 1,80–2,99 abu-abu · < 1,80 bahaya.'],
+    ['k2','Komponen Z','X₁ WC/TA · X₂ RE/TA · X₃ EBIT/TA · X₄ MVE/TL · X₅ Sales/TA',''],
+    ['k3','% complete (cost-to-cost)','Costs incurred to date ÷ Estimated total costs','Raytheon th-1: 4,5/7,5 = 60%.'],
+    ['k3','Revenue recognized','% complete × Total contract price','60% × $10 jt = $6 jt.'],
+    ['k3','Allowance sales return','% retur × Gross sales','3% × $130 = $3,90.'],
+    ['k3','COGS adj. retur','Allowance × (COGS ÷ Sales)','$3,90 × 80/130 = $2,40.'],
+    ['k3','Additions ratio','Additions charged ÷ Gross sales','Levi 2018: 9,8%.'],
+    ['k3','Allowance balance ratio','Allowance balance ÷ Gross sales','Levi 2017: 3,3%.'],
+    ['k3','Adequacy','Estimated allowances ÷ Actual allowances','Levi: 98,7%.'],
+    ['k3','Deferred revenue roll-forward','Saldo akhir = awal + baru − diakui',''],
+    ['k3','Gross / Net AR','Gross = Net + Allowance · Net = Gross − Allowance','Pfizer: 8.025 + 541 = 8.566.'],
+    ['k3','AR turnover · DSO','Sales ÷ Avg AR · 365 ÷ AR turnover','DSO ↑ + ART ↓ = red flag.'],
+    ['k3','R&D ratio','R&D expense ÷ Total revenue','Pfizer 2018: 14,9%.'],
+    ['k3','Effective tax rate','Tax provision ÷ Pretax income','Pfizer 2018: 5,9%.'],
+    ['k3','Net income','Income from continuing ops + Discontinued ops','Pfizer 2018: 11.179 + 10.'],
+    ['k4','Inventory identity','Beg. inventory + Acquired = COGAFS = End. inventory + COGS',''],
+    ['k4','Average cost per unit','Goods available ÷ Units available','$80.000 ÷ 700 = $114,286.'],
+    ['k4','FIFO inventory','LIFO inventory + LIFO reserve','CAT: +$2.009 jt.'],
+    ['k4','FIFO COGS','LIFO COGS − ΔLIFO reserve (naik)','CAT 2018: −$75 jt.'],
+    ['k4','Cost-to-retail %','Goods available at cost ÷ at retail','400.000 ÷ 660.000 = 60,6%.'],
+    ['k4','Gross profit margin','Gross profit ÷ Net sales','HD FY2018: 34,3%.'],
+    ['k4','Inventory turnover · DIO','COGS ÷ Avg inventory · 365 ÷ INVT','HD: 5,23× · 69,8 hari.'],
+    ['k4','AP turnover · DPO','COGS ÷ Avg AP · 365 ÷ APT','HD: 9,29× · 39,3 hari.'],
+    ['k4','Cash conversion cycle','DSO + DIO − DPO','HD FY2018: 37,2 hari.'],
+    ['k4','Efek kas perbaikan DIO','ΔDIO × COGS ÷ 365','4,1 × 66.548/365 = $747,5 jt.'],
+    ['k4','Straight-line depreciation','(Cost − Salvage) × 1/Useful life','$90.000 × 20% = $18.000.'],
+    ['k4','Double-declining rate','2 × 1/Useful life × NBV awal tahun','40% × $100.000 = $40.000.'],
+    ['k4','Net book value','Cost − Accumulated depreciation',''],
+    ['k4','Gain / (loss) on sale','Proceeds − NBV',''],
+    ['k4','Impairment loss (GAAP)','NBV − Fair value (jika Σ undiscounted CF < NBV)','$44.000 − $36.000 = $8.000.'],
+    ['k4','PPE turnover','Sales ÷ Avg net PPE','HD: 4,8× · Lowe\'s: 3,7×.'],
+    ['k4','Average useful life','Avg depreciable cost ÷ Depreciation','HD: ±16 tahun.'],
+    ['k4','PPE % used up','Accumulated depreciation ÷ Avg depreciable cost','HD: 62%.'],
+    ['k5','Interest (short-term)','Principal × Annual rate × Time','$1.000 × 12% × 3/12 = $30.'],
+    ['k5','Current maturity','Cicilan − Bunga (= principal 12 bulan)','224.627 − 40.000 = 184.627.'],
+    ['k5','Cash interest (bond)','Face value × Coupon rate',''],
+    ['k5','Bond price','C × [1 − (1 + r)^−n] / r + F / (1 + r)^n','PV kupon + PV pokok.'],
+    ['k5','Warranty liability','Ending = Beginning + New accruals − Actual claims','Harley 2018: 131,74.'],
+    ['k5','Warranty expense ratio','Warranty expense ÷ Revenue','Harley rata-rata 1,83505%.'],
+    ['k5','Gain / loss repurchase','Net bonds payable (book) − Repurchase payment',''],
+    ['k5','Required yield','Risk-free rate + Risk premium','5% + 1% = 6%.'],
+    ['k6','Outstanding shares','Issued − Treasury','JNJ: 2.662.324 ribu.'],
+    ['k6','Market capitalization','Outstanding shares × Harga','JNJ: $343,6 miliar.'],
+    ['k6','Book value per share','(Equity − Preferred) ÷ Common shares outstanding','JNJ: $22,44.'],
+    ['k6','Market-to-book','Harga ÷ BVPS','JNJ: 5,75.'],
+    ['k6','Stock issuance','Cash = saham × harga · CS = saham × par · APIC = selisih','1.000 @ $100, par $1 → APIC 99.000.'],
+    ['k6','SBC expense per tahun','Units × Fair value ÷ Vesting years','3.000 × $120 ÷ 3 = $120.000.'],
+    ['k6','Dividend payout','DPS ÷ Basic EPS','JNJ: 62%.'],
+    ['k6','Dividend yield','DPS ÷ Harga saham','JNJ: 2,7%.'],
+    ['k6','Comprehensive income','Net income + OCI','JNJ: 15.297 − 1.791 = 13.506.'],
+    ['k6','RE · AOCI','RE = awal + NI − dividen · AOCI = awal + OCI',''],
+    ['k6','Conversion price','Face ÷ Conversion ratio','Tesla: $1.000 ÷ 3,0534 = $327,50.'],
+    ['k6','Basic EPS','(Net income − Preferred dividends) ÷ Weighted avg common shares','PT Kopi: $2,20.'],
+    ['k6','Diluted EPS','(Laba + efek konversi) ÷ (saham + saham dilutif)','PT Kopi: 1.145.000 ÷ 550.000 = $2,08.'],
+    ['k6','Treasury stock method (opsi)','Saham baru − (kas exercise ÷ harga pasar)','Opsi A PT Kopi: 60.000 − 40.000.']
+  ];
+  var col={k1:'var(--c1)',k2:'var(--c2)',k3:'var(--c3)',k4:'var(--c4)',k5:'var(--c5)',k6:'var(--c6)'},filt='all';
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]});}
+  function draw(){var q=$('#q').value.trim().toLowerCase(),out=F.filter(function(f){return (filt==='all'||f[0]===filt)&&(!q||(f[1]+' '+f[2]+' '+f[3]).toLowerCase().indexOf(q)>-1);});
+    $('#cnt').textContent=out.length+' rumus';
+    $('#list').innerHTML=out.length?out.map(function(f){return '<div class="f" style="--c:'+col[f[0]]+'"><div class="h"><b>'+esc(f[1])+'</b><span>'+f[0].toUpperCase()+'</span></div><code>'+esc(f[2])+'</code>'+(f[3]?'<p>'+esc(f[3])+'</p>':'')+'</div>';}).join(''):'<div class="empty">Tidak ada rumus yang cocok. Coba kata kunci lain.</div>';}
+  $('#q').addEventListener('input',draw);
+  A.seg($('#fk'),function(v){filt=v;draw();});
+})();
+</script>
+</body>
+</html>

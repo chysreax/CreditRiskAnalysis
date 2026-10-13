@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Liability Recognition · ALK</title>
+<meta name="description" content="Rangkuman visual materi Kelompok 5: Liability Recognition and Nonowner Financing (EMS Chapter 7).">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Bricolage+Grotesque:wght@800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=5">
+<style>
+  .badge{display:inline-block;font:800 13px var(--f-body);padding:6px 14px;border-radius:999px;letter-spacing:.04em}
+  .b-par{background:var(--k-soft);color:var(--k)} .b-dis{background:var(--hl);color:#3A2A00} .b-pre{background:var(--k);color:var(--k-ink)}
+  .split{display:flex;height:40px;border-radius:10px;overflow:hidden;font:600 12.5px var(--f-mono)}
+  .split div{display:grid;place-items:center;color:#fff;transition:flex-basis .4s;min-width:0;overflow:hidden;white-space:nowrap}
+  .decide{display:grid;gap:10px}
+  .decide .q{background:var(--surface-2);border:0}
+  .wf{display:grid;gap:6px}
+  .wf .r{display:grid;grid-template-columns:minmax(0,1fr) 90px;gap:10px;align-items:center;font-size:14px}
+  .wf .r .tr{height:20px;position:relative;background:var(--surface-2);border-radius:5px}
+  .wf .r .tr i{position:absolute;top:0;height:100%;border-radius:5px}
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+  .timeline div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px;font-size:14px}
+  .timeline b{display:block;font-family:var(--f-mono);color:var(--k)}
+  @media (max-width:560px){.timeline{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="k5" data-page="k5">
+<header class="site"></header>
+<nav class="toc" aria-label="Isi halaman"><div class="row">
+  <a href="#accrued">7.1 Accrued</a><a href="#contract">Contractual</a><a href="#contingent">Contingent</a><a href="#warranty">Warranty</a><a href="#std">7.2 Short-term Debt</a><a href="#pricing">7.3 Bond Pricing</a><a href="#effcost">Effective Cost</a><a href="#ltd">7.4 Reporting &amp; Repurchase</a><a href="#credit">7.5 Credit Quality</a><a href="#verizon">Kasus Verizon</a><a href="#global">GAAP vs IFRS</a><a href="#qna">Q&amp;A</a><a href="#kuis">Kuis</a>
+</div></nav>
+
+<main class="wrap">
+<section class="hero">
+  <span class="ring" aria-hidden="true"></span>
+  <h1>Liability Recognition<br>and Nonowner Financing</h1>
+  <p class="hero-sub">Kewajiban yang muncul dari operasi (accrual, garansi) dan dari pendanaan non-pemilik (utang jangka pendek, obligasi), sampai bagaimana kualitas kredit dinilai.</p>
+  <div class="hero-tag"><span class="lo">Ch. 7 · EMS 7th ed. 2025</span></div>
+  <div class="hero-meta"><span>Kelompok 5 · Efraim Walesasi · Indana Rakashivi · Hasbie · Febiola Boang Manalu</span><span>Kasus: Verizon · Harley-Davidson · Comcast</span></div>
+  <div class="stats">
+    <div class="stat"><span class="v">$6.268 jt</span><span class="l">Accrued vacation, salaries &amp; wages Verizon 2018</span></div>
+    <div class="stat"><span class="v">$11,635 jt</span><span class="l">Harga bond premium (kupon 6%, market 4%)</span></div>
+    <div class="stat"><span class="v">0,9623%</span><span class="l">Effective cost Verizon euro notes</span></div>
+    <div class="stat"><span class="v">BBB+</span><span class="l">Rating S&amp;P Verizon (outlook positif)</span></div>
+  </div>
+</section>
+
+<section class="sec" id="accrued">
+  <div class="sec-head"><div class="t"><span class="lo">LO 7.1</span><h2>Accrued Liabilities Overview</h2></div><button class="done" data-done="k5-accrued"></button></div>
+  <p class="def"><b>Accrued liabilities</b> = penyesuaian untuk mengakui kewajiban yang sudah timbul di periode berjalan, agar lapkeu mencerminkan posisi secara wajar. Pemicu: <b>probable + reasonably estimable</b>.</p>
+  <div class="tbl"><table><thead><tr><th>Aspek</th><th>Accounts payable</th><th>Accrued liabilities</th></tr></thead><tbody>
+    <tr><td>Sumber</td><td>Pembelian dari supplier, ada invoice</td><td>Accrual/adjustment sesuai economic event</td></tr>
+    <tr><td>Timing</td><td>Saat pembelian kredit / invoice diterima</td><td>Saat obligation incurred</td></tr>
+    <tr><td>Contoh</td><td>Inventory dibeli kredit; trade payable</td><td>Wages, interest, taxes, deferred revenue, warranty</td></tr>
+    <tr><td>Pemicu</td><td>Transaksi eksternal dengan supplier</td><td>Waktu berlalu, jasa diberikan, kas diterima dulu, atau event tak pasti</td></tr>
+  </tbody></table></div>
+  <div class="vs">
+    <div class="card"><div class="card-h">Contractual liabilities</div><p class="small">Rutin &amp; relatif pasti: wages payable, interest &amp; taxes payable, deferred revenue.</p></div>
+    <span class="mid">VS</span>
+    <div class="card"><div class="card-h">Contingent liabilities</div><p class="small">Bergantung kejadian masa depan tak pasti: warranty &amp; recall, gugatan hukum, jaminan utang pihak lain, remediasi lingkungan.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="contract">
+  <div class="sec-head"><div class="t"><span class="lo">Contractual accruals</span><h2>Expense dulu vs cash dulu</h2></div><button class="done" data-done="k5-contract"></button></div>
+  <div class="widget">
+    <div class="w-title">Pilih jenis accrual</div>
+    <div class="seg" id="accSeg"><button data-v="w" aria-pressed="true">A · Wages payable</button><button data-v="d">B · Deferred revenue</button></div>
+    <div class="flow" id="accFlow"></div>
+    <div class="grid" style="--min:120px" id="accFx"></div>
+    <p class="small" id="accNote"></p>
+  </div>
+  <p class="callout"><span class="lbl">Inti</span>Accrual accounting memisahkan aktivitas ekonomi dari timing kas. Kas belum tentu revenue; pembayaran belum tentu expense.</p>
+</section>
+
+<section class="sec" id="contingent">
+  <div class="sec-head"><div class="t"><span class="lo">Contingent liabilities</span><h2>Recognize, disclose, atau abaikan?</h2></div><button class="done" data-done="k5-contingent"></button></div>
+  <div class="widget">
+    <div class="w-title">Recognition decision framework</div>
+    <div class="decide">
+      <div class="card" style="gap:6px"><b>1. Ada present obligation dari past event?</b><div class="seg" id="c1"><button data-v="y" aria-pressed="true">Ya</button><button data-v="n">Tidak</button></div></div>
+      <div class="card" style="gap:6px"><b>2. Seberapa mungkin outflow?</b><div class="seg" id="c2"><button data-v="p" aria-pressed="true">Probable</button><button data-v="s">Possible</button><button data-v="r">Remote</button></div></div>
+      <div class="card" style="gap:6px"><b>3. Jumlahnya reasonably estimable?</b><div class="seg" id="c3"><button data-v="y" aria-pressed="true">Ya</button><button data-v="n">Tidak</button></div></div>
+      <div class="out" id="cOut" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="grid" style="--min:260px">
+    <p class="callout k"><span class="lbl">IFRS insight</span>Present obligation + probable outflow + reliable estimate = <b>provision</b>. Hanya possible → diungkap sebagai contingent liability.</p>
+    <p class="callout"><span class="lbl">Analyst judgment</span>Jumlah, bahkan keberadaan kewajiban, bisa tak pasti (legal, regulatory, environmental).</p>
+  </div>
+</section>
+
+<section class="sec" id="warranty">
+  <div class="sec-head"><div class="t"><span class="lo">Warranty liabilities</span><h2>Garansi: expense saat jual, bukan saat klaim</h2></div><button class="done" data-done="k5-warranty"></button></div>
+  <div class="formula"><span class="n">Ending liability</span><span class="op">=</span><span>Beginning + New accruals − Actual claims</span></div>
+  <div class="vs">
+    <div class="card"><h4>Saat penjualan / estimasi</h4><p class="small">Warranty expense ↑ · liability ↑ · kas tetap</p></div>
+    <span class="mid">→</span>
+    <div class="card"><h4>Saat klaim / perbaikan</h4><p class="small">Liability ↓ · kas/parts ↓ · <b>tidak ada expense baru</b></p></div>
+  </div>
+  <div class="card"><h4>Harley-Davidson warranty reserve 2018 ($ jt)</h4>
+    <div class="wf" id="hd"></div>
+    <p class="small">53,367 + 63,473 = <b>116,84</b> di-expense; 79,3 settlement mengurangi liability, bukan expense baru.</p></div>
+  <div class="widget">
+    <div class="w-title">Review 7-1: coba ubah angkanya</div>
+    <div class="w-grid">
+      <div style="display:grid;gap:10px">
+        <div class="ctrl"><label for="wb">Beginning liability <output id="wbO"></output></label><input type="range" id="wb" min="50" max="200" step="0.01" value="131.74"></div>
+        <div class="ctrl"><label for="wa">New accrual <output id="waO"></output></label><input type="range" id="wa" min="0" max="150" step="1" value="70"></div>
+        <div class="ctrl"><label for="wc">Actual claims <output id="wcO"></output></label><input type="range" id="wc" min="0" max="150" step="1" value="85"></div>
+      </div>
+      <div class="out"><span class="cap">Warranty expense = new accrual</span><span class="big" id="weO" style="font-size:24px"></span><span class="cap">Ending liability</span><span class="big" id="wlO"></span></div>
+    </div>
+  </div>
+  <div class="grid" style="--min:260px">
+    <div class="card" style="background:var(--hl-soft);border-color:transparent"><h4>Underestimate</h4><p class="small">Expense &amp; liability terlalu rendah → NI sekarang terlalu tinggi.</p><p class="small"><b>Adj:</b> naikkan expense &amp; liability, turunkan NI.</p></div>
+    <div class="card soft"><h4>Overestimate</h4><p class="small">Expense &amp; liability terlalu tinggi → NI terlalu rendah. Bisa jadi <b>cookie jar reserve</b>.</p><p class="small"><b>Adj:</b> turunkan expense &amp; liability, naikkan NI.</p></div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Adj. 7.1 Harley ($ ribu) · rasio rata-rata 1,83505%</th><th class="n">2016</th><th class="n">2017</th><th class="n">2018</th></tr></thead><tbody>
+    <tr><td>Reported warranty expense</td><td class="n">104.563</td><td class="n">97.272</td><td class="n">116.740</td></tr>
+    <tr><td>Adjusted warranty expense</td><td class="n">110.038</td><td class="n">103.629</td><td class="n">104.908</td></tr>
+    <tr class="hl"><td>Adjustment to expense</td><td class="n">+5.475</td><td class="n">+6.357</td><td class="n">−11.832</td></tr>
+    <tr><td>Efek NI setelah pajak</td><td class="n">−4.270</td><td class="n">−4.958</td><td class="n">+9.228</td></tr>
+  </tbody></table></div>
+  <p class="callout"><span class="lbl">Key metric</span><b>Warranty expense ratio = warranty expense ÷ revenue.</b> Bandingkan lintas waktu &amp; peers. Takeaways: recognition = soal timing; contingencies butuh judgment; analis menguji kewajaran estimasi.</p>
+</section>
+
+<section class="sec" id="std">
+  <div class="sec-head"><div class="t"><span class="lo">LO 7.2</span><h2>Analyzing Short-Term Debt</h2></div><button class="done" data-done="k5-std"></button></div>
+  <div class="timeline"><div>Jan 1<b>Pinjam $1.000</b><span class="small muted">Cash ↑ · Notes payable ↑</span></div><div>Mar 31<b>Accrue bunga $30</b><span class="small muted">Bunga diakru seiring waktu</span></div><div>Apr 1<b>Bayar bunga $30</b></div></div>
+  <div class="formula"><span class="n">Interest</span><span class="op">=</span><span>Principal × Annual rate × Time</span><span class="op">=</span><span>$1.000 × 12% × 3/12 = $30</span></div>
+  <p class="small muted">Tidak ada income/expense saat baru meminjam uang.</p>
+  <div class="widget">
+    <div class="w-title">Current maturities of long-term debt</div>
+    <div class="w-grid">
+      <div style="display:grid;gap:10px">
+        <div class="ctrl"><label for="lp">Principal <output id="lpO"></output></label><input type="range" id="lp" min="200000" max="2000000" step="50000" value="1000000"></div>
+        <div class="ctrl"><label for="lr">Rate <output id="lrO"></output></label><input type="range" id="lr" min="1" max="12" step="0.5" value="4"></div>
+        <div class="ctrl"><label for="ln">Tenor (tahun, cicilan tahunan) <output id="lnO"></output></label><input type="range" id="ln" min="2" max="10" step="1" value="5"></div>
+      </div>
+      <div style="display:grid;gap:8px">
+        <div class="out"><span class="cap">Cicilan tahunan</span><span class="big" id="lpay" style="font-size:22px"></span><span class="cap" id="lsplit"></span></div>
+        <div class="split" id="lbar"></div>
+      </div>
+    </div>
+  </div>
+  <p class="callout bad"><span class="lbl">Paling mudah tertukar</span>Yang direklasifikasi ke current liability hanya <b>principal</b> jatuh tempo 12 bulan, bukan total pembayaran. Contoh: 224.627 = 40.000 bunga + <b>184.627</b> principal.</p>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="sec-head"><div class="t"><span class="lo">LO 7.3</span><h2>Bond Pricing at Par, Discount, Premium</h2></div><button class="done" data-done="k5-pricing"></button></div>
+  <div class="grid" style="--min:220px">
+    <div class="card"><div class="card-h">Face / par value</div><p class="small">Principal yang dibayar saat maturity.</p></div>
+    <div class="card"><div class="card-h">Coupon rate</div><p class="small">Di kontrak → hitung <b>cash interest</b> = face × coupon.</p></div>
+    <div class="card"><div class="card-h">Market rate / yield</div><p class="small">Return yang diminta investor → <b>menentukan harga</b>.</p></div>
+  </div>
+  <div class="formula"><span class="n">P</span><span class="op">=</span><span>C × [1 − (1 + r)<sup>−n</sup>] / r</span><span class="op">+</span><span>F / (1 + r)<sup>n</sup></span></div>
+  <p class="small muted">P harga bond · C kupon per periode · r market rate per periode · n jumlah periode · F face value.</p>
+  <div class="widget">
+    <div class="w-title">Kalkulator harga bond (semiannual)</div>
+    <div class="w-grid">
+      <div style="display:grid;gap:10px">
+        <div class="ctrl"><label for="bc">Coupon rate tahunan <output id="bcO"></output></label><input type="range" id="bc" min="0" max="12" step="0.25" value="6"></div>
+        <div class="ctrl"><label for="bm">Market rate tahunan <output id="bmO"></output></label><input type="range" id="bm" min="0.5" max="12" step="0.25" value="8"></div>
+        <div class="ctrl"><label for="by">Tenor (tahun) <output id="byO"></output></label><input type="range" id="by" min="1" max="30" step="1" value="10"></div>
+        <div class="seg" id="bPre"><button data-v="6">Market 6%</button><button data-v="8" aria-pressed="true">Market 8%</button><button data-v="4">Market 4%</button></div>
+      </div>
+      <div class="out"><span class="cap">Face $10 juta</span><span class="big" id="bpO"></span><span id="bpB"></span><span class="cap" id="bpD"></span></div>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Relationship</th><th>Harga</th><th>Kenapa?</th></tr></thead><tbody>
+    <tr><td>Coupon = market</td><td><span class="badge b-par">PAR</span></td><td>Cash interest = return yang diinginkan</td></tr>
+    <tr><td>Coupon &lt; market</td><td><span class="badge b-dis">DISCOUNT</span></td><td>Bond bayar terlalu kecil → harga turun</td></tr>
+    <tr><td>Coupon &gt; market</td><td><span class="badge b-pre">PREMIUM</span></td><td>Bond bayar lebih besar → investor mau bayar lebih</td></tr>
+  </tbody></table></div>
+  <p class="callout"><span class="lbl">Wajib hafal</span>Market rate ↑ → bond price ↓. Market rate ↓ → bond price ↑. Contoh premium: PV kupon $300.000 × 16,35143 = $4.905.429 + PV pokok $10.000.000 × 0,67297 = $6.729.700 → <b>$11.635.129</b>; premium $1.635.129 diamortisasi, mengurangi interest expense.</p>
+</section>
+
+<section class="sec" id="effcost">
+  <div class="sec-head"><div class="t"><span class="lo">Cost of debt</span><h2>Effective Cost of Debt</h2></div><button class="done" data-done="k5-effcost"></button></div>
+  <div class="grid" style="--min:200px">
+    <div class="card"><span class="badge b-par">PAR</span><p class="small">Effective cost = coupon</p></div>
+    <div class="card"><span class="badge b-dis">DISCOUNT</span><p class="small">Effective cost &gt; coupon</p></div>
+    <div class="card"><span class="badge b-pre">PREMIUM</span><p class="small">Effective cost &lt; coupon</p></div>
+  </div>
+  <div class="card"><div class="card-h">Verizon euro notes due 2027</div>
+    <div class="tbl fit" style="border:0"><table><tbody>
+      <tr><td>Coupon rate</td><td class="n">0,875%</td></tr><tr><td>Issue price</td><td class="n">99,631% (discount)</td></tr><tr><td>Underwriting fee</td><td class="n">0,300%</td></tr><tr><td>Proceeds ke Verizon</td><td class="n">99,331%</td></tr><tr class="hl"><td><b>Effective (yield) rate</b></td><td class="n"><b>0,9623%</b> &gt; kupon</td></tr>
+    </tbody></table></div></div>
+  <p class="callout k"><span class="lbl">Inti</span>Menaikkan/menurunkan kupon hanya menghasilkan premium/discount, bukan biaya riil berbeda. Interest expense = cash interest ± amortisasi. <b>Catatan Q&amp;A:</b> 0,9623% dihitung dari proceeds bersih; dengan fee, cost issuer sedikit di atas yield investor.</p>
+</section>
+
+<section class="sec" id="ltd">
+  <div class="sec-head"><div class="t"><span class="lo">LO 7.4</span><h2>Reporting, Repurchase &amp; Fair Value</h2></div><button class="done" data-done="k5-ltd"></button></div>
+  <div class="grid" style="--min:280px">
+    <div class="card"><div class="card-h">Balance sheet (Verizon 2018, $ jt)</div>
+      <div class="tbl fit" style="border:0"><table><tbody><tr><td>Total LTD incl. current</td><td class="n">112.913</td></tr><tr><td>(−) Jatuh tempo ≤ 1 tahun</td><td class="n">(7.040)</td></tr><tr class="tot"><td>LTD noncurrent</td><td class="n">105.873</td></tr></tbody></table></div>
+      <p class="small muted">Net dari unamortized discount (net premium) $6.298 jt &amp; issuance costs $541 jt.</p></div>
+    <div class="card"><div class="card-h">Income statement</div>
+      <p class="small"><b>Discount amortization</b> → interest expense &gt; cash interest.</p><p class="small"><b>Premium amortization</b> → interest expense &lt; cash interest.</p>
+      <p class="small muted">Waspadai konsentrasi maturity; bandingkan dengan OCF (Verizon OCF $34.339 jt vs maturitas 2019 $7.058 jt).</p></div>
+  </div>
+  <div class="widget">
+    <div class="w-title">Bond repurchase: book value $10 juta</div>
+    <div class="formula l"><span class="n">Gain / loss</span><span class="op">=</span><span>Net bonds payable (book value) − Repurchase payment</span></div>
+    <div class="w-grid">
+      <div class="ctrl"><label for="rp">Harga beli kembali <output id="rpO"></output></label><input type="range" id="rp" min="8" max="12" step="0.1" value="10.5"></div>
+      <div class="out"><span class="cap" id="rpL"></span><span class="big" id="rpV"></span></div>
+    </div>
+  </div>
+  <div class="grid" style="--min:260px">
+    <div class="card t-mid"><h4>Contoh</h4><p class="small">Verizon 2018: loss on early extinguishment <b>$700 jt</b>. CVS repurchase saat market value $521 jt di atas carrying (market rate turun).</p></div>
+    <div class="card soft"><h4>Analyst judgment</h4><p class="small">Secara ekonomi tak ada kerugian riil (offset oleh PV arus kas). Item <b>transitory</b> → keluarkan dari run-rate earnings.</p></div>
+  </div>
+  <div class="tbl fit"><table><thead><tr><th>Verizon ($ jt)</th><th class="n">Carrying</th><th class="n">Fair value</th></tr></thead><tbody><tr><td>2018</td><td class="n">112.159</td><td class="n">118.535</td></tr><tr><td>2017</td><td class="n">116.075</td><td class="n">128.658</td></tr></tbody></table></div>
+  <p class="small">Fair value (Level 1/2) hanya <b>diungkap di footnote</b>; tidak di neraca &amp; tidak ke net income, karena fluktuasinya reversibel dan bond tetap dibayar at par.</p>
+</section>
+
+<section class="sec" id="credit">
+  <div class="sec-head"><div class="t"><span class="lo">LO 7.5</span><h2>Credit Quality &amp; Ratings</h2></div><button class="done" data-done="k5-credit"></button></div>
+  <p class="sec-lead">Equity investor fokus pada upside; lender fokus pada <b>repayment</b>. Dasarnya: (1) <b>level of indebtedness</b> dan (2) <b>excess cash generated</b>.</p>
+  <div class="vs">
+    <div class="card"><div class="card-h">Likelihood of default</div><p class="small">Level utang · kewajiban bunga · cash flow historis &amp; proyeksi · excess cash untuk bayar utang.</p></div>
+    <span class="mid">+</span>
+    <div class="card"><div class="card-h">Loss given default</div><p class="small">Seniority of debt · collateral · lender restrictions/covenants.</p></div>
+  </div>
+  <div class="grid" style="--min:240px">
+    <div class="card t-good"><h4>Company A</h4><p class="small">Utang Rp100 M, dijamin aset Rp80 M → recovery lebih tinggi.</p></div>
+    <div class="card t-bad"><h4>Company B</h4><p class="small">Utang Rp100 M, tanpa collateral.</p></div>
+  </div>
+  <div class="widget">
+    <div class="w-title">Risk premium: geser kualitas kredit</div>
+    <div class="w-grid">
+      <div class="ctrl"><label for="rq">Risk premium <output id="rqO"></output></label><input type="range" id="rq" min="0" max="8" step="0.5" value="1"></div>
+      <div style="display:grid;gap:6px">
+        <div class="split"><div style="flex-basis:50%;background:#16233F" id="rfS">Risk-free 5%</div><div style="background:#FBC02D;color:#3A2A00" id="rpS">Premium</div></div>
+        <div class="out"><span class="cap">Required yield / cost of debt</span><span class="big" id="ryO"></span></div>
+      </div>
+    </div>
+    <p class="small muted">Contoh slide: 5% + 1% = 6% (sangat kuat); 5% + 5% = 10% (lebih berisiko). Lower credit quality → higher premium → higher cost of debt.</p>
+  </div>
+  <div class="tbl fit"><table><thead><tr><th>Credit quality</th><th>S&amp;P / Fitch</th><th>Moody's</th></tr></thead><tbody>
+    <tr><td>Highest</td><td>AAA</td><td>Aaa</td></tr><tr><td>High grade</td><td>AA</td><td>Aa</td></tr><tr><td>Upper-medium</td><td>A</td><td>A</td></tr><tr class="hl"><td>Lower-medium</td><td>BBB</td><td>Baa</td></tr><tr><td>Speculative</td><td>BB</td><td>Ba</td></tr><tr><td>Highly speculative</td><td>B</td><td>B</td></tr><tr><td>High risk</td><td>CCC &amp; below</td><td>Caa &amp; below</td></tr>
+  </tbody></table></div>
+  <p class="small">Agensi menilai: <span class="pill k">liquidity</span> <span class="pill k">leverage</span> <span class="pill k">solvency</span> <span class="pill k">coverage</span> <span class="pill k">cash flow</span></p>
+</section>
+
+<section class="sec" id="verizon">
+  <div class="sec-head"><div class="t"><span class="lo">Kasus</span><h2>Verizon, Vodafone &amp; Comcast</h2></div><button class="done" data-done="k5-verizon"></button></div>
+  <div class="flow"><span class="step">2013: beli 45% Verizon Wireless dari Vodafone ($130 M)</span><span class="arr">→</span><span class="step">LTD $48 M → $116 M</span><span class="arr">→</span><span class="step">Leverage naik tajam</span><span class="arr">→</span><span class="step on">Rating downgrade</span><span class="arr">→</span><span class="step">Biaya pinjam lebih tinggi</span></div>
+  <div class="tbl"><table><thead><tr><th>Business risk: STRONG</th><th>Financial risk: INTERMEDIATE</th><th>Liquidity: ADEQUATE</th></tr></thead><tbody><tr>
+    <td class="small">Wireless terbesar AS · brand kuat · kualitas jaringan · margin EBITDA wireless kuat · skala · Fios tumbuh. <b>Risiko:</b> pasar jenuh, growth terbatas, margin wireline lemah.</td>
+    <td class="small">Adjusted leverage 2018 <b>2,8×</b>; 2019 2,6–2,7×; target ±2,5×. Net unsecured debt/EBITDA target 1,75–2,0×.</td>
+    <td class="small">Sources/uses ±1,3×</td></tr></tbody></table></div>
+  <p class="small"><b>Overall S&amp;P: BBB+ / Positive / A-2</b></p>
+  <div class="vs">
+    <div class="card t-good"><h4>Upgrade jika</h4><ul class="small"><li>Adjusted leverage &lt; 2,5×</li><li>Excess cash untuk kurangi utang</li><li>Wireless revenue tetap tumbuh</li><li>Leverage rendah bertahan</li></ul></div>
+    <span class="mid">VS</span>
+    <div class="card t-bad"><h4>Memburuk jika</h4><ul class="small"><li>Akuisisi dibiayai utang</li><li>Excess cash untuk buyback</li><li>Pembelian spektrum besar</li><li>CAPEX lebih tinggi</li><li>Kinerja wireless turun</li></ul></div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Review 7-5</th><th>Comcast</th><th>Verizon</th></tr></thead><tbody>
+    <tr><td>S&amp;P · Moody's · Fitch</td><td>A− · A3 · A−</td><td>BBB+ · Baa1 · A−</td></tr>
+    <tr><td>Leverage</td><td>3,6× pro forma (pasca Sky); sebelumnya 2,75×</td><td>±2,8× (2018), target 2,5×</td></tr>
+    <tr class="hl"><td>Relative credit risk</td><td><b>Lebih rendah</b></td><td>Lebih tinggi</td></tr>
+  </tbody></table></div>
+  <p class="callout"><span class="lbl">Respons agensi atas leverage Comcast</span>Credit watch atau downgrade satu notch atau lebih → cost of debt berikutnya bisa naik.</p>
+</section>
+
+<section class="sec" id="global">
+  <div class="sec-head"><div class="t"><span class="lo">Global reports</span><h2>GAAP vs IFRS &amp; restrukturisasi rating</h2></div><button class="done" data-done="k5-global"></button></div>
+  <div class="tbl"><table><thead><tr><th>Isu</th><th>US GAAP</th><th>IFRS</th></tr></thead><tbody>
+    <tr><td>Contingent liabilities</td><td>Accrue jika probable &amp; estimable</td><td>Serupa; disclosure bisa dibatasi di situasi prejudicial</td></tr>
+    <tr class="hl"><td>Range estimasi (semua sama mungkin)</td><td><b>Nilai terendah</b></td><td><b>Expected amount</b></td></tr>
+    <tr><td>Discounting</td><td>Umumnya nominal</td><td>Didiskonto</td></tr>
+    <tr><td>Provision disclosures</td><td>Kurang luas</td><td>Lebih luas (rekonsiliasi)</td></tr>
+  </tbody></table></div>
+  <p class="small muted">Contoh: gugatan Rp100–200 juta → GAAP Rp100 juta; IFRS expected amount.</p>
+  <h3>Bisakah restrukturisasi memperbaiki rating?</h3>
+  <div class="tbl"><table><thead><tr><th>Aksi</th><th>Manfaat</th><th>Trade-off</th></tr></thead><tbody>
+    <tr><td>Kurangi inventory</td><td>Kas lepas → likuiditas &amp; bayar utang</td><td>Risiko stockout &amp; lost sales</td></tr>
+    <tr><td>Kurangi CAPEX/PPE</td><td>Kas lebih untuk kurangi utang</td><td>Membatasi pertumbuhan</td></tr>
+    <tr><td>Terbitkan saham untuk bayar utang</td><td>Leverage turun</td><td>Biaya pendanaan lebih tinggi; dividen tidak tax-deductible</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="sec" id="qna">
+  <div class="sec-head"><div class="t"><span class="lo">Question &amp; Answer</span><h2>Q&amp;A presentasi</h2></div><button class="done" data-done="k5-qna"></button></div>
+  <div>
+    <details class="qa"><summary><span>Memperbaiki credit quality sungguhan vs "mempercantik" rasio dengan memangkas investasi?<span class="who">Diva Maliha Audrey</span></span></summary><div class="ans"><p>Debt/EBITDA 3,5× → 2,5×: kalau karena laba &amp; cash flow naik dan excess cash bayar utang, membaik sungguhan. Kalau karena memangkas CAPEX, jual inventory, menahan investasi → cash flow masa depan bisa turun; belum tentu membaik.</p></div></details>
+    <details class="qa"><summary><span>Effective cost Verizon 0,9623% dihitung dari harga investor (99,631%) atau proceeds (99,331%)?<span class="who">Ikfina Nur Aini</span></span></summary><div class="ans"><p>Dari <b>proceeds bersih 99,331%</b>. "Effective cost = market rate" hanya berlaku tanpa underwriting fee; dengan fee, cost issuer lebih tinggi dari yield investor.</p></div></details>
+    <details class="qa"><summary><span>Adjustment Harley 2018 −11.832: cookie jar atau perubahan estimasi?<span class="who">Bagus Budi Laksono</span></span></summary><div class="ans"><p>2018 biaya recall lebih tinggi dari estimasi → catch-up accrual (ada penjelasan ekonomi). −11.832 adalah <b>analyst adjustment</b> untuk menormalkan, bukan bukti release reserve. Bedakan dengan: klaim &amp; settlement aktual · aktivitas recall · rasio warranty/sales beberapa tahun · peer &amp; footnote.</p></div></details>
+    <details class="qa"><summary><span>Bagaimana memastikan liability estimasi (warranty, legal) mencerminkan risiko? Sejauh mana boleh adjust?<span class="who">Aprilia Reikha Nurullita</span></span></summary><div class="ans"><ul><li>Analis menguji <b>kewajaran</b>, bukan memastikan angka pasti.</li><li>Warranty: banding ke sales, historis, klaim aktual, peers.</li><li>Legal: pakai sensitivity/range analysis, jangan paksakan satu angka.</li><li>Bandingkan reported case vs adjusted/stressed case: apakah leverage, coverage, kas untuk repayment berubah?</li></ul></div></details>
+    <details class="qa"><summary><span>Waskita Karya: utang ekspansi selalu baik? Fokus laba atau cash flow?<span class="who">Zulkarnain</span></span></summary><div class="ans"><p>Tergantung apakah proyek menghasilkan return &amp; cash flow untuk bayar pokok + bunga. Masalah muncul jika utang tumbuh lebih cepat dari kemampuan menghasilkan kas. Untuk credit risk, <b>cash flow lebih penting</b>: utang dibayar dengan kas, bukan laba akuntansi.</p></div></details>
+    <details class="qa"><summary><span>Leverage Comcast 3,6× &gt; Verizon 2,8×, tapi rating Comcast lebih baik. Kenapa? Akan di-downgrade?<span class="who">Annisa Mahdatilla</span></span></summary><div class="ans"><p>Rating = hasil banyak faktor. Kenaikan leverage jadi <b>warning</b>: bisa credit watch atau downgrade, tapi tidak otomatis. Agensi melihat apakah leverage sementara, cash flow kuat, ada rencana bayar utang, likuiditas cukup.</p></div></details>
+    <details class="qa"><summary><span>PD sama tapi collateral &amp; seniority beda: credit risk &amp; cost of debt sama? Perbaikan rasio = nilai naik?<span class="who">Netta An'amta Desli Sanati</span></span></summary><div class="ans"><p>(1) Tidak harus sama: utang senior berjaminan recovery lebih tinggi → premium lebih rendah. (2) Tidak selalu: nilai naik hanya jika manfaat risiko lebih rendah melebihi pengorbanan operasi &amp; pertumbuhan.</p></div></details>
+    <details class="qa"><summary><span>Dua perusahaan dengan kasus hukum mirip tapi penilaian "probable" beda. Banding secara fair?<span class="who">Dhiah Rahmawati</span></span></summary><div class="ans"><p>Lihat footnote, range of possible loss, perkembangan kasus, pengalaman historis, konsistensi estimasi. Bila perlu buat skenario dengan asumsi probabilitas seragam. Bandingkan <b>economic exposure</b>, bukan hanya angka tercatat.</p></div></details>
+    <details class="qa"><summary><span>Kenapa tetap repurchase bond meski menimbulkan loss?<span class="who">Muhammad Fajri</span></span></summary><div class="ans"><p>Tujuan <b>refinancing</b>: saat market rate turun, tarik obligasi berkupon tinggi, ganti utang berbunga rendah. Loss akuntansi bukan economic loss.</p></div></details>
+  </div>
+</section>
+
+<section class="sec" id="kuis">
+  <div class="sec-head"><div class="t"><span class="lo">Latihan</span><h2>Kuis K5</h2></div><button class="done" data-done="k5-kuis"></button></div>
+  <div class="quiz" data-quiz="k5"></div>
+</section>
+
+<nav class="pager" data-auto aria-label="Navigasi bab"></nav>
+<footer class="foot">Disusun dari presentasi Kelompok 5 · EMS Chapter 7 · Analisis Laporan Keuangan 2026/2027.</footer>
+</main>
+
+<script src="assets/quiz-data.js?v=5"></script>
+<script src="assets/app.js?v=5"></script>
+<script>
+(function(){
+  var A=window.ALK,$=A.$,fmt=A.fmt;
+  /* accrual types */
+  var acc={w:{flow:['Work performed','Record expense + wages payable','Cash paid later'],fx:[['Liability','↑','bad'],['Expense','↑','bad'],['Net income','↓','bad'],['Cash','— tetap','mid']],note:'Verizon: periode 1 karyawan earns $75 → wages payable +75, expense +75, NI −75, kas 0. Periode 2 bayar → kas −75, liability −75, expense baru 0.'},
+           d:{flow:['Cash received','Deferred revenue (liability)','Service delivered → revenue'],fx:[['Cash','↑','good'],['Liability','↑','bad'],['Revenue','0 tetap','mid'],['Net income','0 tetap','mid']],note:'Verizon: prepaid plans &amp; installation prepayments = contract liabilities sampai layanan diberikan ($4,207 M, 2018).'}};
+  A.seg($('#accSeg'),function(v){var a=acc[v];$('#accFlow').innerHTML=a.flow.map(function(s,i){return (i?'<span class="arr">→</span>':'')+'<span class="step'+(i===1?' on':'')+'">'+s+'</span>';}).join('');
+    $('#accFx').innerHTML=a.fx.map(function(f){return '<div class="out"><span class="cap">'+f[0]+'</span><span class="big" style="font-size:20px;color:var(--'+f[2]+')">'+f[1]+'</span></div>';}).join('');$('#accNote').innerHTML=a.note;});
+
+  /* contingent */
+  var st={c1:'y',c2:'p',c3:'y'};
+  function dec(){var o=$('#cOut'),r;
+    if(st.c1==='n'||st.c2==='r') r=['Tidak dicatat','var(--muted)','Tidak ada kewajiban yang perlu diakui atau diungkap di sini.'];
+    else if(st.c2==='p'&&st.c3==='y') r=['Accrue liability &amp; expense','var(--good)','Probable + reasonably estimable → diakui di laporan keuangan.'];
+    else r=['Disclose di notes','var(--mid)','Possible atau tidak estimable → tidak di-recognize, cukup diungkap.'];
+    o.innerHTML='<span class="cap">Keputusan</span><span class="big" style="font-size:22px;color:'+r[1]+'">'+r[0]+'</span><span class="cap">'+r[2]+'</span>';}
+  ['c1','c2','c3'].forEach(function(k){A.seg($('#'+k),function(v){st[k]=v;dec();});});
+
+  /* Harley waterfall */
+  var steps=[['Beginning liability',0,94.2,'#16233F'],['+ Warranties issued',94.2,147.567,'#1E4FB0'],['+ Recalls / estimate changes',147.567,211.04,'#5E83D6'],['− Settlements / claims',131.74,211.04,'#E0A21B'],['Ending liability',0,131.74,'#16233F']],mx=220;
+  $('#hd').innerHTML=steps.map(function(s){return '<div class="r"><span><span class="small">'+s[0]+'</span><span class="tr"><i style="left:'+(s[1]/mx*100)+'%;width:'+((s[2]-s[1])/mx*100)+'%;background:'+s[3]+'"></i></span></span><b class="mono">'+fmt(s[2]-s[1],2)+'</b></div>';}).join('');
+
+  function war(){var b=+$('#wb').value,a=+$('#wa').value,c=+$('#wc').value;$('#wbO').textContent=fmt(b,2);$('#waO').textContent=a;$('#wcO').textContent=c;$('#weO').textContent=fmt(a,2);$('#wlO').textContent=fmt(b+a-c,2);}
+  ['wb','wa','wc'].forEach(function(id){$('#'+id).addEventListener('input',war)});war();
+
+  /* current maturity */
+  function cm(){var P=+$('#lp').value,r=+$('#lr').value/100,n=+$('#ln').value;var pay=P*r/(1-Math.pow(1+r,-n)),int=P*r,pr=pay-int;
+    $('#lpO').textContent='$'+fmt(P);$('#lrO').textContent=fmt(r*100,1)+'%';$('#lnO').textContent=n;$('#lpay').textContent='$'+fmt(pay);
+    $('#lsplit').innerHTML='= bunga $'+fmt(int)+' + <b>principal $'+fmt(pr)+'</b> (current maturity)';
+    $('#lbar').innerHTML='<div style="flex-basis:'+(pr/P*100)+'%;background:#E0A21B;color:#3A2A00">Current '+fmt(pr/P*100,1)+'%</div><div style="flex-basis:'+(100-pr/P*100)+'%;background:#1E4FB0">Remaining LTD $'+fmt(P-pr)+'</div>';}
+  ['lp','lr','ln'].forEach(function(id){$('#'+id).addEventListener('input',cm)});cm();
+
+  /* bond pricing */
+  function bp(){var c=+$('#bc').value/100,m=+$('#bm').value/100,y=+$('#by').value,F=1e7,n=y*2,r=m/2,C=F*c/2;
+    var pvI=C*(1-Math.pow(1+r,-n))/r,pvF=F/Math.pow(1+r,n),P=pvI+pvF;
+    $('#bcO').textContent=fmt(c*100,2)+'%';$('#bmO').textContent=fmt(m*100,2)+'%';$('#byO').textContent=y;
+    $('#bpO').textContent='$'+fmt(P/1e6,3)+' juta';var t=Math.abs(P-F)<500?['PAR','b-par']:P<F?['DISCOUNT','b-dis']:['PREMIUM','b-pre'];
+    $('#bpB').innerHTML='<span class="badge '+t[1]+'">'+t[0]+'</span>';
+    $('#bpD').innerHTML='PV kupon $'+fmt(pvI)+' + PV pokok $'+fmt(pvF)+'<br>Kupon per 6 bln $'+fmt(C)+' · '+n+' periode · r = '+fmt(r*100,2)+'%';}
+  ['bc','bm','by'].forEach(function(id){$('#'+id).addEventListener('input',bp)});
+  A.seg($('#bPre'),function(v){$('#bc').value=6;$('#by').value=10;$('#bm').value=v;bp();});
+
+  /* repurchase */
+  function rp(){var p=+$('#rp').value,d=10-p;$('#rpO').textContent='$'+fmt(p,1)+' juta';$('#rpL').textContent=d>0?'Gain on retirement (price < book)':d<0?'Loss on retirement (price > book)':'Tidak ada gain/loss';
+    $('#rpV').textContent=(d<0?'($':'$')+fmt(Math.abs(d),1)+' juta'+(d<0?')':'');$('#rpV').style.color=d>0?'var(--good)':d<0?'var(--bad)':'var(--k)';}
+  $('#rp').addEventListener('input',rp);rp();
+
+  /* risk premium */
+  function rq(){var p=+$('#rq').value;$('#rqO').textContent=fmt(p,1)+'%';$('#rfS').style.flexBasis=(5/(5+p)*100)+'%';$('#rpS').style.flexBasis=(p/(5+p)*100)+'%';$('#rpS').textContent=p?'+'+fmt(p,1)+'%':'';$('#ryO').textContent=fmt(5+p,1)+'%';}
+  $('#rq').addEventListener('input',rq);rq();
+})();
+</script>
+</body>
+</html>

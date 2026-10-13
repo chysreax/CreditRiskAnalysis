@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Revenue &amp; Operating Income · ALK</title>
+<meta name="description" content="Rangkuman visual materi Kelompok 3: Revenue Recognition & Operating Income.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=5">
+<style>
+  .prog{height:30px;border-radius:999px;background:var(--surface-2);overflow:hidden;position:relative}
+  .prog i{display:block;height:100%;background:var(--k);border-radius:999px;transition:width .4s}
+  .prog span{position:absolute;inset:0;display:grid;place-items:center;font:700 13px var(--f-mono);color:var(--ink);mix-blend-mode:normal}
+  .tx{display:grid;gap:6px}
+  .tx .ln{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:8px 12px;border-radius:10px;background:var(--surface-2);font-size:14.5px}
+  .tx .ln b.n{font-family:var(--f-mono)}
+  .aging{display:flex;height:34px;border-radius:10px;overflow:hidden;font:600 11.5px var(--f-mono)}
+  .aging div{display:grid;place-items:center;color:#fff;min-width:0;overflow:hidden;white-space:nowrap}
+</style>
+</head>
+<body class="k3" data-page="k3">
+<header class="site"></header>
+<nav class="toc" aria-label="Isi halaman"><div class="row">
+  <a href="#rr">Five-Step Model</a><a href="#comp">Komplikasi</a><a href="#ltc">Kontrak Jangka Panjang</a><a href="#allow">Sales Allowance</a><a href="#unearned">Unearned Revenue</a><a href="#fx">Valas</a><a href="#ar">Piutang</a><a href="#exp">Beban &amp; R&amp;D</a><a href="#disc">Disc. Ops &amp; Pro Forma</a><a href="#global">GAAP vs IFRS</a><a href="#qna">Q&amp;A</a><a href="#kuis">Kuis</a>
+</div></nav>
+
+<main class="wrap">
+<section class="hero">
+  <div class="hero-tag"><span class="lo">Analisis Laporan Keuangan · Kelompok 3</span></div>
+  <h1>Revenue Recognition<br>&amp; Operating Income</h1>
+  <p class="hero-sub">Revenue adalah "top line": seluruh transaksi dengan pelanggan dalam satu periode. Tapi kapan &amp; berapa yang diakui penuh dengan estimasi.</p>
+  <div class="hero-meta"><span>Fadiyani Teja · Netta An'amta · Safrina Aqmar · Zulkarnain</span><span>Kasus: Raytheon · Levi Strauss · Lowe's · Pfizer</span></div>
+  <div class="stats">
+    <div class="stat"><span class="v">5 langkah</span><span class="l">ASC 606 / PSAK 72</span></div>
+    <div class="stat"><span class="v">$310 jt</span><span class="l">Efek kurs pada revenue Pfizer</span></div>
+    <div class="stat"><span class="v">98,7%</span><span class="l">Adequacy allowance Levi 2018</span></div>
+    <div class="stat"><span class="v">14,9%</span><span class="l">R&amp;D ratio Pfizer 2018</span></div>
+  </div>
+</section>
+
+<section class="sec" id="rr">
+  <div class="sec-head"><div class="t"><span class="lo">Analisis Laporan Keuangan</span><h2>Analyzing <span class="acc">Revenue</span></h2></div><button class="done" data-done="k3-rr"></button></div>
+  <div class="grid" style="--min:260px">
+    <div class="card"><h4>Prinsip pengakuan</h4><ul class="small"><li>Diakui saat <b>transfer of control</b> produk ke customer</li><li><b>Kas bukan syarat</b></li><li>Penjualan kredit → <b>Revenue + Accounts Receivable</b></li></ul></div>
+  </div>
+  <h3>Five-Step Model <span class="spark">✦</span></h3>
+  <ol class="steps">
+    <li><h4>Identifikasi kontrak</h4><p class="small">Hak jelas, harga dapat ditentukan, pembayaran kemungkinan besar tertagih.</p></li>
+    <li><h4>Identifikasi performance obligation</h4><p class="small">Tiap janji barang/jasa yang <b>distinct</b> = PO terpisah.</p></li>
+    <li><h4>Tentukan harga transaksi</h4><p class="small">Total expected value, termasuk pertimbangan variabel &amp; diskon.</p></li>
+    <li><h4>Alokasikan harga</h4><p class="small">Berdasar <b>stand-alone selling price</b> atau estimasi wajar.</p></li>
+    <li><h4>Akui revenue</h4><p class="small">Saat PO terpenuhi: <b>at a point in time</b> atau <b>over time</b>.</p></li>
+  </ol>
+  <p class="callout"><span class="lbl">Jembatan keledai</span><b>K–P–H–A–A</b>: Kontrak → Performance obligation → Harga → Alokasi → Akui.</p>
+</section>
+
+<section class="sec" id="comp">
+  <div class="sec-head"><div class="t"><span class="lo">Complications</span><h2>Komplikasi <span class="acc">pengakuan revenue</span></h2></div><button class="done" data-done="k3-comp"></button></div>
+  <p class="sec-lead">Ketuk kartu untuk melihat kapan revenue diakui.</p>
+  <div class="flips">
+    <button class="flip"><span class="flip-in"><span class="face front"><h4>Nonrefundable up-front fees</h4><span class="small">setup, aktivasi, membership</span><span class="hint">ketuk</span></span><span class="face back">Tidak langsung diakui. Itu bayaran di muka untuk jasa masa depan → diakui saat jasa diberikan.</span></span></button>
+    <button class="flip"><span class="flip-in"><span class="face front"><h4>Licenses</h4><span class="small">kekayaan intelektual</span><span class="hint">ketuk</span></span><span class="face back"><b>Right to use:</b> saat customer bisa memakai IP. <b>Right to access:</b> over time selama akses.</span></span></button>
+    <button class="flip"><span class="flip-in"><span class="face front"><h4>Bill-and-hold</h4><span class="small">barang ditahan seller</span><span class="hint">ketuk</span></span><span class="face back">Diakui saat <b>control</b> berpindah, walau barang masih ditahan seller.</span></span></button>
+    <button class="flip"><span class="flip-in"><span class="face front"><h4>Consignment</h4><span class="small">seller sebagai agent</span><span class="hint">ketuk</span></span><span class="face back">Hanya <b>komisi/fee</b>, bukan bruto. Indikator agen: tak tanggung jawab fulfillment, tak tanggung risiko inventory, tak menetapkan harga.</span></span></button>
+    <button class="flip"><span class="flip-in"><span class="face front"><h4>Franchises</h4><span class="small">barang + jasa</span><span class="hint">ketuk</span></span><span class="face back">Barang &amp; jasa dipisah sebagai PO; diakui saat masing-masing diberikan.</span></span></button>
+    <button class="flip"><span class="flip-in"><span class="face front"><h4>Variable consideration</h4><span class="small">imbalan tidak pasti</span><span class="hint">ketuk</span></span><span class="face back">Diestimasi &amp; diakui jika pembayaran kemungkinan besar terjadi dan dapat diestimasi wajar.</span></span></button>
+    <button class="flip"><span class="flip-in"><span class="face front"><h4>Multiple-element contracts</h4><span class="small">paket barang/jasa</span><span class="hint">ketuk</span></span><span class="face back">Dipisah berdasar stand-alone basis; diakui per komponen yang distinct.</span></span></button>
+    <button class="flip"><span class="flip-in"><span class="face front"><h4>Right of return</h4><span class="small">hak retur</span><span class="hint">ketuk</span></span><span class="face back">Estimasi retur mengurangi gross sales → net sales. Catat <b>liability</b> refund &amp; <b>aset</b> hak pemulihan barang.</span></span></button>
+    <button class="flip"><span class="flip-in"><span class="face front"><h4>Gift card</h4><span class="small">kas di muka</span><span class="hint">ketuk</span></span><span class="face back">Kas masuk → <b>deferred revenue liability</b>. Revenue diakui saat gift card dipakai.</span></span></button>
+  </div>
+</section>
+
+<section class="sec" id="ltc">
+  <div class="sec-head"><div class="t"><span class="lo">Long-term contract</span><h2>Cost-to-Cost <span class="acc">Method</span></h2></div><button class="done" data-done="k3-ltc"></button></div>
+  <div class="grid" style="--min:280px">
+    <div class="formula"><span class="n">% complete</span><span class="op">=</span><span class="frac"><span>Costs incurred to date</span><span>Estimated total costs</span></span></div>
+    <div class="formula"><span class="n">Revenue</span><span class="op">=</span><span>% complete × Total contract price</span></div>
+  </div>
+  <div class="widget">
+    <div class="w-title">Raytheon: kontrak $10 juta, estimasi biaya total $7,5 juta</div>
+    <div class="w-grid">
+      <div style="display:grid;gap:10px">
+        <div class="ctrl"><label for="cost">Biaya kumulatif s.d. hari ini <output id="costO"></output></label><input type="range" id="cost" min="0" max="7.5" step="0.1" value="4.5"></div>
+        <div class="seg" id="ltcPre"><button data-v="4.5" aria-pressed="true">Akhir tahun 1</button><button data-v="7.5">Akhir tahun 2</button></div>
+        <div class="prog"><i id="progI"></i><span id="progS"></span></div>
+      </div>
+      <div class="out"><span class="cap">Revenue kumulatif diakui</span><span class="big" id="revO"></span><span class="cap" id="gpO"></span></div>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Tahun</th><th class="n">Biaya</th><th class="n">% complete</th><th class="n">Revenue</th><th class="n">Gross profit</th></tr></thead><tbody>
+    <tr><td>1</td><td class="n">$4,5 jt</td><td class="n">60%</td><td class="n">$6 jt</td><td class="n">$1,5 jt</td></tr>
+    <tr><td>2</td><td class="n">$3 jt</td><td class="n">40%</td><td class="n">$4 jt</td><td class="n">$1 jt</td></tr>
+  </tbody></table></div>
+  <p class="callout"><span class="lbl">Neraca</span>Kas diterima sebelum biaya keluar → <b>liability</b>. Biaya melebihi tagihan → <b>current asset</b> (contracts in process).</p>
+</section>
+
+<section class="sec" id="allow">
+  <div class="sec-head"><div class="t"><span class="lo">Sales Allowance</span><h2>Analyzing <span class="acc">Sales Allowance</span></h2></div><button class="done" data-done="k3-allow"></button></div>
+  <p class="def">Pengurang penjualan bruto karena perusahaan tidak berharap menerima seluruh nilainya: <b>retur</b>, <b>diskon</b> (termasuk volume), <b>promosi ke retailer</b> (markdown, insentif).</p>
+  <div class="widget">
+    <div class="w-title">Levi Strauss: jual kredit $130, COGS $80</div>
+    <div class="w-grid">
+      <div style="display:grid;gap:10px">
+        <div class="ctrl"><label for="ret">Estimasi retur <output id="retO"></output></label><input type="range" id="ret" min="0" max="15" step="0.5" value="3"></div>
+        <div class="tx" id="levi"></div>
+      </div>
+      <div class="tx" id="levi2"></div>
+    </div>
+  </div>
+  <h3>3 ukuran evaluasi (contoh Levi Strauss)</h3>
+  <div class="grid" style="--min:260px">
+    <div class="card"><div class="card-h">1 · Additions ÷ gross sales</div>
+      <div class="bars"><div class="bar"><span class="lab">2016</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">10,3%</span></div><div class="bar"><span class="lab">2017</span><span class="tr"><span class="fill" style="--w:98%"></span></span><span class="v">10,1%</span></div><div class="bar"><span class="lab">2018</span><span class="tr"><span class="fill" style="--w:95%"></span></span><span class="v">9,8%</span></div></div>
+      <p class="small">Per $100 gross sales 2018, $9,80 jadi allowance → net $90,20. Turun 50 bps itu material bagi NPM 5,1%.</p>
+      <p class="small muted">Naik → diskon/promosi naik. Turun → lebih banyak direct-to-consumer.</p></div>
+    <div class="card"><div class="card-h">2 · Allowance balance ÷ gross sales</div>
+      <div class="bars"><div class="bar"><span class="lab">2016</span><span class="tr"><span class="fill" style="--w:85%"></span></span><span class="v">2,8%</span></div><div class="bar"><span class="lab">2017</span><span class="tr"><span class="fill" style="--w:100%;--c:var(--hl)"></span></span><span class="v">3,3%</span></div><div class="bar"><span class="lab">2018</span><span class="tr"><span class="fill" style="--w:85%"></span></span><span class="v">2,8%</span></div></div>
+      <p class="small">Kenaikan 2017 perlu dicermati, tapi belum tentu manipulasi. Lihat konteks bisnis &amp; rekonsiliasi.</p></div>
+    <div class="card"><div class="card-h">3 · Adequacy = estimated ÷ actual</div>
+      <p class="mono">603.594 ÷ 611.746 = <b class="k">98,7%</b></p>
+      <p class="small">≈ 100% → akurat. <b>Estimated &gt; actual</b> → terlalu besar (laba under). <b>Estimated &lt; actual</b> → under-reserving, sales &amp; laba terlihat lebih tinggi.</p></div>
+  </div>
+  <div class="grid" style="--min:260px">
+    <div class="card t-bad"><h4>Salah estimasi = 2 laporan salah</h4><p class="small">Retur seharusnya Rp10 M, dicatat Rp7 M → net sales <b>overstated Rp3 M</b> &amp; laba terlalu tinggi.</p></div>
+    <div class="card t-hl"><h4>Analyst adjustment</h4><p class="small">Pakai rata-rata rasio historis yang normal. Risiko: tak cocok jika model bisnis berubah (mis. ke direct-to-consumer).</p></div>
+    <div class="card t-mid"><h4>Area earnings management</h4><p class="small">Diskon bisa "meminjam" revenue dari masa depan untuk mempercepat order. Uji: apakah revenue sustainable?</p></div>
+  </div>
+</section>
+
+<section class="sec" id="unearned">
+  <div class="sec-head"><div class="t"><span class="lo">Deferred Revenue</span><h2>Analyzing <span class="acc">Unearned Revenue</span></h2></div><button class="done" data-done="k3-unearned"></button></div>
+  <p class="sec-lead">Kas diterima sebelum revenue bisa diakui: pesanan khusus, deposit layanan, tiket konser, langganan, gift card.</p>
+  <div class="vs">
+    <div class="card"><h4>Kas diterima di muka</h4><p class="mono small">Dr Kas<br>&nbsp;&nbsp;Cr Unearned revenue</p></div>
+    <span class="mid">→</span>
+    <div class="card"><h4>Kinerja dilaksanakan</h4><p class="mono small">Dr Unearned revenue<br>&nbsp;&nbsp;Cr Revenue</p></div>
+  </div>
+  <div class="formula"><span class="n">Saldo akhir</span><span class="op">=</span><span>Saldo awal + deferred revenue baru − deferred revenue diakui</span></div>
+  <div class="grid" style="--min:220px">
+    <div class="card soft"><h4>Stored-value cards</h4><p class="small">Gift card &amp; merchandise credit → diakui saat ditukar.</p></div>
+    <div class="card soft"><h4>Extended protection plans</h4><p class="small">Straight-line selama masa kontrak.</p></div>
+    <div class="card soft"><h4>In-store / online merchandise</h4><p class="small">Saat pelanggan memperoleh kontrol.</p></div>
+  </div>
+  <p class="small muted">Tiga jenis deferred revenue Lowe's.</p>
+</section>
+
+<section class="sec" id="fx">
+  <div class="sec-head"><div class="t"><span class="lo">Foreign Currency</span><h2>Efek <span class="acc">valuta asing</span></h2></div><button class="done" data-done="k3-fx"></button></div>
+  <div class="card"><h4>Pfizer 2017 → 2018: revenue naik $1,1 miliar</h4>
+    <div class="aging"><div style="flex-basis:72%;background:#9B111E">Operational growth $791 jt</div><div style="flex-basis:28%;background:#D8A21C;color:#3D0A0F">FX $310 jt</div></div>
+    <p class="small"><b>Reported revenue growth ≠ pure operating growth.</b></p></div>
+  <div class="widget">
+    <div class="w-title">Translation effect: subsidiary menjual €100 juta</div>
+    <div class="w-grid">
+      <div class="ctrl"><label for="rate">Kurs €1 = $ <output id="rateO"></output></label><input type="range" id="rate" min="0.8" max="1.3" step="0.01" value="1.10"></div>
+      <div class="out"><span class="cap">Revenue dalam laporan induk</span><span class="big" id="fxO"></span><span class="cap" id="fxN"></span></div>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Transaksi dalam valas (realized)</th><th>Contoh</th><th>Dolar melemah →</th></tr></thead><tbody>
+    <tr><td><b>Piutang</b> dalam valas</td><td>Invoice €1 jt; saat jual €1 = $1, saat bayar €1 = $1,10 → terima $1,1 jt</td><td><span class="pill good">Gain $100 rb</span></td></tr>
+    <tr><td><b>Pinjaman</b> dalam valas</td><td>Utang €10 jt: setara $10 jt → $11 jt</td><td><span class="pill bad">Loss $1 jt</span></td></tr>
+    <tr><td><b>Repatriasi</b> kas subsidiary</td><td>€5 jt dikonversi setelah dolar melemah</td><td><span class="pill good">Gain</span></td></tr>
+  </tbody></table></div>
+  <div class="grid" style="--min:260px">
+    <p class="callout"><span class="lbl">Ingat</span>Untuk <b>receivable</b>, dolar melemah → gain. Untuk <b>payable</b>, dolar melemah → loss. Perusahaan sering memakai <b>hedging</b>.</p>
+    <p class="callout k"><span class="lbl">FX ≠ kas operasi</span>Translation tidak sama dengan cash effect. FX gain/loss ≠ cash from operations, dan mendistorsi NOPAT, ROE, RNOA → analis memisahkannya.</p>
+  </div>
+  <p class="small mono">Pfizer 2018: FX revenue $310 jt − FX COGS $153 jt = $157 jt pada gross profit ≈ 1,4% dari net income $11,153 miliar.</p>
+</section>
+
+<section class="sec" id="ar">
+  <div class="sec-head"><div class="t"><span class="lo">Accounts Receivable</span><h2>Analyzing <span class="acc">Accounts Receivable</span></h2></div><button class="done" data-done="k3-ar"></button></div>
+  <div class="grid" style="--min:260px">
+    <div class="card"><h4>Gross vs Net</h4><p class="small"><b>Gross AR</b> = Net AR + Allowance<br><b>Net AR</b> = Gross AR − Allowance for doubtful accounts</p><p class="mono small">Pfizer 2018: 8.025 + 541 = <b>8.566</b> → tak tertagih 6,3%</p></div>
+    <div class="card"><h4>Yang dianalisis</h4><p class="small"><b>Magnitude</b> (besar relatif terhadap sales) &amp; <b>quality</b> (kemungkinan tertagih).</p></div>
+  </div>
+  <div class="widget">
+    <div class="w-title">Aging analysis &amp; write-off</div>
+    <div class="aging" aria-label="Komposisi piutang menurut umur"><div style="flex-basis:50%;background:#2D7A3E">Current 50.000</div><div style="flex-basis:30%;background:#C98A12">1–60 hr 30.000</div><div style="flex-basis:15%;background:#C2453B">61–90</div><div style="flex-basis:5%;background:#7A1418"></div></div>
+    <div class="tbl fit"><table><thead><tr><th>Umur</th><th class="n">Saldo</th><th class="n">% tak tertagih</th><th class="n">Estimasi</th></tr></thead><tbody>
+      <tr><td>Current</td><td class="n">50.000</td><td class="n">2%</td><td class="n">1.000</td></tr>
+      <tr><td>1–60 hari lewat</td><td class="n">30.000</td><td class="n">3%</td><td class="n">900</td></tr>
+      <tr><td>61–90 hari lewat</td><td class="n">15.000</td><td class="n">4%</td><td class="n">600</td></tr>
+      <tr><td>&gt; 90 hari lewat</td><td class="n">5.000</td><td class="n">8%</td><td class="n">400</td></tr>
+      <tr class="tot"><td>Total</td><td class="n">100.000</td><td class="n">2,9%</td><td class="n">2.900</td></tr>
+    </tbody></table></div>
+    <div class="seg" id="woSeg"><button data-v="0" aria-pressed="true">Sebelum write-off</button><button data-v="1">Write-off $500 (pelanggan bangkrut)</button></div>
+    <div class="grid" style="--min:150px" id="woOut"></div>
+    <p class="small muted">Allowance = contra account. Makin lama menunggak, makin tinggi % risikonya.</p>
+  </div>
+  <div class="grid" style="--min:260px">
+    <div class="card"><div class="card-h">AR turnover = Sales ÷ Avg AR</div><p class="small">Seberapa sering piutang tertagih dalam satu periode.</p></div>
+    <div class="card"><div class="card-h">DSO = 365 ÷ AR turnover</div><p class="small">Rata-rata hari menagih. Bandingkan dengan syarat kredit, tren, dan pesaing.</p></div>
+  </div>
+  <p class="callout bad"><span class="lbl">Red flag</span>DSO naik + AR turnover turun → piutang tumbuh lebih cepat dari penjualan: kredit melonggar atau kualitas bayar pelanggan turun.</p>
+</section>
+
+<section class="sec" id="exp">
+  <div class="sec-head"><div class="t"><span class="lo">Expenses &amp; Losses</span><h2>Analyzing <span class="acc">Expenses</span> &amp; R&amp;D</h2></div><button class="done" data-done="k3-exp"></button></div>
+  <p class="sec-lead">Pisahkan beban rutin (COGS, SG&amp;A) dari non-rutin/transitori. Mengabaikan pos non-recurring (restrukturisasi, penghapusan aset) mendistorsi estimasi laba masa depan.</p>
+  <div class="grid" style="--min:260px">
+    <div class="card"><div class="card-h">R&amp;D ratio = R&amp;D ÷ Revenue</div><p class="mono">8.006 ÷ 53.600 = <b class="k">14,9%</b></p><p class="small muted">Benchmark median S&amp;P 500 biotek ±13,7–16,1%. Pfizer 13–16% selama 2013–2018.</p></div>
+    <div class="card"><div class="card-h">Effective tax rate = Tax ÷ Pretax income</div><p class="mono">2018: 706 ÷ 11.885 = <b class="k">5,9%</b></p><p class="mono small">2016: 1.123 ÷ 8.351 = 13,4%</p></div>
+  </div>
+  <div class="card"><h4>R&amp;D ÷ revenue per industri (≈ dari Exhibit 5.2)</h4>
+    <div class="bars">
+      <div class="bar"><span class="lab">Chemicals</span><span class="tr"><span class="fill" style="--w:9%"></span></span><span class="v">≈1,5%</span></div>
+      <div class="bar"><span class="lab">Machinery</span><span class="tr"><span class="fill" style="--w:11%"></span></span><span class="v">≈1,8%</span></div>
+      <div class="bar"><span class="lab">Software &amp; services</span><span class="tr"><span class="fill" style="--w:33%"></span></span><span class="v">≈5,5%</span></div>
+      <div class="bar"><span class="lab">Tech hardware</span><span class="tr"><span class="fill" style="--w:55%"></span></span><span class="v">≈9%</span></div>
+      <div class="bar"><span class="lab">Pharma &amp; biotech</span><span class="tr"><span class="fill" style="--w:83%"></span></span><span class="v">≈14%</span></div>
+      <div class="bar"><span class="lab">Semiconductors</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">≈16,5%</span></div>
+    </div>
+    <p class="small muted">Makin besar kebutuhan inovasi, makin besar investasi R&amp;D.</p></div>
+  <div class="grid" style="--min:260px">
+    <div class="card"><h4>Aturan R&amp;D: expensed as incurred</h4><p class="small">Gaji peneliti · bahan riset · lisensi · pembayaran ke kolaborator/universitas · peralatan lab · depresiasi fasilitas riset (fasilitas di PPE, depresiasinya dibebankan ke R&amp;D).</p></div>
+    <div class="card"><h4>TCJA 2017</h4><p class="small">Tarif pajak korporasi AS <b>35% → 21%</b>; pajak atas laba luar negeri; tarif repatriasi khusus <b>15,5%</b>. Pfizer 2017 dapat tax benefit $9.049 jt.</p></div>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Komponen beban (Pfizer)</th><th>Isi</th></tr></thead><tbody>
+    <tr><td>COGS</td><td>Beban langsung produk yang dijual → gross profit</td></tr>
+    <tr><td>SG&amp;A</td><td>Gaji manajemen, sewa, utilitas, pemasaran, IT, hukum, depresiasi kantor</td></tr>
+    <tr><td>R&amp;D</td><td>Eksperimen &amp; pengujian produk baru</td></tr>
+    <tr><td>Amortisasi intangible</td><td>Alokasi non-kas paten/lisensi (masuk SG&amp;A)</td></tr>
+    <tr><td>Restrukturisasi</td><td>Eliminasi lini bisnis, konsolidasi, pesangon</td></tr>
+    <tr><td>Provision for taxes</td><td>Pajak penghasilan badan</td></tr>
+    <tr><td>Discontinued ops</td><td>Hasil &amp; gain/loss segmen dihentikan (mis. Zoetis)</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="sec" id="disc">
+  <div class="sec-head"><div class="t"><span class="lo">Transitory items</span><h2>Discontinued Ops &amp; <span class="acc">Pro Forma</span></h2></div><button class="done" data-done="k3-disc"></button></div>
+  <div class="formula"><span class="n">Net income</span><span class="op">=</span><span>Income from continuing ops</span><span class="op">+</span><span>Discontinued ops</span></div>
+  <div class="grid" style="--min:260px">
+    <div class="card"><h4>Pfizer 2018</h4><p class="mono">11.179 + 10 = <b class="k">11.189</b></p></div>
+    <div class="card"><h4>Pfizer 2013 (Zoetis)</h4><p class="mono small">Laba operasi segmen 308 + gain penjualan 10.354 = <b class="k">10.662</b></p></div>
+    <div class="card"><h4>Syarat</h4><p class="small">Komponen: (1) laba/rugi operasi segmen setelah pajak, (2) gain/loss pelepasan setelah pajak. Harus mencerminkan <b>strategic shift</b>.</p></div>
+  </div>
+  <div class="grid" style="--min:280px">
+    <div class="card"><div class="card-h">Pro forma (non-GAAP)</div><p class="small">Laba yang disesuaikan manajemen: mengecualikan biaya akuisisi, restrukturisasi, disc. ops. SEC (<b>Regulation G</b>) mewajibkan rekonsiliasi ke GAAP.</p><p class="small"><b>Investor:</b> bandingkan dengan GAAP, pahami pos yang dikeluarkan, ingat ini interpretasi manajemen.</p></div>
+    <div class="card"><div class="card-h">Disclosures &amp; market assessments</div><ul class="small"><li>Cek laporan auditor &amp; penyimpangan opini standar</li><li>Tinjau &amp; bandingkan kebijakan akuntansi</li><li>Identifikasi perubahan kebijakan &amp; dampaknya</li><li>Bandingkan rasio lintas waktu &amp; kompetitor</li><li>Pisahkan pos nonrecurring</li><li>Recast laporan bila perlu</li></ul></div>
+  </div>
+</section>
+
+<section class="sec" id="global">
+  <div class="sec-head"><div class="t"><span class="lo">Global reports</span><h2>US GAAP <span class="acc">vs IFRS</span></h2></div><button class="done" data-done="k3-global"></button></div>
+  <div class="tbl"><table><thead><tr><th>Topik</th><th>US GAAP</th><th>IFRS</th></tr></thead><tbody>
+    <tr><td>Revenue (ASC 606 / IFRS 15)</td><td colspan="2">Hampir identik; sebagian besar perbedaan sudah dihapus</td></tr>
+    <tr><td>Piutang</td><td>—</td><td>Aset keuangan; didiskonto ke NPV bila material → memengaruhi AR turnover &amp; current ratio</td></tr>
+    <tr><td>Research cost</td><td>Dibebankan</td><td>Dibebankan</td></tr>
+    <tr class="hl"><td>Development cost</td><td>Dibebankan</td><td><b>Dikapitalisasi</b> jika 6 kriteria terpenuhi → intangible lebih besar</td></tr>
+  </tbody></table></div>
+  <p class="small"><b>6 kriteria IFRS:</b> <span class="pill k">kelayakan teknis</span> <span class="pill k">niat menyelesaikan</span> <span class="pill k">mampu memakai/menjual</span> <span class="pill k">manfaat ekonomi masa depan</span> <span class="pill k">sumber daya tersedia</span> <span class="pill k">biaya terukur andal</span></p>
+</section>
+
+<section class="sec" id="qna">
+  <div class="sec-head"><div class="t"><span class="lo">Pertanyaan dan Jawaban</span><h2>Q&amp;A <span class="acc">presentasi</span></h2></div><button class="done" data-done="k3-qna"></button></div>
+  <div>
+    <details class="qa"><summary><span>Bagaimana jika estimasi retur jauh berbeda dari aktual?<span class="who">Fikri Sekar Ajeng</span></span></summary><div class="ans"><p>Sesuaikan estimasi &amp; akun terkait (refund liability, revenue, aset hak pemulihan). Estimasi 5% tapi aktual 10% → revenue &amp; laba turun. Aktual lebih rendah → revenue &amp; laba naik. Estimasi harus terus diperbarui.</p></div></details>
+    <details class="qa"><summary><span>Revenue naik tapi DSO juga naik: masih sehat? Ekspansi vs kredit terlalu longgar?<span class="who">Dhiah Rahmawati</span></span></summary><div class="ans"><p>Belum tentu sehat: piutang tumbuh lebih cepat dari revenue, untung tapi kas tertekan. Cek:</p><div class="flow small"><span class="step">Piutang vs revenue growth</span><span class="step">Sumber pertumbuhan</span><span class="step">Kebijakan kredit</span><span class="step">Aging piutang</span><span class="step">Banding industri</span></div></div></details>
+    <details class="qa"><summary><span>Revenue naik &amp; allowance/pro forma berubah: bisnis nyata atau earnings management?<span class="who">Aprilia Reikha</span></span></summary><div class="ans"><p>Cross-check terkuat: bandingkan revenue dengan <b>cash flow</b> &amp; <b>kualitas piutang</b>, lalu konsistensi estimasi vs aktual. Red flag: AR naik jauh lebih cepat, DSO naik, allowance tidak ikut naik; biaya "one-time" muncul berulang.</p></div></details>
+    <details class="qa"><summary><span>Pfizer menaikkan R&amp;D saat revenue turun. Skeptis karena ROE turun, atau optimis?<span class="who">I Dewa Gede</span></span></summary><div class="ans"><ul><li>R&amp;D expensed as incurred → NI, NPM, ROE tertekan: <b>distorsi konservatisme</b>, bukan kehancuran nilai.</li><li>Memangkas riset justru red flag (patent cliff). Pasar memperhitungkan arus kas masa depan → market-to-book &gt; 1.</li><li>Uji: <b>pipeline</b> obat &amp; uji klinis, <b>jadwal kedaluwarsa paten</b>, <b>disiplin capital budgeting R&amp;D</b> (kecepatan, hentikan proyek gagal, kolaborasi).</li></ul></div></details>
+    <details class="qa"><summary><span>(1) Revenue riil vs timing? (2) Indikator allowance agresif? (3) Kapan non-recurring pro forma tidak wajar?<span class="who">Adro Mediantoro</span></span></summary><div class="ans">
+      <p><b>1.</b> Bandingkan revenue vs cash flow · pola piutang (DSO, aging) · retur &amp; credit notes · perubahan kebijakan/estimasi · organik vs timing (volume, harga, insentif) · gross margin · subsequent-period analysis.</p>
+      <p><b>2.</b> Rasio cadangan vs piutang kotor · DSO &amp; aging &gt;90 hari · cadangan vs write-off aktual · banding industri · timing saat mengejar target laba.</p>
+      <p><b>3.</b> Tak wajar jika biaya "satu kali" muncul tiap tahun, menghapus jejak keputusan buruk, atau metrik kreatif mengubah rugi jadi laba (WeWork community-adjusted EBITDA, Uber core-platform contribution margin).</p></div></details>
+  </div>
+</section>
+
+<section class="sec" id="kuis">
+  <div class="sec-head"><div class="t"><span class="lo">Latihan</span><h2>Kuis <span class="acc">K3</span></h2></div><button class="done" data-done="k3-kuis"></button></div>
+  <div class="quiz" data-quiz="k3"></div>
+</section>
+
+<nav class="pager" data-auto aria-label="Navigasi bab"></nav>
+<footer class="foot">Disusun dari presentasi Kelompok 3 · Analisis Laporan Keuangan 2026/2027.</footer>
+</main>
+
+<script src="assets/quiz-data.js?v=5"></script>
+<script src="assets/app.js?v=5"></script>
+<script>
+(function(){
+  var A=window.ALK,$=A.$,fmt=A.fmt;
+  function ltc(){var c=+$('#cost').value,p=c/7.5,r=p*10;$('#costO').textContent='$'+fmt(c,1)+' jt';$('#progI').style.width=(p*100)+'%';$('#progS').textContent=fmt(p*100,0)+'% complete';
+    $('#revO').textContent='$'+fmt(r,2)+' jt';$('#gpO').textContent='Gross profit kumulatif = $'+fmt(r,2)+' − $'+fmt(c,1)+' = $'+fmt(r-c,2)+' jt';}
+  $('#cost').addEventListener('input',ltc);A.seg($('#ltcPre'),function(v){$('#cost').value=v;ltc();});
+
+  function levi(){var p=+$('#ret').value/100,al=130*p,cg=al*80/130;$('#retO').textContent=fmt(p*100,1)+'%';
+    $('#levi').innerHTML='<b class="small">Revenue &amp; AR</b><div class="ln"><span>Allowance retur ('+fmt(p*100,1)+'% × $130)</span><b class="n bad">−$'+fmt(al,2)+'</b></div><div class="ln"><span>Revenue / AR bersih</span><b class="n">$'+fmt(130-al,2)+'</b></div><div class="ln"><span>Net income &amp; RE</span><b class="n bad">−$'+fmt(al,2)+'</b></div>';
+    $('#levi2').innerHTML='<b class="small">COGS &amp; Inventory</b><div class="ln"><span>Rasio cost/harga = 80/130</span><b class="n">61,54%</b></div><div class="ln"><span>COGS terkait retur (×61,54%)</span><b class="n good">−$'+fmt(cg,2)+'</b></div><div class="ln"><span>COGS menjadi</span><b class="n">$'+fmt(80-cg,2)+'</b></div><div class="ln"><span>Inventory kembali / RE</span><b class="n good">+$'+fmt(cg,2)+'</b></div>';}
+  $('#ret').addEventListener('input',levi);levi();
+
+  function fx(){var r=+$('#rate').value,v=100*r;$('#rateO').textContent=fmt(r,2);$('#fxO').textContent='$'+fmt(v,0)+' juta';var d=v-100;
+    $('#fxN').innerHTML=d===0?'Tidak ada efek kurs.':(d>0?'<b class="good">+$'+fmt(d,0)+' jt</b> murni translation effect, bukan penjualan baru.':'<b class="bad">−$'+fmt(-d,0)+' jt</b> murni translation effect.');}
+  $('#rate').addEventListener('input',fx);fx();
+
+  A.seg($('#woSeg'),function(v){var w=v==='1';var d=[['Gross AR',w?99500:100000],['Allowance',w?2400:2900],['Net AR',97100],['Laba bersih','tetap']];
+    $('#woOut').innerHTML=d.map(function(x){return '<div class="out"><span class="cap">'+x[0]+'</span><span class="big" style="font-size:22px">'+(typeof x[1]==='number'?fmt(x[1]):x[1])+'</span></div>';}).join('');});
+})();
+</script>
+</body>
+</html>

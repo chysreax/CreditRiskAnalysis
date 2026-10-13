@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Credit Risk Analysis · ALK</title>
+<meta name="description" content="Rangkuman visual materi Kelompok 2: Credit Risk Analysis and Interpretation.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=5">
+<style>
+  .ladder{display:grid;gap:4px}
+  .rung{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.6fr);gap:6px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer;background:var(--surface);font:500 13.5px var(--f-body);color:var(--ink);text-align:left}
+  .rung .m{font-family:var(--f-mono);font-weight:600}
+  .rung.ig{border-left:5px solid var(--good)} .rung.jk{border-left:5px solid var(--bad)}
+  .rung[aria-pressed="true"]{outline:2px solid var(--k);background:var(--k-soft)}
+  .rung-line{text-align:center;font:700 11.5px var(--f-mono);letter-spacing:.06em;color:var(--hl-ink);background:var(--hl-soft);border-radius:8px;padding:5px}
+  .rung-head{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.6fr);gap:6px;padding:0 11px;font:700 12px var(--f-mono);color:var(--muted)}
+  @media (max-width:560px){.rung,.rung-head{grid-template-columns:repeat(3,minmax(0,1fr))}.rung .d,.rung-head .d{display:none}}
+  .zbar{position:relative;height:46px;border-radius:12px;display:grid;grid-template-columns:40fr 26.7fr 33.3fr;overflow:hidden;font:700 12.5px var(--f-body)}
+  .zbar div{display:grid;place-items:center;text-align:center;line-height:1.15}
+  .zd{background:var(--bad-soft);color:var(--bad)} .zg{background:var(--mid-soft);color:var(--mid)} .zs{background:var(--good-soft);color:var(--good)}
+  .needle{position:relative;height:22px}
+  .needle i{position:absolute;top:0;width:3px;height:22px;background:var(--ink);border-radius:2px;transform:translateX(-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+  .needle i::before{content:"";position:absolute;left:50%;top:-6px;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:var(--ink);border-top:0}
+  .ticks{position:relative;height:16px;font:500 12px var(--f-mono);color:var(--muted)}
+  .ticks span{position:absolute;transform:translateX(-50%)}
+  .stack{display:flex;height:42px;border-radius:10px;overflow:hidden;font:600 12px var(--f-mono)}
+  .stack>div{display:grid;place-items:center;color:#fff;min-width:0;overflow:hidden;white-space:nowrap;transition:flex-basis .6s}
+  .claim{display:grid;grid-template-columns:28px minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:14px}
+  .claim .no{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:700 12px var(--f-mono);color:#fff}
+  .claim .tr{height:12px;border-radius:6px;background:var(--surface-2);overflow:hidden;margin-top:4px}
+  .claim .tr i{display:block;height:100%;background:var(--good);transition:width .5s}
+  .claim .rec{font:600 13px var(--f-mono);text-align:right}
+  .force{display:grid;gap:4px}
+  .force .lv{display:flex;gap:3px}
+  .force .lv i{flex:1;height:8px;border-radius:4px;background:var(--surface-2)}
+  .force .lv i.on{background:var(--k)}
+</style>
+</head>
+<body class="k2" data-page="k2">
+<header class="site"></header>
+<nav class="toc" aria-label="Isi halaman"><div class="row">
+  <a href="#pasar">1 · Pasar Kredit</a><a href="#analis">2 · Siapa Analisnya</a><a href="#cd">3 · Chance of Default</a><a href="#lgd">4 · Loss Given Default</a><a href="#adjust">5 · Adjust Data</a><a href="#profit">6 · Profitability</a><a href="#coverage">7 · Coverage</a><a href="#likuid">8 · Liquidity</a><a href="#solv">9 · Solvency</a><a href="#rating">10 · Credit Rating</a><a href="#zscore">11 · Kebangkrutan</a><a href="#qna">Q&amp;A</a><a href="#kuis">Kuis</a>
+</div></nav>
+
+<main class="wrap">
+<section class="hero">
+  <div class="deck-nav" aria-hidden="true"><span class="on">Market for Credit</span><span>Credit Risk Analysis</span><span>Measuring Credit Risk</span><span>Credit Ratings</span><span>Predicting Bankruptcy Risk</span></div>
+  <div class="hero-tag"><span class="lo">Kelompok 2 · 14 September 2026</span></div>
+  <h1>Credit Risk Analysis &amp; Interpretation</h1>
+  <p class="hero-sub">Kreditor menanyakan dua hal: seberapa mungkin peminjam gagal bayar, dan kalau gagal, berapa yang hilang.</p>
+  <div class="formula" style="font-size:clamp(14px,2.4vw,19px)"><span class="n">Expected Credit Loss</span><span class="op">=</span><span>Chance of Default</span><span class="op">×</span><span>Loss Given Default</span></div>
+  <div class="hero-meta"><span>Dinda Fauziatul Huda · Diva Maliha Audrey · Fikri Sekar Ajeng · Nabila Putri Pramesti</span><span>Studi kasus: Home Depot FY2019</span></div>
+</section>
+
+<!-- 1 -->
+<section class="sec" id="pasar">
+  <div class="sec-head"><div class="t"><span class="lo">Market for Credit</span><h2>Siapa butuh kredit, siapa yang memberi?</h2></div><button class="done" data-done="k2-pasar"></button></div>
+  <div class="sub">
+    <h3>Demand: perusahaan meminjam untuk 3 aktivitas</h3>
+    <div class="grid" style="--min:250px">
+      <div class="card"><div class="card-h">Operating</div>
+        <div class="flow"><span class="step">Kas musiman / siklus</span><span class="pill good">risiko rendah</span></div>
+        <p class="small muted">Bayar supplier dulu sebelum kas penjualan masuk (mis. menumpuk persediaan).</p>
+        <div class="flow"><span class="step">Menutup rugi operasi berulang</span><span class="pill bad">risiko tinggi</span></div>
+      </div>
+      <div class="card"><div class="card-h">Investing</div><p>CAPEX besar (equipment, properti), cabang baru, akuisisi.</p><p class="small muted">Krusial di fase <b>start-up &amp; growth</b>.</p></div>
+      <div class="card"><div class="card-h">Financing</div><p><b>Refinancing</b> utang jatuh tempo atau <b>share buyback</b>.</p><p class="small muted">Terutama saat suku bunga rendah.</p></div>
+    </div>
+  </div>
+  <div class="sub">
+    <h3>Supply: dari operating &amp; non-operating lenders</h3>
+    <div class="grid" style="--min:220px">
+      <div class="card soft"><h4>Trade Credit</h4><ul class="small"><li>Rutin dari supplier</li><li><b>Tanpa bunga</b></li><li>Berdasar riwayat kredit</li></ul></div>
+      <div class="card soft"><h4>Bank Loans</h4><p class="small">Diatur ketat regulator.</p><p class="small"><span class="pill k">Revolver</span> <span class="pill k">Line of credit</span> <span class="pill k">Letter of credit</span> <span class="pill k">Term loan</span> <span class="pill k">Mortgage</span></p></div>
+      <div class="card soft"><h4>Nonbank &amp; Lease</h4><p class="small"><b>Nonbank:</b> privat, fleksibel, risiko lebih tinggi.</p><p class="small"><b>Lease:</b> asetnya sendiri jadi jaminan.</p></div>
+      <div class="card soft"><h4>Publicly Traded Debt</h4><p class="small">Diawasi SEC.</p><p class="small"><b>Pendek:</b> commercial paper (&lt; 270 hari) · <b>Panjang:</b> corporate bonds</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="sec" id="analis">
+  <div class="sec-head"><div class="t"><span class="lo">Credit Risk Analysis</span><h2>Siapa yang menganalisis risiko kredit?</h2></div><button class="done" data-done="k2-analis"></button></div>
+  <p class="def"><b>Credit risk</b> = risiko peminjam gagal memenuhi kewajibannya. Tujuan analisis: menilai <b>CD</b> &amp; <b>LGD</b> untuk menentukan <b>kelayakan</b> dan <b>syarat</b> kredit.</p>
+  <div class="bars" aria-label="Luas informasi tiap analis">
+    <div class="bar"><span class="lab"><b>Public Debt Investors</b> · info publik (annual report, earnings announcement, rating)</span><span class="tr"><span class="fill" style="--w:25%"></span></span><span class="v">terbatas</span></div>
+    <div class="bar"><span class="lab"><b>Trade Creditors</b> · credit application, trade &amp; bank references, riwayat bayar; perhatikan kondisi industri</span><span class="tr"><span class="fill" style="--w:48%"></span></span><span class="v">sedang</span></div>
+    <div class="bar"><span class="lab"><b>Financial Institutions</b> · info privat, pantau rekening, ubah terms</span><span class="tr"><span class="fill" style="--w:74%"></span></span><span class="v">luas</span></div>
+    <div class="bar"><span class="lab"><b>Credit Rating Agencies</b> · interaksi langsung dengan manajemen</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">paling luas</span></div>
+  </div>
+  <p class="callout k"><span class="lbl">Inti</span>Makin luas &amp; berkualitas informasinya, makin akurat penilaian risiko dan makin tepat keputusan kreditnya.</p>
+</section>
+
+<!-- 3 -->
+<section class="sec" id="cd">
+  <div class="sec-head"><div class="t"><span class="lo">Chance of Default</span><h2>CD: 4 langkah menilai peluang gagal bayar</h2></div><button class="done" data-done="k2-cd"></button></div>
+  <p class="sec-lead">CD = probabilitas perusahaan tidak mampu memenuhi kewajiban utangnya.</p>
+  <ol class="steps">
+    <li><h4>Nature &amp; purpose of the loan</h4><p class="small">Kenapa butuh dana &amp; dipakai untuk apa → menentukan risiko &amp; kedalaman analisis.</p></li>
+    <li><h4>Makroekonomi &amp; industri</h4><p class="small">Ekonomi global, regulasi, borrowing agreements, governance → Porter's Five Forces.</p></li>
+    <li><h4>Financial ratios</h4><p class="small">Profitability, coverage, liquidity, solvency → kekuatan <b>saat ini</b>.</p></li>
+    <li><h4>Prospective analysis</h4><p class="small">Proyeksi &amp; skenario → mampu bayar di <b>masa depan</b>?</p></li>
+  </ol>
+  <div class="grid" style="--min:300px">
+    <div class="card"><h4>Langkah 1 · contoh</h4>
+      <div class="flow"><span class="step">Dana untuk <i>ongoing operations</i></span><span class="pill bad">↑ risk</span></div>
+      <div class="flow"><span class="step">Ekspansi ke pasar baru yang profitable</span><span class="pill good">↓ risk</span></div>
+      <p class="small muted">Trade creditor tak sedalam mortgage lender, meski rasio yang dipakai bisa sama.</p>
+    </div>
+    <div class="card"><h4>Langkah 4 · alur prospective analysis</h4>
+      <div class="flow small"><span class="step">Historical</span><span class="arr">→</span><span class="step">Current</span><span class="arr">→</span><span class="step">Projected CF</span><span class="arr">→</span><span class="step">Projected ratios</span><span class="arr">→</span><span class="step on">Repayment capacity</span></div>
+      <p class="small">Skenario <b>best / base / worst</b>, lalu hitung ulang rasio. Kas masa depan harus cukup bayar pokok &amp; bunga sepanjang masa pinjaman.</p>
+    </div>
+  </div>
+  <div class="sub">
+    <h3>Langkah 2 · Porter's Five Forces Home Depot</h3>
+    <div class="grid" style="--min:180px" id="forces"></div>
+    <p class="callout k"><span class="lbl">Kesimpulan HD</span>Kompetisi ketat, <b>tetapi</b> supplier power rendah &amp; barriers to entry kuat → jangka pendek cukup profitable → <b>CD relatif rendah</b>.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="sec" id="lgd">
+  <div class="sec-head"><div class="t"><span class="lo">Loss Given Default</span><h2>LGD: kalau default, siapa dibayar duluan?</h2></div><button class="done" data-done="k2-lgd"></button></div>
+  <p class="sec-lead">LGD = persentase eksposur yang <b>tidak bisa dipulihkan</b> setelah memperhitungkan nilai likuidasi aset &amp; prioritas klaim.</p>
+  <div class="widget">
+    <div class="w-title">Coba sendiri: geser nilai aset yang tersisa saat likuidasi</div>
+    <div class="ctrl"><label for="assetLeft">Aset tersisa (angka ilustrasi, total klaim 1.000) <output id="assetOut">500</output></label><input type="range" id="assetLeft" min="0" max="1000" step="10" value="500"></div>
+    <div id="claims" style="display:grid;gap:10px"></div>
+    <p class="small muted">Klaim senior dibayar penuh lebih dulu; sisa baru mengalir ke bawah. Makin junior, makin besar LGD.</p>
+  </div>
+  <div class="sub">
+    <h3>4 credit terms untuk menekan LGD</h3>
+    <div class="flips">
+      <button class="flip"><span class="flip-in"><span class="face front"><h4>Credit Limits</h4><span class="small">Batas maksimum utang</span><span class="hint">ketuk untuk detail</span></span><span class="face back">Dari pengalaman lender + analisis perusahaan. <b>Pelanggan baru limitnya lebih rendah.</b></span></span></button>
+      <button class="flip"><span class="flip-in"><span class="face front"><h4>Collateral</h4><span class="small">Aset jaminan pelunasan</span><span class="hint">ketuk untuk detail</span></span><span class="face back">Real estate, surat berharga, piutang, persediaan. Cek <b>existing liens</b>. Fair value jaminan membatasi recovery.</span></span></button>
+      <button class="flip"><span class="flip-in"><span class="face front"><h4>Repayment Terms</h4><span class="small">Tenor ↔ umur aset &amp; arus kas</span><span class="hint">ketuk untuk detail</span></span><span class="face back">Aset jangka panjang → utang jangka panjang; modal kerja musiman → utang pendek. <b>Tenor lebih panjang = risiko default lebih tinggi.</b></span></span></button>
+      <button class="flip"><span class="flip-in"><span class="face front"><h4>Covenants</h4><span class="small">Pengawasan setelah loan cair</span><span class="hint">ketuk untuk detail</span></span><span class="face back">Wajibkan/larang tindakan, syarat rasio (min. current/quick, ROA/ROE; maks. D/E, D/A). <b>Dilanggar → repricing / repayment.</b></span></span></button>
+    </div>
+  </div>
+  <div class="widget">
+    <div class="w-title">Kalkulator Expected Credit Loss</div>
+    <div class="w-grid">
+      <div style="display:grid;gap:10px">
+        <div class="ctrl"><label for="ex">Eksposur (Rp juta) <output id="exO">1.000</output></label><input type="range" id="ex" min="100" max="5000" step="100" value="1000"></div>
+        <div class="ctrl"><label for="cdI">Chance of Default <output id="cdO">5%</output></label><input type="range" id="cdI" min="0" max="50" step="1" value="5"></div>
+        <div class="ctrl"><label for="lgdI">Loss Given Default <output id="lgdO">40%</output></label><input type="range" id="lgdI" min="0" max="100" step="5" value="40"></div>
+      </div>
+      <div class="out"><span class="cap">Expected Credit Loss</span><span class="big" id="eclO">Rp20 jt</span><span class="cap" id="eclC">= 1.000 × 5% × 40%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="sec" id="adjust">
+  <div class="sec-head"><div class="t"><span class="lo">Measuring Credit Risk</span><h2>Langkah 0: bersihkan data Home Depot</h2></div><button class="done" data-done="k2-adjust"></button></div>
+  <div class="vs">
+    <div class="card t-bad"><h4>Angka mentah (as reported)</h4><p class="small">Tahun fiskal berakhir 3 Feb 2019 berisi <b>53 minggu</b>. Pertumbuhan terlihat lebih tinggi dari aslinya.</p></div>
+    <span class="mid">FILTER →</span>
+    <div class="card t-good"><h4>Tindakan analis (as adjusted)</h4><p class="small">Penjualan &amp; biaya variabel (COGS, SG&amp;A) × <b>52/53</b>. Biaya tetap (bunga, depresiasi) <b>tidak</b>. Net sales $108.203 → <b>$106.161</b>.</p></div>
+  </div>
+  <p class="small muted">Dashboard kredit HD juga menyesuaikan operating leases &amp; pos tak biasa: EBIT/bunga 15,1× (reported) → 11,1× (adjusted).</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Data HD (juta $)</th><th class="n">Nilai</th><th>Data HD (juta $)</th><th class="n">Nilai</th></tr></thead>
+    <tbody>
+      <tr><td>Kas</td><td class="n">1.778</td><td>Total liabilitas lancar</td><td class="n">16.716</td></tr>
+      <tr><td>Piutang</td><td class="n">1.936</td><td>Short-term debt</td><td class="n">1.339</td></tr>
+      <tr><td>Persediaan</td><td class="n">13.925</td><td>Current LT debt</td><td class="n">1.056</td></tr>
+      <tr><td>Total aset lancar</td><td class="n">18.529</td><td>Long-term debt</td><td class="n">26.807</td></tr>
+      <tr><td>EBIT</td><td class="n">15.196</td><td>Interest expense</td><td class="n">1.051</td></tr>
+      <tr><td>D&amp;A</td><td class="n">2.152</td><td>CFO / CAPEX</td><td class="n">12.792 / 2.442</td></tr>
+      <tr class="hl"><td>Treasury stock</td><td class="n bad">(58.196)</td><td>Total ekuitas</td><td class="n bad">(1.878)</td></tr>
+    </tbody></table></div>
+  <p class="callout"><span class="lbl">Kunci hemat hafalan</span>Profitability, coverage, liquidity: makin <b>tinggi</b> makin <b>aman</b>. Solvency (utang ÷ ekuitas): makin <b>tinggi</b> makin <b>berisiko</b>.</p>
+</section>
+
+<!-- 6 -->
+<section class="sec" id="profit">
+  <div class="sec-head"><div class="t"><span class="lo">1 · Profitability</span><h2>Profit = sumber kas untuk bayar utang</h2></div><button class="done" data-done="k2-profit"></button></div>
+  <div class="flow"><span class="step">Margin operasi tinggi</span><span class="arr">→</span><span class="step">Kas internal melimpah</span><span class="arr">→</span><span class="step">Bunga &amp; pokok ter-cover</span><span class="arr">→</span><span class="step on">Risiko default rendah</span></div>
+  <p class="small muted">S&amp;P: margin &amp; return tinggi → bisa bentuk modal sendiri, tarik modal luar, dan tahan krisis.</p>
+  <div class="formula"><span class="n">ROE</span><span class="op">=</span><span class="frac"><span>Net income</span><span>Avg total assets</span></span><span class="op">×</span><span class="frac"><span>Avg total assets</span><span>Avg equity</span></span><span class="op">=</span><span>ROA × Financial Leverage</span></div>
+  <div class="widget">
+    <div class="w-title">Bandingkan: angka mentah vs setelah add back treasury stock</div>
+    <div class="seg" id="roeSeg"><button data-v="rep" aria-pressed="true">As reported</button><button data-v="adj">Adjusted</button></div>
+    <div class="tbl fit"><table><thead><tr><th>Rasio</th><th class="n">2019</th><th class="n">2018</th><th class="n">2017</th></tr></thead><tbody id="roeT"></tbody></table></div>
+    <p class="small" id="roeNote"></p>
+  </div>
+  <div class="grid" style="--min:280px">
+    <div class="card t-bad"><h4>Kenapa ROE −5.125,5%?</h4><div class="flow small"><span class="step">Buyback besar</span><span class="arr">→</span><span class="step">Treasury stock $58.196</span><span class="arr">→</span><span class="step">Ekuitas −$1.878</span><span class="arr">→</span><span class="step">Rasio tak bisa ditafsirkan</span></div></div>
+    <div class="card t-good"><h4>Solusi: Restated ROE</h4><p class="small">Saldo treasury stock <b>ditambahkan kembali</b> ke <b>ekuitas</b> dan <b>total aset</b>. ROE stabil 18–21%, ROA naik 9,8% → 11,1%, leverage &lt; 2,0.</p></div>
+  </div>
+  <div class="sub">
+    <h3>Lanjutan: RNOA = NOPM × NOAT</h3>
+    <div class="formula"><span class="n">RNOA</span><span class="op">=</span><span class="frac"><span>NOPAT</span><span>Avg NOA</span></span><span class="op">=</span><span class="frac"><span>NOPAT</span><span>Sales</span></span><span class="op">×</span><span class="frac"><span>Sales</span><span>Avg NOA</span></span></div>
+    <div class="grid" style="--min:200px">
+      <div class="card"><span class="small muted">RNOA · earning power</span><div class="bars"><div class="bar"><span class="lab">2017</span><span class="tr"><span class="fill" style="--w:73%"></span></span><span class="v">33,7%</span></div><div class="bar"><span class="lab">2018</span><span class="tr"><span class="fill" style="--w:80%"></span></span><span class="v">36,8%</span></div><div class="bar"><span class="lab">2019</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">46,1%</span></div></div></div>
+      <div class="card"><span class="small muted">NOPM · efisiensi biaya</span><div class="bars"><div class="bar"><span class="lab">2017</span><span class="tr"><span class="fill" style="--w:82%"></span></span><span class="v">9,0%</span></div><div class="bar"><span class="lab">2018</span><span class="tr"><span class="fill" style="--w:84%"></span></span><span class="v">9,2%</span></div><div class="bar"><span class="lab">2019</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">11,0%</span></div></div></div>
+      <div class="card"><span class="small muted">NOAT · produktivitas aset</span><div class="bars"><div class="bar"><span class="lab">2017</span><span class="tr"><span class="fill" style="--w:89%"></span></span><span class="v">3,73×</span></div><div class="bar"><span class="lab">2018</span><span class="tr"><span class="fill" style="--w:96%"></span></span><span class="v">4,01×</span></div><div class="bar"><span class="lab">2019</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">4,19×</span></div></div></div>
+    </div>
+    <p class="callout k"><span class="lbl">Kesimpulan</span>RNOA naik ke 46,1% karena <b>dua mesin sekaligus</b> (margin &amp; perputaran aset) → arus kas operasi kokoh → <b>risiko default rendah</b>.</p>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="sec" id="coverage">
+  <div class="sec-head"><div class="t"><span class="lo">2 · Coverage</span><h2>Seberapa kuat laba &amp; kas menutup utang?</h2></div><button class="done" data-done="k2-coverage"></button></div>
+  <div class="widget">
+    <div class="w-title">Kalkulator coverage (default: Home Depot 2019, juta $)</div>
+    <div class="w-grid">
+      <div class="grid" style="--min:130px">
+        <div class="ctrl"><label for="cEbit">EBIT</label><input type="number" id="cEbit" value="15196"></div>
+        <div class="ctrl"><label for="cInt">Gross interest</label><input type="number" id="cInt" value="1051"></div>
+        <div class="ctrl"><label for="cDa">D + A</label><input type="number" id="cDa" value="2152"></div>
+        <div class="ctrl"><label for="cCfo">CFO</label><input type="number" id="cCfo" value="12792"></div>
+        <div class="ctrl"><label for="cCap">CAPEX</label><input type="number" id="cCap" value="2442"></div>
+        <div class="ctrl"><label for="cDebt">Total debt (ST+LT)</label><input type="number" id="cDebt" value="29202"></div>
+      </div>
+      <div class="grid" style="--min:140px" id="covOut"></div>
+    </div>
+  </div>
+  <div class="grid" style="--min:240px">
+    <div class="card soft"><h4>Untuk <u>bunga</u></h4><p class="small"><b>TIE</b> = EBIT ÷ gross interest · <b>EBITDA coverage</b> = (EBIT + D + A) ÷ gross interest. D&amp;A ditambah kembali karena bukan kas keluar.</p></div>
+    <div class="card soft"><h4>Untuk <u>pokok</u></h4><p class="small"><b>CFO to debt</b> = CFO ÷ total debt · <b>Free OCF to debt</b> = (CFO − CAPEX) ÷ total debt. Rendah → bergantung refinancing.</p></div>
+  </div>
+  <p class="callout"><span class="lbl">Cara ingat</span>Penyebut <b>bunga</b> → pakai laba. Penyebut <b>total utang</b> → pakai kas. Total debt HD = 1.339 + 1.056 + 26.807 = <b>29.202</b>.</p>
+</section>
+
+<!-- 8 -->
+<section class="sec" id="likuid">
+  <div class="sec-head"><div class="t"><span class="lo">3 · Liquidity</span><h2>Ada kas untuk kewajiban jangka pendek?</h2></div><button class="done" data-done="k2-likuid"></button></div>
+  <p class="def"><b>Likuiditas</b> = kas yang dimiliki + kas yang bisa dihasilkan dalam waktu singkat.</p>
+  <div class="card">
+    <h4>Aset lancar Home Depot vs liabilitas lancar</h4>
+    <span class="small muted">Aset lancar $18.529</span>
+    <div class="stack" aria-label="Komposisi aset lancar">
+      <div style="flex-basis:9.6%;background:#1F7A4D" title="Kas 1.778">Kas</div>
+      <div style="flex-basis:10.4%;background:#2E9A62" title="Piutang 1.936">AR</div>
+      <div style="flex-basis:75.2%;background:#6D5BD0" title="Persediaan 13.925">Persediaan 13.925</div>
+      <div style="flex-basis:4.8%;background:#9AA3B5" title="Lainnya 890"></div>
+    </div>
+    <span class="small muted">Liabilitas lancar $16.716</span>
+    <div class="stack"><div style="flex-basis:90.2%;background:#1F3F7A">Liabilitas lancar 16.716</div><div style="flex-basis:9.8%;background:transparent"></div></div>
+    <p class="small">Hijau = <b>quick assets</b> (kas + piutang) hanya 3.714. Ungu = persediaan, yang tidak dihitung di quick ratio.</p>
+  </div>
+  <div class="grid" style="--min:280px">
+    <div class="card"><div class="card-h">Current Ratio</div><div class="formula"><span class="frac"><span>Current assets</span><span>Current liabilities</span></span><span class="op">=</span><span class="n">1,11×</span></div>
+      <p class="small"><b>&gt; 1</b> working capital positif · <b>&lt; 1</b> negatif. Terlalu tinggi = aset tak efisien; &lt; 1 tak selalu buruk.</p>
+      <p class="small muted">"Cukupkah <b>seluruh</b> aset lancar?"</p></div>
+    <div class="card"><div class="card-h">Quick Ratio</div><div class="formula"><span class="frac"><span>Kas + Marketable sec. + Piutang</span><span>Current liabilities</span></span><span class="op">=</span><span class="n">0,22×</span></div>
+      <p class="small">Bayar <b>tanpa menjual persediaan</b> (bisa kena markdown). Tidak termasuk: persediaan &amp; prepaid.</p>
+      <p class="small muted">"Tanpa persediaan, <b>masih cukup</b>?"</p></div>
+    <div class="card"><div class="card-h">Net Working Capital</div><div class="formula"><span>CA − CL</span><span class="op">=</span><span class="n">1.813</span></div><p class="small">NWC &gt; 0 → aset lancar lebih besar. NWC &lt; 0 → lebih kecil.</p></div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="sec" id="solv">
+  <div class="sec-head"><div class="t"><span class="lo">4 · Solvency</span><h2>Mampu memenuhi kewajiban jangka panjang?</h2></div><button class="done" data-done="k2-solv"></button></div>
+  <p class="callout bad"><span class="lbl">Arah terbalik</span>Untuk solvency, rasio <b>tinggi = kurang solven = lebih berisiko</b>.</p>
+  <div class="vs">
+    <div class="card"><div class="card-h">Liabilities-to-Equity</div><div class="formula"><span class="frac"><span>Total liabilities</span><span>Stockholders' equity</span></span></div>
+      <ul class="small"><li>Median perusahaan publik <b>sedikit &lt; 1,0</b> (separuh utang, separuh ekuitas)</li><li>Arus kas stabil (restoran, hotel, home improvement) → bisa utang lebih tinggi; ritel pakaian lebih rendah</li><li><b>Kelemahan:</b> mencampur utang finansial &amp; operasional</li></ul></div>
+    <span class="mid">VS</span>
+    <div class="card"><div class="card-h">Total Debt-to-Equity</div><div class="formula"><span class="frac"><span>LT debt (incl. current) + ST debt</span><span>Stockholders' equity</span></span></div>
+      <ul class="small"><li>Hanya <b>utang berbunga</b></li><li><b>Tidak masuk:</b> A/P, utang gaji, pajak terutang, utang operasional lain</li><li>Alasan: kewajiban operasional <b>self-liquidating</b></li></ul></div>
+  </div>
+  <p class="callout"><span class="lbl">Adjustment treasury stock</span>Ekuitas HD negatif (−$1.878) → rasio solvabilitas negatif. Analis <b>restate</b>: tambahkan kembali treasury stock ke ekuitas.</p>
+</section>
+
+<!-- 10 -->
+<section class="sec" id="rating">
+  <div class="sec-head"><div class="t"><span class="lo">Credit Ratings</span><h2>Rating: opini kelayakan kredit</h2></div><button class="done" data-done="k2-rating"></button></div>
+  <p class="def"><b>Credit rating</b> = opini atas kemampuan entitas memenuhi kewajiban saat jatuh tempo. Tujuannya menilai <b>kemungkinan</b> default dan <b>besar kerugian</b> jika default.</p>
+  <div class="grid" style="--min:240px">
+    <div class="card"><h4>Yang dipertimbangkan</h4><p class="small">Makroekonomi · industri · info spesifik perusahaan · data keuangan &amp; non-keuangan · rasio &amp; ketentuan kredit (collateral).</p></div>
+    <div class="card"><h4>Yang bisa diberi rating</h4><p class="small">Asset-backed securities · convertible bonds · short-term bonds · medium-term notes · preferred stock · derivative securities. Plus <b>issuer rating</b> (entitas).</p></div>
+    <div class="card"><h4>Agensi</h4><p class="small">Moody's · S&amp;P Global · Fitch · Pefindo</p></div>
+  </div>
+  <div class="widget">
+    <div class="w-title">Ketuk satu tingkat rating</div>
+    <div class="w-grid">
+      <div class="ladder" id="ladder"><div class="rung-head"><span>Moody's</span><span>S&amp;P</span><span>Fitch</span><span class="d">Deskripsi</span></div></div>
+      <div class="out" id="rateOut" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="grid" style="--min:280px">
+    <div class="card"><h4>Rating → cost of debt</h4>
+      <div class="formula l"><span class="n">Cost of debt</span><span class="op">=</span><span>Risk-free + Risk premium</span></div>
+      <div class="flow small"><span class="pill bad">Rating ↓</span><span class="arr">→</span><span>risk ↑</span><span class="arr">→</span><span>premium ↑</span><span class="arr">→</span><b class="bad">cost ↑</b></div>
+      <p class="small">Rating &amp; suku bunga <b>berbanding terbalik</b>. Dampak cost tinggi: beban bunga naik, proyek berkurang, pertumbuhan terhambat.</p></div>
+    <div class="card"><h4>Rating → keputusan investasi</h4><p class="small"><span class="pill good">Investment grade</span> kualitas kredit relatif tinggi.</p><p class="small"><span class="pill bad">Non-investment grade</span> speculative / junk. Banyak investor <b>tidak mau atau tidak boleh</b> membelinya.</p></div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="sec" id="zscore">
+  <div class="sec-head"><div class="t"><span class="lo">Predicting Bankruptcy Risk</span><h2>Altman Z-Score</h2></div><button class="done" data-done="k2-z"></button></div>
+  <div class="formula" style="font-size:clamp(15px,2.6vw,20px)"><span class="n">Z</span><span class="op">=</span><span>1,2X₁ + 1,4X₂ + <b>3,3X₃</b> + 0,6X₄ + 0,99X₅</span></div>
+  <div class="tbl"><table><thead><tr><th>X</th><th>Rasio</th><th>Mengukur</th><th class="n">Bobot</th></tr></thead><tbody>
+    <tr><td>X₁</td><td>Working capital ÷ Total aset</td><td>Likuiditas</td><td class="n">1,2</td></tr>
+    <tr><td>X₂</td><td>Retained earnings ÷ Total aset</td><td>Profit kumulatif &amp; umur</td><td class="n">1,4</td></tr>
+    <tr class="hl"><td>X₃</td><td>EBIT ÷ Total aset</td><td>Profitabilitas operasi</td><td class="n">3,3</td></tr>
+    <tr><td>X₄</td><td>Market value equity ÷ <b>Total liabilitas</b></td><td>Struktur modal &amp; leverage</td><td class="n">0,6</td></tr>
+    <tr><td>X₅</td><td>Sales ÷ Total aset</td><td>Perputaran aset</td><td class="n">0,99</td></tr>
+  </tbody></table></div>
+  <p class="callout"><span class="lbl">Cara ingat</span>Urutan: <b>likuiditas → umur → profit → utang → perputaran</b>. Semua dibagi total aset, kecuali X₄ (total liabilitas). Bobot terbesar X₃ = 3,3.</p>
+  <div class="widget">
+    <div class="w-title">Simulator Z-Score</div>
+    <div class="w-grid">
+      <div style="display:grid;gap:8px" id="zIn"></div>
+      <div style="display:grid;gap:8px">
+        <div class="out"><span class="cap">Skor Z</span><span class="big" id="zVal">–</span><span class="cap" id="zZone"></span></div>
+        <div class="zbar"><div class="zd">Distress<br>&lt; 1,80</div><div class="zg">Gray<br>1,80–2,99</div><div class="zs">Safe<br>&gt; 3,00</div></div>
+        <div class="needle"><i id="zNeedle" style="left:50%"></i></div>
+        <div class="ticks"><span style="left:40%">1,80</span><span style="left:66.7%">3,00</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="grid" style="--min:240px">
+    <div class="card"><h4>Akurasi</h4><p><span class="big">±95%</span> <span class="small muted">1 tahun sebelum bangkrut</span></p><p><span class="big" style="color:var(--mid)">±72%</span> <span class="small muted">2 tahun sebelum</span></p></div>
+    <div class="card t-bad"><h4>Type I · false negative</h4><p class="small">Model: <b>sehat</b> → kenyataan: <b>bangkrut</b>.</p><p class="small muted">Ingat: Type <b>I</b> = <b>I</b>lusi sehat.</p></div>
+    <div class="card t-mid"><h4>Type II · false positive</h4><p class="small">Model: <b>berisiko</b> → kenyataan: <b>bertahan</b>.</p><p class="small muted">Ingat: alarm palsu.</p></div>
+  </div>
+  <div class="grid" style="--min:280px">
+    <div class="card soft"><h4>ZETA Analysis</h4><p class="small">Z-Score + persistensi laba, interest coverage, current ratio, ukuran perusahaan. Akurat sampai <b>5 tahun</b> sebelumnya.</p></div>
+    <div class="card soft"><h4>Moody's KMV RiskCalc</h4><p class="small">Berbasis big data, khusus <b>perusahaan swasta</b>, pakai data lapkeu + penyesuaian credit cycle.</p></div>
+  </div>
+</section>
+
+<!-- Q&A -->
+<section class="sec" id="qna">
+  <div class="sec-head"><div class="t"><span class="lo">Diskusi kelas</span><h2>Q&amp;A presentasi</h2></div><button class="done" data-done="k2-qna"></button></div>
+  <div>
+    <details class="qa"><summary><span>Rasio itu backward-looking. Apakah analisis kredit "terlambat"?<span class="who">Bagus Budi Laksono</span></span></summary><div class="ans">
+      <p>Ya, lapkeu terbatas. Atasi dengan:</p>
+      <div class="flow small"><span class="step">Prospective analysis</span><span class="arr">+</span><span class="step">Analisis non-keuangan (Five Forces)</span><span class="arr">+</span><span class="step">Scenario best/base/worst</span></div>
+      <p class="callout k"><span class="lbl">Inti</span>Data historis = titik awal, bukan satu-satunya dasar keputusan.</p></div></details>
+    <details class="qa"><summary><span>TIE 14,5× &amp; EBITDA 16,5× kuat, tapi quick ratio 0,22. Mana yang lebih penting?<span class="who">Adro Mediantoro</span></span></summary><div class="ans">
+      <ul><li><b>Lihat yang diukur:</b> coverage = bayar bunga; quick = aset paling likuid.</li><li><b>Lihat sumber bayar:</b> dari kas operasi berulang → coverage penting; CFO-to-debt untuk pokok.</li><li><b>Lihat industri:</b> ritel persediaan besar → quick wajar rendah; bandingkan dengan benchmark.</li></ul>
+      <p class="callout k"><span class="lbl">Inti</span>Yang dinilai kombinasi semua indikator: apakah kas cukup &amp; berkelanjutan.</p></div></details>
+    <details class="qa"><summary><span>Prioritaskan profit jangka panjang atau kas jangka pendek? Add-back treasury stock menyesatkan?<span class="who">Aprilia Reikha Nurullita</span></span></summary><div class="ans">
+      <ul><li><b>Prioritas = kas.</b> Utang dibayar dengan kas, bukan laba akuntansi.</li><li>Quick rendah dilihat sesuai ritel; cek juga OCF, FCF, inventory turnover, CCC, jatuh tempo utang, interest coverage, akses credit facilities.</li><li>Cash flow = kemampuan bayar <b>sekarang</b>; profitability = <b>keberlanjutan</b>.</li><li>Adjusted equity <b>hanya untuk analisis</b> ROE, bukan sumber dana. Solvabilitas tetap pakai angka <b>aktual</b>.</li></ul></div></details>
+    <details class="qa"><summary><span>Debt-to-revenue Indonesia lewat batas untuk ratingnya. Agensi tidak kaku?<span class="who">Hasbie</span></span></summary><div class="ans">
+      <p><b>Bukan pengecualian.</b> Agensi pakai <b>weighted scorecard</b> → kompensasi risiko:</p>
+      <div class="tbl fit"><table><thead><tr><th>Kelemahan</th><th>Diimbangi</th></tr></thead><tbody><tr><td>Debt-to-revenue &amp; tax ratio lemah</td><td>Disiplin: defisit cepat kembali &lt; 3% PDB pasca-pandemi</td></tr><tr><td>Risiko kurs &amp; refinancing</td><td>Tenor diperpanjang, porsi Rupiah diperbesar</td></tr><tr><td>Postur utang</td><td>Pertumbuhan stabil ±5%</td></tr></tbody></table></div>
+      <p class="callout k"><span class="lbl">Inti</span>Menahan upgrade, tapi tidak otomatis downgrade.</p></div></details>
+  </div>
+</section>
+
+<section class="sec" id="kuis">
+  <div class="sec-head"><div class="t"><span class="lo">Latihan</span><h2>Kuis K2</h2></div><button class="done" data-done="k2-kuis"></button></div>
+  <div class="quiz" data-quiz="k2"></div>
+</section>
+
+<nav class="pager" data-auto aria-label="Navigasi bab"></nav>
+<footer class="foot">Disusun dari presentasi Kelompok 2 · Analisis Laporan Keuangan 2026/2027. Angka Home Depot dalam juta dolar AS.</footer>
+</main>
+
+<script src="assets/quiz-data.js?v=5"></script>
+<script src="assets/app.js?v=5"></script>
+<script>
+(function(){
+  var A=window.ALK, fmt=A.fmt, $=A.$;
+  /* Five forces */
+  var forces=[['Industry competition','Intense',5,'Margin tertekan, biaya naik, butuh aset lebih','bad'],['Buyer power','Medium',3,'Minta harga murah / bayar lambat → profit & kas tertekan','mid'],['Supplier power','Low',1,'Naikkan harga / minta bayar cepat','good'],['Threat of substitution','Medium',3,'Tekanan harga, profit turun','mid'],['Threat of entry','Medium–High',4,'Barriers to entry & economies of scale melindungi','mid']];
+  $('#forces').innerHTML=forces.map(function(f){var lv='';for(var i=1;i<=5;i++)lv+='<i class="'+(i<=f[2]?'on':'')+'"></i>';return '<div class="card force"><h4>'+f[0]+'</h4><span class="pill '+f[4]+'">'+f[1]+'</span><span class="lv">'+lv+'</span><span class="small muted">'+f[3]+'</span></div>';}).join('');
+
+  /* Claim waterfall */
+  var claims=[['Administrative & legal','pengacara, kurator',50,'#1F7A4D'],['Secured claims','bank dg jaminan tanah',300,'#2E9A62'],['Priority unsecured','gaji, pajak terutang',100,'#C98A12'],['General unsecured','vendor / supplier',250,'#D8A23A'],['Subordinated / junior','mezzanine',150,'#C2453B'],['Equity holders','saham preferen & biasa',150,'#9B2C2C']];
+  var cl=$('#claims');
+  cl.innerHTML=claims.map(function(c,i){return '<div class="claim"><span class="no" style="background:'+c[3]+'">'+(i+1)+'</span><span><b>'+c[0]+'</b> <span class="small muted">· '+c[1]+' · klaim '+c[2]+'</span><span class="tr"><i></i></span></span><span class="rec"></span></div>';}).join('');
+  function wf(){var left=+$('#assetLeft').value;$('#assetOut').textContent=fmt(left);
+    cl.querySelectorAll('.claim').forEach(function(row,i){var pay=Math.min(left,claims[i][2]);left-=pay;var r=pay/claims[i][2];row.querySelector('.tr i').style.width=(r*100)+'%';row.querySelector('.rec').innerHTML='LGD '+Math.round((1-r)*100)+'%';row.querySelector('.rec').style.color=r>=1?'var(--good)':r>0?'var(--mid)':'var(--bad)';});}
+  $('#assetLeft').addEventListener('input',wf);wf();
+
+  /* ECL */
+  function ecl(){var e=+$('#ex').value,c=+$('#cdI').value,l=+$('#lgdI').value;$('#exO').textContent=fmt(e);$('#cdO').textContent=c+'%';$('#lgdO').textContent=l+'%';var v=e*c/100*l/100;$('#eclO').textContent='Rp'+fmt(v,1)+' jt';$('#eclC').textContent='= '+fmt(e)+' × '+c+'% × '+l+'%';}
+  ['ex','cdI','lgdI'].forEach(function(id){$('#'+id).addEventListener('input',ecl)});ecl();
+
+  /* ROE toggle */
+  var roe={rep:[['ROE','(5.125,5)%','298,3%','149,4%'],['ROA','24,5%','19,7%','18,7%'],['Financial leverage','(208,8)','15,1','8,0']],adj:[['ROE','20,5%','18,3%','18,9%'],['ROA','11,1%','9,8%','10,1%'],['Financial leverage','1,84','1,87','1,88']]};
+  A.seg($('#roeSeg'),function(v){$('#roeT').innerHTML=roe[v].map(function(r){return '<tr><td>'+r[0]+'</td><td class="n '+(v==='rep'&&r[1].indexOf('(')===0?'bad':(v==='adj'?'good':''))+'">'+r[1]+'</td><td class="n">'+r[2]+'</td><td class="n">'+r[3]+'</td></tr>';}).join('');
+    $('#roeNote').innerHTML=v==='rep'?'<b class="bad">Tak bisa ditafsirkan:</b> ekuitas negatif akibat treasury stock.':'<b class="good">Wajar:</b> ROE 18–21% stabil, ROA naik, leverage &lt; 2,0 → profit kuat &amp; konsisten.';});
+
+  /* Coverage calc */
+  function cov(){var g=function(id){return +$('#'+id).value||0};var e=g('cEbit'),i=g('cInt'),d=g('cDa'),c=g('cCfo'),k=g('cCap'),t=g('cDebt');
+    var rows=[['TIE',e/i,'×','bunga'],['EBITDA cov.',(e+d)/i,'×','bunga'],['CFO / debt',c/t,'×','pokok'],['Free OCF / debt',(c-k)/t,'×','pokok']];
+    $('#covOut').innerHTML=rows.map(function(r){return '<div class="out"><span class="cap">'+r[0]+' · '+r[3]+'</span><span class="big">'+(isFinite(r[1])?fmt(r[1],r[1]>=10?1:2):'–')+r[2]+'</span></div>';}).join('');}
+  ['cEbit','cInt','cDa','cCfo','cCap','cDebt'].forEach(function(id){$('#'+id).addEventListener('input',cov)});cov();
+
+  /* Rating ladder */
+  var R=[['Aaa','AAA','AAA','Prime, maximum safety',1],['Aa1–Aa3','AA+ / AA / AA−','AA+ / AA / AA−','High grade, high quality',1],['A1–A3','A+ / A / A−','A+ / A / A−','Upper-medium grade',1],['Baa1–Baa3','BBB+ / BBB / BBB−','BBB+ / BBB / BBB−','Lower-medium grade',1],null,['Ba1–Ba3','BB+ / BB / BB−','BB+ / BB / BB−','Non-investment grade, speculative',0],['B1–B3','B+ / B / B−','B+ / B / B−','Highly speculative',0],['Caa1–Caa3','CCC+ / CCC / CCC−','CCC','Substantial risk, poor standing',0],['Ca','CC','–','Extremely speculative',0],['C','C','–','May be in default',0],['–','D','DDD / DD / D','Default',0]];
+  var lad=$('#ladder'),idx=0;
+  R.forEach(function(r,i){if(!r){var d=document.createElement('div');d.className='rung-line';d.textContent='▲ INVESTMENT GRADE · JUNK ▼';lad.appendChild(d);return;}
+    var b=document.createElement('button');b.type='button';b.className='rung '+(r[4]?'ig':'jk');b.innerHTML='<span class="m">'+r[0]+'</span><span class="m">'+r[1]+'</span><span class="m">'+r[2]+'</span><span class="d">'+r[3]+'</span>';
+    b.addEventListener('click',function(){lad.querySelectorAll('.rung').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');var pos=i>4?i-1:i;
+      $('#rateOut').innerHTML='<span class="cap">'+r[3]+'</span><span class="big" style="color:'+(r[4]?'var(--good)':'var(--bad)')+'">'+(r[4]?'Investment grade':'Non-investment (junk)')+'</span><span class="cap">Risk premium relatif</span><div class="bar"><span class="lab small">premium</span><span class="tr"><span class="fill" style="--w:'+(8+pos*9.2)+'%;--c:'+(r[4]?'var(--good)':'var(--bad)')+'"></span></span><span class="v">'+(pos<3?'rendah':pos<5?'sedang':'tinggi')+'</span></div><span class="cap">Batas terendah investment grade: <b>Baa3 = BBB−</b>.</span>';});
+    lad.appendChild(b); if(i===3) b.click();});
+
+  /* Z-score */
+  var zs=[['X₁ WC / TA',1.2,-0.2,0.6,0.15],['X₂ RE / TA',1.4,-0.5,0.8,0.25],['X₃ EBIT / TA',3.3,-0.2,0.4,0.12],['X₄ MVE / TL',0.6,0,4,1.2],['X₅ Sales / TA',0.99,0,3,1.4]];
+  $('#zIn').innerHTML=zs.map(function(z,i){return '<div class="ctrl"><label for="z'+i+'">'+z[0]+' <span class="muted">× '+String(z[1]).replace('.',',')+'</span> <output id="zo'+i+'"></output></label><input type="range" id="z'+i+'" min="'+z[2]+'" max="'+z[3]+'" step="0.01" value="'+z[4]+'"></div>';}).join('')+'<div class="seg" id="zPre"><button data-v="s">Contoh sehat</button><button data-v="g" aria-pressed="true">Abu-abu</button><button data-v="d">Bahaya</button></div>';
+  var pre={s:[0.25,0.5,0.25,2.2,1.5],g:[0.15,0.25,0.12,1.2,1.4],d:[0.02,0.05,0.02,0.4,1.0]};
+  function z(){var t=0;zs.forEach(function(q,i){var v=+$('#z'+i).value;$('#zo'+i).textContent=fmt(v,2);t+=q[1]*v;});$('#zVal').textContent=fmt(t,2);
+    var zone=t>3?['Safe zone','var(--good)']:t>=1.8?['Gray zone','var(--mid)']:['Distress zone','var(--bad)'];$('#zZone').innerHTML='<b style="color:'+zone[1]+'">'+zone[0]+'</b>';$('#zVal').style.color=zone[1];
+    $('#zNeedle').style.left=Math.max(1,Math.min(99,t/4.5*100))+'%';}
+  zs.forEach(function(q,i){$('#z'+i).addEventListener('input',z)});
+  A.seg($('#zPre'),function(v){pre[v].forEach(function(x,i){$('#z'+i).value=x});z();});
+})();
+</script>
+</body>
+</html>
