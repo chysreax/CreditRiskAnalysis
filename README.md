@@ -14,8 +14,9 @@ Situs statis (HTML + CSS + JS biasa, tanpa build) berisi rangkuman visual & inte
 | `liabilities.html` | K5 · Liability Recognition & Nonowner Financing (Ch. 7) |
 | `equity.html` | K6 · Equity Recognition & Owner Financing (Ch. 8) |
 | `rumus.html` | Bank rumus semua kelompok (bisa dicari) |
+| `istilah.html` | Kamus singkatan & istilah (mode kartu & daftar) |
 | `kuis.html` | Kuis campuran acak |
-| `assets/` | `style.css`, `app.js`, `quiz-data.js`, `icon.svg` |
+| `assets/` | `style.css`, `app.js`, `quiz-data.js`, `glossary.js`, `icon.svg` |
 
 ## Deploy ke GitHub Pages
 
@@ -37,6 +38,7 @@ git push -u origin main
 
 ## Catatan
 
+- Tema punya 3 mode (tombol kanan atas): ikuti presentasi → terang → gelap.
 - Progres "Tandai paham", skor, dan pilihan tema tersimpan di browser masing-masing (localStorage).
 - Setelah mengubah `style.css`/`app.js`, naikkan angka `?v=` di tag `<link>`/`<script>` agar browser memuat versi baru.
 - Semua isi bersumber dari slide presentasi kelompok; tidak ada materi dari sumber luar.

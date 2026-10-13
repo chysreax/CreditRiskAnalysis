@@ -8,7 +8,7 @@
 <meta name="description" content="Rangkuman visual materi Kelompok 5: Liability Recognition and Nonowner Financing (EMS Chapter 7).">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Bricolage+Grotesque:wght@800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=5">
+<link rel="stylesheet" href="assets/style.css?v=7">
 <style>
   .badge{display:inline-block;font:800 13px var(--f-body);padding:6px 14px;border-radius:999px;letter-spacing:.04em}
   .b-par{background:var(--k-soft);color:var(--k)} .b-dis{background:var(--hl);color:#3A2A00} .b-pre{background:var(--k);color:var(--k-ink)}
@@ -34,7 +34,7 @@
 
 <main class="wrap">
 <section class="hero">
-  <span class="ring" aria-hidden="true"></span>
+  <span class="ring deco" aria-hidden="true"></span>
   <h1>Liability Recognition<br>and Nonowner Financing</h1>
   <p class="hero-sub">Kewajiban yang muncul dari operasi (accrual, garansi) dan dari pendanaan non-pemilik (utang jangka pendek, obligasi), sampai bagaimana kualitas kredit dinilai.</p>
   <div class="hero-tag"><span class="lo">Ch. 7 · EMS 7th ed. 2025</span></div>
@@ -49,6 +49,7 @@
 
 <section class="sec" id="accrued">
   <div class="sec-head"><div class="t"><span class="lo">LO 7.1</span><h2>Accrued Liabilities Overview</h2></div><button class="done" data-done="k5-accrued"></button></div>
+  <div class="terms" data-terms="Accruals|AP|Contingent|Probable"></div>
   <p class="def"><b>Accrued liabilities</b> = penyesuaian untuk mengakui kewajiban yang sudah timbul di periode berjalan, agar lapkeu mencerminkan posisi secara wajar. Pemicu: <b>probable + reasonably estimable</b>.</p>
   <div class="tbl"><table><thead><tr><th>Aspek</th><th>Accounts payable</th><th>Accrued liabilities</th></tr></thead><tbody>
     <tr><td>Sumber</td><td>Pembelian dari supplier, ada invoice</td><td>Accrual/adjustment sesuai economic event</td></tr>
@@ -65,6 +66,7 @@
 
 <section class="sec" id="contract">
   <div class="sec-head"><div class="t"><span class="lo">Contractual accruals</span><h2>Expense dulu vs cash dulu</h2></div><button class="done" data-done="k5-contract"></button></div>
+  <div class="terms" data-terms="Deferred revenue"></div>
   <div class="widget">
     <div class="w-title">Pilih jenis accrual</div>
     <div class="seg" id="accSeg"><button data-v="w" aria-pressed="true">A · Wages payable</button><button data-v="d">B · Deferred revenue</button></div>
@@ -77,6 +79,7 @@
 
 <section class="sec" id="contingent">
   <div class="sec-head"><div class="t"><span class="lo">Contingent liabilities</span><h2>Recognize, disclose, atau abaikan?</h2></div><button class="done" data-done="k5-contingent"></button></div>
+  <div class="terms" data-terms="Contingent|Probable|Provision"></div>
   <div class="widget">
     <div class="w-title">Recognition decision framework</div>
     <div class="decide">
@@ -94,6 +97,7 @@
 
 <section class="sec" id="warranty">
   <div class="sec-head"><div class="t"><span class="lo">Warranty liabilities</span><h2>Garansi: expense saat jual, bukan saat klaim</h2></div><button class="done" data-done="k5-warranty"></button></div>
+  <div class="terms" data-terms="Warranty reserve|Cookie jar"></div>
   <div class="formula"><span class="n">Ending liability</span><span class="op">=</span><span>Beginning + New accruals − Actual claims</span></div>
   <div class="vs">
     <div class="card"><h4>Saat penjualan / estimasi</h4><p class="small">Warranty expense ↑ · liability ↑ · kas tetap</p></div>
@@ -129,6 +133,7 @@
 
 <section class="sec" id="std">
   <div class="sec-head"><div class="t"><span class="lo">LO 7.2</span><h2>Analyzing Short-Term Debt</h2></div><button class="done" data-done="k5-std"></button></div>
+  <div class="terms" data-terms="Notes payable|LTD|Current maturity"></div>
   <div class="timeline"><div>Jan 1<b>Pinjam $1.000</b><span class="small muted">Cash ↑ · Notes payable ↑</span></div><div>Mar 31<b>Accrue bunga $30</b><span class="small muted">Bunga diakru seiring waktu</span></div><div>Apr 1<b>Bayar bunga $30</b></div></div>
   <div class="formula"><span class="n">Interest</span><span class="op">=</span><span>Principal × Annual rate × Time</span><span class="op">=</span><span>$1.000 × 12% × 3/12 = $30</span></div>
   <p class="small muted">Tidak ada income/expense saat baru meminjam uang.</p>
@@ -151,6 +156,7 @@
 
 <section class="sec" id="pricing">
   <div class="sec-head"><div class="t"><span class="lo">LO 7.3</span><h2>Bond Pricing at Par, Discount, Premium</h2></div><button class="done" data-done="k5-pricing"></button></div>
+  <div class="terms" data-terms="Face value|Coupon rate|Yield|PV|Par|Discount|Premium"></div>
   <div class="grid" style="--min:220px">
     <div class="card"><div class="card-h">Face / par value</div><p class="small">Principal yang dibayar saat maturity.</p></div>
     <div class="card"><div class="card-h">Coupon rate</div><p class="small">Di kontrak → hitung <b>cash interest</b> = face × coupon.</p></div>
@@ -180,6 +186,7 @@
 
 <section class="sec" id="effcost">
   <div class="sec-head"><div class="t"><span class="lo">Cost of debt</span><h2>Effective Cost of Debt</h2></div><button class="done" data-done="k5-effcost"></button></div>
+  <div class="terms" data-terms="Effective cost|Underwriting fee|Amortization"></div>
   <div class="grid" style="--min:200px">
     <div class="card"><span class="badge b-par">PAR</span><p class="small">Effective cost = coupon</p></div>
     <div class="card"><span class="badge b-dis">DISCOUNT</span><p class="small">Effective cost &gt; coupon</p></div>
@@ -194,6 +201,7 @@
 
 <section class="sec" id="ltd">
   <div class="sec-head"><div class="t"><span class="lo">LO 7.4</span><h2>Reporting, Repurchase &amp; Fair Value</h2></div><button class="done" data-done="k5-ltd"></button></div>
+  <div class="terms" data-terms="Amortization|Early extinguishment|Run-rate|Level 1 / 2"></div>
   <div class="grid" style="--min:280px">
     <div class="card"><div class="card-h">Balance sheet (Verizon 2018, $ jt)</div>
       <div class="tbl fit" style="border:0"><table><tbody><tr><td>Total LTD incl. current</td><td class="n">112.913</td></tr><tr><td>(−) Jatuh tempo ≤ 1 tahun</td><td class="n">(7.040)</td></tr><tr class="tot"><td>LTD noncurrent</td><td class="n">105.873</td></tr></tbody></table></div>
@@ -220,6 +228,7 @@
 
 <section class="sec" id="credit">
   <div class="sec-head"><div class="t"><span class="lo">LO 7.5</span><h2>Credit Quality &amp; Ratings</h2></div><button class="done" data-done="k5-credit"></button></div>
+  <div class="terms" data-terms="LGD|Seniority|Collateral|Covenant|Risk premium|IG|Junk"></div>
   <p class="sec-lead">Equity investor fokus pada upside; lender fokus pada <b>repayment</b>. Dasarnya: (1) <b>level of indebtedness</b> dan (2) <b>excess cash generated</b>.</p>
   <div class="vs">
     <div class="card"><div class="card-h">Likelihood of default</div><p class="small">Level utang · kewajiban bunga · cash flow historis &amp; proyeksi · excess cash untuk bayar utang.</p></div>
@@ -249,6 +258,7 @@
 
 <section class="sec" id="verizon">
   <div class="sec-head"><div class="t"><span class="lo">Kasus</span><h2>Verizon, Vodafone &amp; Comcast</h2></div><button class="done" data-done="k5-verizon"></button></div>
+  <div class="terms" data-terms="EBITDA|Debt/EBITDA|Credit watch|Notch|A-2"></div>
   <div class="flow"><span class="step">2013: beli 45% Verizon Wireless dari Vodafone ($130 M)</span><span class="arr">→</span><span class="step">LTD $48 M → $116 M</span><span class="arr">→</span><span class="step">Leverage naik tajam</span><span class="arr">→</span><span class="step on">Rating downgrade</span><span class="arr">→</span><span class="step">Biaya pinjam lebih tinggi</span></div>
   <div class="tbl"><table><thead><tr><th>Business risk: STRONG</th><th>Financial risk: INTERMEDIATE</th><th>Liquidity: ADEQUATE</th></tr></thead><tbody><tr>
     <td class="small">Wireless terbesar AS · brand kuat · kualitas jaringan · margin EBITDA wireless kuat · skala · Fios tumbuh. <b>Risiko:</b> pasar jenuh, growth terbatas, margin wireline lemah.</td>
@@ -270,6 +280,7 @@
 
 <section class="sec" id="global">
   <div class="sec-head"><div class="t"><span class="lo">Global reports</span><h2>GAAP vs IFRS &amp; restrukturisasi rating</h2></div><button class="done" data-done="k5-global"></button></div>
+  <div class="terms" data-terms="GAAP|IFRS|Provision"></div>
   <div class="tbl"><table><thead><tr><th>Isu</th><th>US GAAP</th><th>IFRS</th></tr></thead><tbody>
     <tr><td>Contingent liabilities</td><td>Accrue jika probable &amp; estimable</td><td>Serupa; disclosure bisa dibatasi di situasi prejudicial</td></tr>
     <tr class="hl"><td>Range estimasi (semua sama mungkin)</td><td><b>Nilai terendah</b></td><td><b>Expected amount</b></td></tr>
@@ -309,8 +320,9 @@
 <footer class="foot">Disusun dari presentasi Kelompok 5 · EMS Chapter 7 · Analisis Laporan Keuangan 2026/2027.</footer>
 </main>
 
-<script src="assets/quiz-data.js?v=5"></script>
-<script src="assets/app.js?v=5"></script>
+<script src="assets/quiz-data.js?v=7"></script>
+<script src="assets/glossary.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
 <script>
 (function(){
   var A=window.ALK,$=A.$,fmt=A.fmt;

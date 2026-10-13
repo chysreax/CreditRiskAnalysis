@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kamus Istilah · ALK</title>
+<meta name="description" content="Kamus singkatan dan istilah dari keenam presentasi ALK.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=7">
+<style>
+  .tools{position:sticky;top:calc(env(safe-area-inset-top,0px) + 57px);z-index:10;background:var(--bg);padding-block:12px;display:grid;gap:10px;border-bottom:1px solid var(--line);transition:top .28s ease}
+  body.hdr-hide .tools{top:env(safe-area-inset-top,0px)}
+  @media (max-width:640px){.tools{position:static;border-bottom:0}}
+  .modes{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+  .empty{padding:30px;text-align:center;color:var(--muted)}
+  .gl.cards{grid-template-columns:repeat(auto-fill,minmax(min(100%,148px),1fr))}
+  .gl .flip,.gl .flip .face{min-height:120px}
+  .gl .flip .front .ab{font:800 22px/1.1 var(--f-display);color:var(--c,var(--k))}
+  .gl .flip .back{font-size:14px}
+  .gl .flip .back b{display:block;margin-bottom:4px}
+</style>
+</head>
+<body data-page="istilah">
+<header class="site"></header>
+<main class="wrap">
+  <section class="hero" style="padding-bottom:10px">
+    <span class="lo">Semua kelompok</span>
+    <h1>Kamus Istilah</h1>
+    <p class="hero-sub">Semua singkatan &amp; istilah unik dari keenam presentasi. Mode <b>Kartu</b> untuk menghafal (tebak dulu, lalu ketuk), mode <b>Daftar</b> untuk membaca cepat.</p>
+  </section>
+  <div class="tools">
+    <label class="sr" for="q">Cari istilah</label>
+    <input type="search" id="q" placeholder="Cari: NOPAT, LIFO, vesting…" autocomplete="off">
+    <div class="modes">
+      <div class="seg" id="fk"><button data-v="all" aria-pressed="true">Semua</button><button data-v="k1">K1</button><button data-v="k2">K2</button><button data-v="k3">K3</button><button data-v="k4">K4</button><button data-v="k5">K5</button><button data-v="k6">K6</button></div>
+      <div class="seg" id="vm"><button data-v="card" aria-pressed="true">Kartu</button><button data-v="list">Daftar</button></div>
+    </div>
+  </div>
+  <p class="small muted" id="cnt" style="margin-top:12px"></p>
+  <div class="gl" id="list" style="margin-top:10px"></div>
+  <footer class="foot">Kepanjangan &amp; arti disusun dari isi slide presentasi kelompok.</footer>
+</main>
+<script src="assets/glossary.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
+<script>
+(function(){
+  var A=window.ALK,$=A.$,filt='all',view='card';
+  var col={k1:'var(--c1)',k2:'var(--c2)',k3:'var(--c3)',k4:'var(--c4)',k5:'var(--c5)',k6:'var(--c6)'};
+  var page={k1:'profitability.html',k2:'credit-risk.html',k3:'revenue.html',k4:'operating-assets.html',k5:'liabilities.html',k6:'equity.html'};
+  var all=window.GLOSSARY.slice().sort(function(a,b){return a[0].toLowerCase().localeCompare(b[0].toLowerCase());});
+  function draw(){var q=$('#q').value.trim().toLowerCase();
+    var out=all.filter(function(g){return (filt==='all'||g[3].indexOf(filt)>-1)&&(!q||(g[0]+' '+g[1]+' '+g[2]).toLowerCase().indexOf(q)>-1);});
+    $('#cnt').textContent=out.length+' istilah'+(view==='card'?' · ketuk kartu untuk melihat arti':'');
+    $('#list').className='gl'+(view==='card'?' cards':'');
+    if(!out.length){$('#list').innerHTML='<div class="empty">Tidak ada istilah yang cocok. Coba kata kunci lain.</div>';return;}
+    $('#list').innerHTML=out.map(function(g){var c=col[g[3][0]],chips=g[3].map(function(k){return '<a class="pill" href="'+page[k]+'">'+k.toUpperCase()+'</a>';}).join('');
+      if(view==='list')return '<div class="g" style="--c:'+c+'"><b>'+g[0]+'</b><span class="fu">'+g[1]+'</span><p>'+g[2]+'</p><span class="ks">'+chips+'</span></div>';
+      return '<button class="flip" type="button" style="--c:'+c+'"><span class="flip-in"><span class="face front"><span class="ab">'+g[0]+'</span><span class="hint">'+g[3].map(function(k){return k.toUpperCase()}).join(' · ')+'</span></span><span class="face back"><b>'+g[1]+'</b>'+g[2]+'</span></span></button>';}).join('');
+    $('#list').querySelectorAll('.flip').forEach(function(f){f.addEventListener('click',function(){var on=f.classList.toggle('on');f.setAttribute('aria-pressed',on);});});}
+  $('#q').addEventListener('input',draw);
+  A.seg($('#fk'),function(v){filt=v;draw();});
+  A.seg($('#vm'),function(v){view=v;draw();});
+})();
+</script>
+</body>
+</html>

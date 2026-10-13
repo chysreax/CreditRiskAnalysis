@@ -8,7 +8,7 @@
 <meta name="description" content="Rangkuman visual materi Kelompok 2: Credit Risk Analysis and Interpretation.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=5">
+<link rel="stylesheet" href="assets/style.css?v=7">
 <style>
   .ladder{display:grid;gap:4px}
   .rung{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.6fr);gap:6px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer;background:var(--surface);font:500 13.5px var(--f-body);color:var(--ink);text-align:left}
@@ -58,6 +58,7 @@
 <!-- 1 -->
 <section class="sec" id="pasar">
   <div class="sec-head"><div class="t"><span class="lo">Market for Credit</span><h2>Siapa butuh kredit, siapa yang memberi?</h2></div><button class="done" data-done="k2-pasar"></button></div>
+  <div class="terms" data-terms="Trade credit|SEC|Commercial paper|Corporate bonds|Lease|CAPEX"></div>
   <div class="sub">
     <h3>Demand: perusahaan meminjam untuk 3 aktivitas</h3>
     <div class="grid" style="--min:250px">
@@ -84,6 +85,7 @@
 <!-- 2 -->
 <section class="sec" id="analis">
   <div class="sec-head"><div class="t"><span class="lo">Credit Risk Analysis</span><h2>Siapa yang menganalisis risiko kredit?</h2></div><button class="done" data-done="k2-analis"></button></div>
+  <div class="terms" data-terms="CD|LGD|ECL"></div>
   <p class="def"><b>Credit risk</b> = risiko peminjam gagal memenuhi kewajibannya. Tujuan analisis: menilai <b>CD</b> &amp; <b>LGD</b> untuk menentukan <b>kelayakan</b> dan <b>syarat</b> kredit.</p>
   <div class="bars" aria-label="Luas informasi tiap analis">
     <div class="bar"><span class="lab"><b>Public Debt Investors</b> · info publik (annual report, earnings announcement, rating)</span><span class="tr"><span class="fill" style="--w:25%"></span></span><span class="v">terbatas</span></div>
@@ -97,6 +99,7 @@
 <!-- 3 -->
 <section class="sec" id="cd">
   <div class="sec-head"><div class="t"><span class="lo">Chance of Default</span><h2>CD: 4 langkah menilai peluang gagal bayar</h2></div><button class="done" data-done="k2-cd"></button></div>
+  <div class="terms" data-terms="CD|Porter"></div>
   <p class="sec-lead">CD = probabilitas perusahaan tidak mampu memenuhi kewajiban utangnya.</p>
   <ol class="steps">
     <li><h4>Nature &amp; purpose of the loan</h4><p class="small">Kenapa butuh dana &amp; dipakai untuk apa → menentukan risiko &amp; kedalaman analisis.</p></li>
@@ -125,6 +128,7 @@
 <!-- 4 -->
 <section class="sec" id="lgd">
   <div class="sec-head"><div class="t"><span class="lo">Loss Given Default</span><h2>LGD: kalau default, siapa dibayar duluan?</h2></div><button class="done" data-done="k2-lgd"></button></div>
+  <div class="terms" data-terms="LGD|ECL|Secured claim|Mezzanine|Collateral|Lien|Covenant"></div>
   <p class="sec-lead">LGD = persentase eksposur yang <b>tidak bisa dipulihkan</b> setelah memperhitungkan nilai likuidasi aset &amp; prioritas klaim.</p>
   <div class="widget">
     <div class="w-title">Coba sendiri: geser nilai aset yang tersisa saat likuidasi</div>
@@ -157,6 +161,7 @@
 <!-- 5 -->
 <section class="sec" id="adjust">
   <div class="sec-head"><div class="t"><span class="lo">Measuring Credit Risk</span><h2>Langkah 0: bersihkan data Home Depot</h2></div><button class="done" data-done="k2-adjust"></button></div>
+  <div class="terms" data-terms="EBIT|D&amp;A|CFO|CAPEX|Treasury stock"></div>
   <div class="vs">
     <div class="card t-bad"><h4>Angka mentah (as reported)</h4><p class="small">Tahun fiskal berakhir 3 Feb 2019 berisi <b>53 minggu</b>. Pertumbuhan terlihat lebih tinggi dari aslinya.</p></div>
     <span class="mid">FILTER →</span>
@@ -180,6 +185,7 @@
 <!-- 6 -->
 <section class="sec" id="profit">
   <div class="sec-head"><div class="t"><span class="lo">1 · Profitability</span><h2>Profit = sumber kas untuk bayar utang</h2></div><button class="done" data-done="k2-profit"></button></div>
+  <div class="terms" data-terms="DuPont|ROE|ROA|FL|RNOA|NOPM|NOAT|NOPAT|NOA"></div>
   <div class="flow"><span class="step">Margin operasi tinggi</span><span class="arr">→</span><span class="step">Kas internal melimpah</span><span class="arr">→</span><span class="step">Bunga &amp; pokok ter-cover</span><span class="arr">→</span><span class="step on">Risiko default rendah</span></div>
   <p class="small muted">S&amp;P: margin &amp; return tinggi → bisa bentuk modal sendiri, tarik modal luar, dan tahan krisis.</p>
   <div class="formula"><span class="n">ROE</span><span class="op">=</span><span class="frac"><span>Net income</span><span>Avg total assets</span></span><span class="op">×</span><span class="frac"><span>Avg total assets</span><span>Avg equity</span></span><span class="op">=</span><span>ROA × Financial Leverage</span></div>
@@ -208,6 +214,7 @@
 <!-- 7 -->
 <section class="sec" id="coverage">
   <div class="sec-head"><div class="t"><span class="lo">2 · Coverage</span><h2>Seberapa kuat laba &amp; kas menutup utang?</h2></div><button class="done" data-done="k2-coverage"></button></div>
+  <div class="terms" data-terms="TIE|EBITDA|CFO|FOCF|CAPEX"></div>
   <div class="widget">
     <div class="w-title">Kalkulator coverage (default: Home Depot 2019, juta $)</div>
     <div class="w-grid">
@@ -232,6 +239,7 @@
 <!-- 8 -->
 <section class="sec" id="likuid">
   <div class="sec-head"><div class="t"><span class="lo">3 · Liquidity</span><h2>Ada kas untuk kewajiban jangka pendek?</h2></div><button class="done" data-done="k2-likuid"></button></div>
+  <div class="terms" data-terms="NWC|Quick assets"></div>
   <p class="def"><b>Likuiditas</b> = kas yang dimiliki + kas yang bisa dihasilkan dalam waktu singkat.</p>
   <div class="card">
     <h4>Aset lancar Home Depot vs liabilitas lancar</h4>
@@ -260,6 +268,7 @@
 <!-- 9 -->
 <section class="sec" id="solv">
   <div class="sec-head"><div class="t"><span class="lo">4 · Solvency</span><h2>Mampu memenuhi kewajiban jangka panjang?</h2></div><button class="done" data-done="k2-solv"></button></div>
+  <div class="terms" data-terms="Self-liquidating|Treasury stock"></div>
   <p class="callout bad"><span class="lbl">Arah terbalik</span>Untuk solvency, rasio <b>tinggi = kurang solven = lebih berisiko</b>.</p>
   <div class="vs">
     <div class="card"><div class="card-h">Liabilities-to-Equity</div><div class="formula"><span class="frac"><span>Total liabilities</span><span>Stockholders' equity</span></span></div>
@@ -274,6 +283,7 @@
 <!-- 10 -->
 <section class="sec" id="rating">
   <div class="sec-head"><div class="t"><span class="lo">Credit Ratings</span><h2>Rating: opini kelayakan kredit</h2></div><button class="done" data-done="k2-rating"></button></div>
+  <div class="terms" data-terms="IG|Junk|Issuer rating|Risk premium"></div>
   <p class="def"><b>Credit rating</b> = opini atas kemampuan entitas memenuhi kewajiban saat jatuh tempo. Tujuannya menilai <b>kemungkinan</b> default dan <b>besar kerugian</b> jika default.</p>
   <div class="grid" style="--min:240px">
     <div class="card"><h4>Yang dipertimbangkan</h4><p class="small">Makroekonomi · industri · info spesifik perusahaan · data keuangan &amp; non-keuangan · rasio &amp; ketentuan kredit (collateral).</p></div>
@@ -299,6 +309,7 @@
 <!-- 11 -->
 <section class="sec" id="zscore">
   <div class="sec-head"><div class="t"><span class="lo">Predicting Bankruptcy Risk</span><h2>Altman Z-Score</h2></div><button class="done" data-done="k2-z"></button></div>
+  <div class="terms" data-terms="Z-score|MVE|EBIT|ZETA|RiskCalc|Type I|Type II"></div>
   <div class="formula" style="font-size:clamp(15px,2.6vw,20px)"><span class="n">Z</span><span class="op">=</span><span>1,2X₁ + 1,4X₂ + <b>3,3X₃</b> + 0,6X₄ + 0,99X₅</span></div>
   <div class="tbl"><table><thead><tr><th>X</th><th>Rasio</th><th>Mengukur</th><th class="n">Bobot</th></tr></thead><tbody>
     <tr><td>X₁</td><td>Working capital ÷ Total aset</td><td>Likuiditas</td><td class="n">1,2</td></tr>
@@ -360,8 +371,9 @@
 <footer class="foot">Disusun dari presentasi Kelompok 2 · Analisis Laporan Keuangan 2026/2027. Angka Home Depot dalam juta dolar AS.</footer>
 </main>
 
-<script src="assets/quiz-data.js?v=5"></script>
-<script src="assets/app.js?v=5"></script>
+<script src="assets/quiz-data.js?v=7"></script>
+<script src="assets/glossary.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
 <script>
 (function(){
   var A=window.ALK, fmt=A.fmt, $=A.$;

@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#07090B">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=5">
+<link rel="stylesheet" href="assets/style.css?v=7">
 <style>
   .lev{display:flex;flex-direction:column;height:180px;border-radius:12px;overflow:hidden;font:600 13px var(--f-mono);border:1px solid var(--line)}
   .lev div{display:grid;place-items:center;transition:flex-basis .4s}
@@ -35,7 +35,7 @@
 
 <main class="wrap">
 <section class="hero">
-  <span class="feb" aria-hidden="true">FEB</span>
+  <span class="feb deco" aria-hidden="true">FEB</span>
   <div class="hero-tag"><span class="lo"><b>Chapter 3</b><span>Financial Statement Analysis Week 2</span></span></div>
   <h1>Profitability Analysis<br>and Interpretation</h1>
   <p class="hero-sub">"Profitability is not just about the return you earn, but understanding what truly drives it."</p>
@@ -50,6 +50,7 @@
 
 <section class="sec" id="dupont">
   <div class="sec-head"><div class="t"><span class="lo"><b>Key idea</b><span>DuPont Analysis</span></span><h2>Satu pohon, tiga pertanyaan</h2></div><button class="done" data-done="k1-dupont"></button></div>
+  <div class="terms" data-terms="DuPont|ROE|ROA|FL|PM|AT"></div>
   <div class="tree">
     <div class="node root">ROE <small>Berapa return yang diperoleh shareholder?</small></div>
     <div class="lvl" style="--n:2">
@@ -69,6 +70,7 @@
 
 <section class="sec" id="roe">
   <div class="sec-head"><div class="t"><span class="lo"><b>LO-1</b><span>Return on Equity</span></span><h2>ROE: laba per $1 modal pemegang saham</h2></div><button class="done" data-done="k1-roe"></button></div>
+  <div class="terms" data-terms="ROE|ROCE|NCI"></div>
   <div class="w-grid">
     <div class="formula"><span class="n">ROE</span><span class="op">=</span><span class="frac"><span>Net income</span><span>Average stockholders' equity</span></span></div>
     <div class="card"><h4>Boston Scientific 2018</h4>
@@ -89,6 +91,7 @@
 
 <section class="sec" id="lev">
   <div class="sec-head"><div class="t"><span class="lo"><b>LO-2</b><span>ROE Disaggregation</span></span><h2>Same ROE ≠ same story</h2></div><button class="done" data-done="k1-lev"></button></div>
+  <div class="terms" data-terms="FL|TIE|EBIT"></div>
   <div class="vs">
     <div class="card"><h4>ROA = Business performance</h4><div class="formula" style="font-size:13px"><span>Net income ÷ Avg total assets</span></div><p class="small muted">Seberapa baik seluruh aset menghasilkan laba.</p></div>
     <span class="mid">×</span>
@@ -115,6 +118,7 @@
 
 <section class="sec" id="roa">
   <div class="sec-head"><div class="t"><span class="lo"><b>LO-3</b><span>ROA Disaggregation</span></span><h2>ROA = margin × turnover</h2></div><button class="done" data-done="k1-roa"></button></div>
+  <div class="terms" data-terms="PM|AT|GPM|SG&amp;A|PPE|Sale-and-leaseback|JV"></div>
   <div class="formula"><span class="n">ROA</span><span class="op">=</span><span class="frac"><span>Net income</span><span>Sales</span></span><span class="op">×</span><span class="frac"><span>Sales</span><span>Avg total assets</span></span></div>
   <p class="sec-lead">Tak harus dua-duanya tinggi. Yang penting kombinasinya menghasilkan return atas aset. <b>Adjusted ROA</b> = [NI + net interest expense × (1 − tax rate)] ÷ avg total assets.</p>
   <div class="grid" style="--min:280px">
@@ -132,6 +136,7 @@
 
 <section class="sec" id="wc">
   <div class="sec-head"><div class="t"><span class="lo"><b>LO-3</b><span>Working Capital</span></span><h2>Turnover &amp; days: berapa lama kas terikat?</h2></div><button class="done" data-done="k1-wc"></button></div>
+  <div class="terms" data-terms="AR|AP|DSO|DIO|DPO|CCC"></div>
   <div class="tbl"><table><thead><tr><th>Turnover</th><th>Rumus</th><th>Days</th><th>Arah baik</th></tr></thead><tbody>
     <tr><td><b>AR turnover</b></td><td>Sales ÷ Avg AR</td><td>DSO = 365 ÷ ART</td><td><span class="pill good">DSO ↓ tagih lebih cepat</span></td></tr>
     <tr><td><b>Inventory turnover</b></td><td>COGS ÷ Avg inventory</td><td>DIO = 365 ÷ INVT</td><td><span class="pill good">DIO ↓ jual lebih cepat</span></td></tr>
@@ -162,6 +167,7 @@
 
 <section class="sec" id="noa">
   <div class="sec-head"><div class="t"><span class="lo"><b>LO-4</b><span>Balance sheet operating items &amp; NOA</span></span><h2>Pisahkan operasi dari non-operasi</h2></div><button class="done" data-done="k1-noa"></button></div>
+  <div class="terms" data-terms="NOA|NNO|Self-liquidating"></div>
   <div class="vs">
     <div class="card soft"><h4>Aktivitas operasi</h4><p class="small">Bisnis inti: produksi &amp; penjualan barang/jasa. Kontributor laba terbesar.</p></div>
     <span class="mid">VS</span>
@@ -191,6 +197,7 @@
 
 <section class="sec" id="nopat">
   <div class="sec-head"><div class="t"><span class="lo"><b>LO-5</b><span>Income statement operating items &amp; NOPAT</span></span><h2>Dari laba rugi ke NOPAT</h2></div><button class="done" data-done="k1-nopat"></button></div>
+  <div class="terms" data-terms="NOPBT|NOPAT|NNE|Tax shield|R&amp;D"></div>
   <ol class="steps">
     <li><h4>Pisahkan</h4><p class="small">Income statement → operating &amp; non-operating.</p></li>
     <li><h4>Hitung NOPBT</h4><p class="small">Net operating profit before tax.</p></li>
@@ -206,6 +213,7 @@
 
 <section class="sec" id="rnoa">
   <div class="sec-head"><div class="t"><span class="lo"><b>LO-6 · LO-7</b><span>RNOA</span></span><h2>RNOA &amp; trade-off margin–turnover</h2></div><button class="done" data-done="k1-rnoa"></button></div>
+  <div class="terms" data-terms="RNOA|NOPM|NOAT"></div>
   <div class="formula"><span class="n">RNOA</span><span class="op">=</span><span class="frac"><span>NOPAT</span><span>Average NOA</span></span><span class="op">=</span><span class="frac"><span>113.008.417</span><span>984.373.627</span></span><span class="op">=</span><span class="n">11,48%</span></div>
   <div class="tbl"><table><thead><tr><th>Aspek</th><th>ROA</th><th>RNOA</th></tr></thead><tbody>
     <tr><td>Fokus / penyebut</td><td>Total assets</td><td>Net operating assets (avg)</td></tr>
@@ -233,6 +241,7 @@
 
 <section class="sec" id="nonop">
   <div class="sec-head"><div class="t"><span class="lo"><b>LO-8</b><span>Non-operating return</span></span><h2>ROE = RNOA + FLEV × Spread</h2></div><button class="done" data-done="k1-nonop"></button></div>
+  <div class="terms" data-terms="FLEV|NNEP|Spread|NNO"></div>
   <div class="grid" style="--min:220px">
     <div class="formula"><span class="n">FLEV</span><span class="op">=</span><span>Avg NNO ÷ Avg equity</span></div>
     <div class="formula"><span class="n">NNEP</span><span class="op">=</span><span>NNE ÷ Avg NNO</span></div>
@@ -272,6 +281,7 @@
 
 <section class="sec" id="vh">
   <div class="sec-head"><div class="t"><span class="lo"><b>LO-9</b><span>Vertical &amp; Horizontal</span></span><h2>Membandingkan lapkeu yang berbeda</h2></div><button class="done" data-done="k1-vh"></button></div>
+  <div class="terms" data-terms="Common-size"></div>
   <div class="vs">
     <div class="card"><div class="card-h">Vertical analysis</div><p class="small">Rasio dalam satu periode: % terhadap penjualan, % neraca terhadap total aset. <b>Common-size</b> membantu membandingkan perusahaan beda ukuran.</p></div>
     <span class="mid">VS</span>
@@ -309,8 +319,9 @@
 <footer class="foot">Disusun dari presentasi Kelompok 1 · Chapter 3 EMS · Analisis Laporan Keuangan 2026/2027.</footer>
 </main>
 
-<script src="assets/quiz-data.js?v=5"></script>
-<script src="assets/app.js?v=5"></script>
+<script src="assets/quiz-data.js?v=7"></script>
+<script src="assets/glossary.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
 <script>
 (function(){
   var A=window.ALK,$=A.$,fmt=A.fmt;
@@ -327,7 +338,8 @@
   function ccc(){var s=+$('#dso').value,i=+$('#dio').value,p=+$('#dpo').value,c=s+i-p;
     $('#dsoO').textContent=fmt(s,1)+' hari';$('#dioO').textContent=fmt(i,1)+' hari';$('#dpoO').textContent=fmt(p,1)+' hari';
     var max=Math.max(s+i,p,1)*1.05,pc=function(x){return x/max*100};
-    $('#cccViz').innerHTML='<div class="row"><span>Masuk</span><div class="track"><span class="seg" style="left:0;width:'+pc(i)+'%;background:#F2C94C">DIO</span><span class="seg" style="left:'+pc(i)+'%;width:'+pc(s)+'%;background:#7DEBC4">DSO</span></div></div><div class="row"><span>Keluar</span><div class="track"><span class="seg" style="left:0;width:'+pc(p)+'%;background:#FF8C8C">DPO</span></div></div>';
+    if(!$('#segDio'))$('#cccViz').innerHTML='<div class="row"><span>Masuk</span><div class="track"><span class="seg" id="segDio" style="left:0;background:#F2C94C">DIO</span><span class="seg" id="segDso" style="background:#7DEBC4">DSO</span></div></div><div class="row"><span>Keluar</span><div class="track"><span class="seg" id="segDpo" style="left:0;background:#FF8C8C">DPO</span></div></div>';
+    $('#segDio').style.width=pc(i)+'%';$('#segDso').style.left=pc(i)+'%';$('#segDso').style.width=pc(s)+'%';$('#segDpo').style.width=pc(p)+'%';
     $('#cccO').textContent=fmt(c,1)+' hari';$('#cccO').style.color=c<0?'var(--good)':'var(--k)';
     $('#cccN').innerHTML=c<0?'Negatif: kas pelanggan masuk sebelum supplier dibayar.':'Hari dana terikat sebelum kembali jadi kas.';}
   ['dso','dio','dpo'].forEach(function(id){$('#'+id).addEventListener('input',ccc)});

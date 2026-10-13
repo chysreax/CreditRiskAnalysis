@@ -8,8 +8,7 @@
 <meta name="description" content="Kuis acak dari keenam presentasi ALK.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=5">
-<style>.quiz-bar{top:calc(env(safe-area-inset-top,0px) + 60px)}</style>
+<link rel="stylesheet" href="assets/style.css?v=7">
 </head>
 <body data-page="kuis">
 <header class="site"></header>
@@ -17,7 +16,7 @@
   <section class="hero" style="padding-bottom:10px">
     <span class="lo">Simulasi UTS</span>
     <h1>Kuis Campuran</h1>
-    <p class="hero-sub">Soal diacak dari keenam presentasi. Pilih kelompok dan jumlah soal, lalu kerjakan. Penjelasan muncul setelah menjawab.</p>
+    <p class="hero-sub">Soal diacak dari keenam presentasi. Pilih kelompok dan jumlah soal, lalu kerjakan. Satu soal per layar, penjelasan langsung muncul, dan di akhir kamu bisa mengulang soal yang salah.</p>
     <div class="grid" style="--min:260px">
       <div class="ctrl"><label>Kelompok</label><div class="seg" id="qk"><button data-v="all" aria-pressed="true">Semua</button><button data-v="k1">K1</button><button data-v="k2">K2</button><button data-v="k3">K3</button><button data-v="k4">K4</button><button data-v="k5">K5</button><button data-v="k6">K6</button></div></div>
       <div class="ctrl"><label>Jumlah soal</label><div class="seg" id="qn"><button data-v="10">10</button><button data-v="20" aria-pressed="true">20</button><button data-v="999">Semua</button></div></div>
@@ -26,8 +25,9 @@
   <div class="quiz" id="mix"></div>
   <footer class="foot">Semua soal disusun dari isi slide presentasi.</footer>
 </main>
-<script src="assets/quiz-data.js?v=5"></script>
-<script src="assets/app.js?v=5"></script>
+<script src="assets/quiz-data.js?v=7"></script>
+<script src="assets/glossary.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
 <script>
 (function(){
   var A=window.ALK,$=A.$,k='all',n=20,names={k1:'K1 Profitability',k2:'K2 Credit Risk',k3:'K3 Revenue',k4:'K4 Operating Assets',k5:'K5 Liabilities',k6:'K6 Equity'};

@@ -8,7 +8,7 @@
 <meta name="description" content="Rangkuman visual materi Kelompok 3: Revenue Recognition & Operating Income.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@600;700;800&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=5">
+<link rel="stylesheet" href="assets/style.css?v=7">
 <style>
   .prog{height:30px;border-radius:999px;background:var(--surface-2);overflow:hidden;position:relative}
   .prog i{display:block;height:100%;background:var(--k);border-radius:999px;transition:width .4s}
@@ -42,6 +42,7 @@
 
 <section class="sec" id="rr">
   <div class="sec-head"><div class="t"><span class="lo">Analisis Laporan Keuangan</span><h2>Analyzing <span class="acc">Revenue</span></h2></div><button class="done" data-done="k3-rr"></button></div>
+  <div class="terms" data-terms="ASC 606|PSAK 72|FASB|PO|SSP|Transfer of control"></div>
   <div class="grid" style="--min:260px">
     <div class="card"><h4>Prinsip pengakuan</h4><ul class="small"><li>Diakui saat <b>transfer of control</b> produk ke customer</li><li><b>Kas bukan syarat</b></li><li>Penjualan kredit → <b>Revenue + Accounts Receivable</b></li></ul></div>
   </div>
@@ -58,6 +59,7 @@
 
 <section class="sec" id="comp">
   <div class="sec-head"><div class="t"><span class="lo">Complications</span><h2>Komplikasi <span class="acc">pengakuan revenue</span></h2></div><button class="done" data-done="k3-comp"></button></div>
+  <div class="terms" data-terms="IP|Bill-and-hold|Consignment|Variable consideration|Deferred revenue"></div>
   <p class="sec-lead">Ketuk kartu untuk melihat kapan revenue diakui.</p>
   <div class="flips">
     <button class="flip"><span class="flip-in"><span class="face front"><h4>Nonrefundable up-front fees</h4><span class="small">setup, aktivasi, membership</span><span class="hint">ketuk</span></span><span class="face back">Tidak langsung diakui. Itu bayaran di muka untuk jasa masa depan → diakui saat jasa diberikan.</span></span></button>
@@ -74,6 +76,7 @@
 
 <section class="sec" id="ltc">
   <div class="sec-head"><div class="t"><span class="lo">Long-term contract</span><h2>Cost-to-Cost <span class="acc">Method</span></h2></div><button class="done" data-done="k3-ltc"></button></div>
+  <div class="terms" data-terms="POC"></div>
   <div class="grid" style="--min:280px">
     <div class="formula"><span class="n">% complete</span><span class="op">=</span><span class="frac"><span>Costs incurred to date</span><span>Estimated total costs</span></span></div>
     <div class="formula"><span class="n">Revenue</span><span class="op">=</span><span>% complete × Total contract price</span></div>
@@ -98,6 +101,7 @@
 
 <section class="sec" id="allow">
   <div class="sec-head"><div class="t"><span class="lo">Sales Allowance</span><h2>Analyzing <span class="acc">Sales Allowance</span></h2></div><button class="done" data-done="k3-allow"></button></div>
+  <div class="terms" data-terms="Sales allowance|bps|DTC|COGS"></div>
   <p class="def">Pengurang penjualan bruto karena perusahaan tidak berharap menerima seluruh nilainya: <b>retur</b>, <b>diskon</b> (termasuk volume), <b>promosi ke retailer</b> (markdown, insentif).</p>
   <div class="widget">
     <div class="w-title">Levi Strauss: jual kredit $130, COGS $80</div>
@@ -131,6 +135,7 @@
 
 <section class="sec" id="unearned">
   <div class="sec-head"><div class="t"><span class="lo">Deferred Revenue</span><h2>Analyzing <span class="acc">Unearned Revenue</span></h2></div><button class="done" data-done="k3-unearned"></button></div>
+  <div class="terms" data-terms="Deferred revenue"></div>
   <p class="sec-lead">Kas diterima sebelum revenue bisa diakui: pesanan khusus, deposit layanan, tiket konser, langganan, gift card.</p>
   <div class="vs">
     <div class="card"><h4>Kas diterima di muka</h4><p class="mono small">Dr Kas<br>&nbsp;&nbsp;Cr Unearned revenue</p></div>
@@ -148,6 +153,7 @@
 
 <section class="sec" id="fx">
   <div class="sec-head"><div class="t"><span class="lo">Foreign Currency</span><h2>Efek <span class="acc">valuta asing</span></h2></div><button class="done" data-done="k3-fx"></button></div>
+  <div class="terms" data-terms="FX|Translation|Hedging|Repatriation"></div>
   <div class="card"><h4>Pfizer 2017 → 2018: revenue naik $1,1 miliar</h4>
     <div class="aging"><div style="flex-basis:72%;background:#9B111E">Operational growth $791 jt</div><div style="flex-basis:28%;background:#D8A21C;color:#3D0A0F">FX $310 jt</div></div>
     <p class="small"><b>Reported revenue growth ≠ pure operating growth.</b></p></div>
@@ -172,6 +178,7 @@
 
 <section class="sec" id="ar">
   <div class="sec-head"><div class="t"><span class="lo">Accounts Receivable</span><h2>Analyzing <span class="acc">Accounts Receivable</span></h2></div><button class="done" data-done="k3-ar"></button></div>
+  <div class="terms" data-terms="AR|Allowance|Contra account|Write-off|Aging|DSO"></div>
   <div class="grid" style="--min:260px">
     <div class="card"><h4>Gross vs Net</h4><p class="small"><b>Gross AR</b> = Net AR + Allowance<br><b>Net AR</b> = Gross AR − Allowance for doubtful accounts</p><p class="mono small">Pfizer 2018: 8.025 + 541 = <b>8.566</b> → tak tertagih 6,3%</p></div>
     <div class="card"><h4>Yang dianalisis</h4><p class="small"><b>Magnitude</b> (besar relatif terhadap sales) &amp; <b>quality</b> (kemungkinan tertagih).</p></div>
@@ -199,6 +206,7 @@
 
 <section class="sec" id="exp">
   <div class="sec-head"><div class="t"><span class="lo">Expenses &amp; Losses</span><h2>Analyzing <span class="acc">Expenses</span> &amp; R&amp;D</h2></div><button class="done" data-done="k3-exp"></button></div>
+  <div class="terms" data-terms="R&amp;D|ETR|TCJA|SG&amp;A|COGS"></div>
   <p class="sec-lead">Pisahkan beban rutin (COGS, SG&amp;A) dari non-rutin/transitori. Mengabaikan pos non-recurring (restrukturisasi, penghapusan aset) mendistorsi estimasi laba masa depan.</p>
   <div class="grid" style="--min:260px">
     <div class="card"><div class="card-h">R&amp;D ratio = R&amp;D ÷ Revenue</div><p class="mono">8.006 ÷ 53.600 = <b class="k">14,9%</b></p><p class="small muted">Benchmark median S&amp;P 500 biotek ±13,7–16,1%. Pfizer 13–16% selama 2013–2018.</p></div>
@@ -231,6 +239,7 @@
 
 <section class="sec" id="disc">
   <div class="sec-head"><div class="t"><span class="lo">Transitory items</span><h2>Discontinued Ops &amp; <span class="acc">Pro Forma</span></h2></div><button class="done" data-done="k3-disc"></button></div>
+  <div class="terms" data-terms="Disc. ops|Pro forma|Reg G|SEC|Recast"></div>
   <div class="formula"><span class="n">Net income</span><span class="op">=</span><span>Income from continuing ops</span><span class="op">+</span><span>Discontinued ops</span></div>
   <div class="grid" style="--min:260px">
     <div class="card"><h4>Pfizer 2018</h4><p class="mono">11.179 + 10 = <b class="k">11.189</b></p></div>
@@ -245,6 +254,7 @@
 
 <section class="sec" id="global">
   <div class="sec-head"><div class="t"><span class="lo">Global reports</span><h2>US GAAP <span class="acc">vs IFRS</span></h2></div><button class="done" data-done="k3-global"></button></div>
+  <div class="terms" data-terms="GAAP|IFRS|NPV"></div>
   <div class="tbl"><table><thead><tr><th>Topik</th><th>US GAAP</th><th>IFRS</th></tr></thead><tbody>
     <tr><td>Revenue (ASC 606 / IFRS 15)</td><td colspan="2">Hampir identik; sebagian besar perbedaan sudah dihapus</td></tr>
     <tr><td>Piutang</td><td>—</td><td>Aset keuangan; didiskonto ke NPV bila material → memengaruhi AR turnover &amp; current ratio</td></tr>
@@ -277,8 +287,9 @@
 <footer class="foot">Disusun dari presentasi Kelompok 3 · Analisis Laporan Keuangan 2026/2027.</footer>
 </main>
 
-<script src="assets/quiz-data.js?v=5"></script>
-<script src="assets/app.js?v=5"></script>
+<script src="assets/quiz-data.js?v=7"></script>
+<script src="assets/glossary.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
 <script>
 (function(){
   var A=window.ALK,$=A.$,fmt=A.fmt;

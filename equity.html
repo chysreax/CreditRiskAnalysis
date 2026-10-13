@@ -8,7 +8,7 @@
 <meta name="description" content="Rangkuman visual materi Kelompok 6: Equity Recognition and Owner Financing (EMS Chapter 8).">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=5">
+<link rel="stylesheet" href="assets/style.css?v=7">
 <style>
   .funnel{display:grid;gap:6px}
   .funnel .r{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;font-size:14px}
@@ -37,7 +37,7 @@
 
 <main class="wrap">
 <section class="hero">
-  <span class="slash b" aria-hidden="true"></span><span class="slash" aria-hidden="true"></span>
+  <span class="slash b deco" aria-hidden="true"></span><span class="slash deco" aria-hidden="true"></span>
   <div class="hero-tag"><span class="lo">Kelompok 6</span></div>
   <h1>Equity Recognition<br>and Owner Financing</h1>
   <p class="hero-sub">Bagaimana perusahaan memperoleh dana dari pemilik, dan bagaimana ekuitas berubah lewat laba, dividen, buyback, kompensasi saham, hingga dilusi EPS.</p>
@@ -52,6 +52,7 @@
 
 <section class="sec" id="intro">
   <div class="sec-head"><div class="t"><span class="lo">Overview</span><h2>Debt financing vs<span class="acc">equity financing</span></h2></div><button class="done" data-done="k6-intro"></button></div>
+  <div class="terms" data-terms="Board"></div>
   <div class="vs">
     <div class="card c-blue"><div class="card-h">Kreditur (debt)</div><p class="small">Meminjamkan dana · dapat <b>bunga &amp; pokok</b> sesuai kontrak (return dijamin kontrak).</p></div>
     <span class="mid">VS</span>
@@ -61,6 +62,7 @@
 
 <section class="sec" id="lo1">
   <div class="sec-head"><div class="t"><span class="lo">LO-1</span><h2>Stockholders' equity<span class="acc">contributed vs earned capital</span></h2></div><button class="done" data-done="k6-lo1"></button></div>
+  <div class="terms" data-terms="Contributed capital|Earned capital|APIC|Treasury stock|AOCI"></div>
   <div class="vs">
     <div class="card"><div class="card-h">Contributed capital</div><ul class="small"><li>Preferred stock: diotorisasi 2 jt, <b>belum diterbitkan</b> ($0)</li><li>Common stock: par $1; diterbitkan 3,12 M lembar = <b>$3.120 jt</b></li><li>Tidak ada APIC → dijual pada par</li><li>Treasury stock: 457,5 jt lembar, biaya <b>$34.362 jt</b> (negatif)</li></ul></div>
     <span class="mid">+</span>
@@ -76,6 +78,7 @@
 
 <section class="sec" id="shares">
   <div class="sec-head"><div class="t"><span class="lo">LO-1</span><h2>Common stock JNJ<span class="acc">dari diotorisasi ke beredar</span></h2></div><button class="done" data-done="k6-shares"></button></div>
+  <div class="terms" data-terms="Authorized|Issued|Outstanding|Market cap|Par value|IPO|Residual claim"></div>
   <div class="funnel">
     <div class="r"><b>Authorized</b><span><i style="width:100%;background:#CBD3DF"></i><span class="v">4.320.000.000</span></span></div>
     <div class="r"><b>Issued</b><span><i style="width:72.2%;background:#1E293B"></i><span class="v">3.119.843.000 (kumulatif)</span></span></div>
@@ -101,6 +104,7 @@
 
 <section class="sec" id="pref">
   <div class="sec-head"><div class="t"><span class="lo">LO-1</span><h2>Preferred stock<span class="acc">yield &amp; conversion</span></h2></div><button class="done" data-done="k6-pref"></button></div>
+  <div class="terms" data-terms="Preferred|Cumulative"></div>
   <div class="grid" style="--min:280px">
     <div class="card c-red"><div class="card-h">1 · Yield</div><p class="small">Bisa distrukturkan agar dividennya mirip bunga obligasi. Tapi dividen <b>tidak bisa dikurangkan dari pajak</b> → biaya setelah pajak lebih tinggi dari obligasi.</p></div>
     <div class="card c-red"><div class="card-h">2 · Conversion privileges</div><p class="small">Bisa ditukar ke sejumlah saham biasa yang sudah ditetapkan.</p></div>
@@ -112,6 +116,7 @@
 
 <section class="sec" id="bvps">
   <div class="sec-head"><div class="t"><span class="lo">LO-1</span><h2>Book value per share<span class="acc">&amp; market-to-book</span></h2></div><button class="done" data-done="k6-bvps"></button></div>
+  <div class="terms" data-terms="BVPS|M/B"></div>
   <div class="formula"><span class="n">BVPS</span><span class="op">=</span><span class="frac"><span>Stockholders' equity − Preferred stock</span><span>Common shares outstanding</span></span><span class="op">=</span><span class="frac"><span>59.752</span><span>2.662,324</span></span><span class="op">=</span><span class="n">$22,44</span></div>
   <div class="grid" style="--min:260px">
     <div class="card"><h4>Market-to-book</h4><p class="mono">$129,05 ÷ $22,44 = <b class="k">5,75</b></p><div class="bars"><div class="bar"><span class="lab">JNJ</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">5,75</span></div><div class="bar"><span class="lab">Median S&amp;P 500</span><span class="tr"><span class="fill" style="--w:51%;--c:#9AA3B5"></span></span><span class="v">2,91</span></div></div></div>
@@ -121,6 +126,7 @@
 
 <section class="sec" id="issue">
   <div class="sec-head"><div class="t"><span class="lo">LO-2</span><h2>Stock issuance<span class="acc">common stock &amp; APIC</span></h2></div><button class="done" data-done="k6-issue"></button></div>
+  <div class="terms" data-terms="Par value|APIC|Stated value"></div>
   <div class="widget">
     <div class="w-title">Simulasi penerbitan saham (default: 1.000 saham, par $1, @ $100)</div>
     <div class="w-grid">
@@ -142,6 +148,7 @@
 
 <section class="sec" id="treasury">
   <div class="sec-head"><div class="t"><span class="lo">LO-2</span><h2>Stock repurchase<span class="acc">&amp; treasury stock</span></h2></div><button class="done" data-done="k6-treasury"></button></div>
+  <div class="terms" data-terms="Treasury stock|Retirement|EPS"></div>
   <div class="grid" style="--min:220px">
     <div class="card c-blue"><div class="card-h">Sinyal undervalued</div><p class="small">Manajemen merasa harga terlalu murah.</p></div>
     <div class="card c-green"><div class="card-h">Menetralkan dilusi</div><p class="small">Opsi karyawan menambah saham; buyback menyeimbangkan.</p></div>
@@ -161,6 +168,7 @@
 
 <section class="sec" id="sbc">
   <div class="sec-head"><div class="t"><span class="lo">LO-3</span><h2>Stock-based<span class="acc">compensation</span></h2></div><button class="done" data-done="k6-sbc"></button></div>
+  <div class="terms" data-terms="SBC|RSU|PSU|ESO|SAR|ESPP|Vesting|Grant date|Forfeiture|Black-Scholes|Dilution"></div>
   <div class="grid" style="--min:240px">
     <div class="card"><h4>Kenapa bayar dengan saham?</h4><p class="small">Kepentingan karyawan sejalan pemegang saham; award dikaitkan target kinerja; <b>retensi</b> lewat vesting period. Keluar sebelum vesting → <b>forfeited</b>.</p></div>
     <div class="card"><h4>Alur award</h4><div class="flow small"><span class="step">Grant date: fair value diestimasi</span><span class="arr">→</span><span class="step">Vesting period: tetap bekerja</span><span class="arr">→</span><span class="step on">Vesting date</span></div></div>
@@ -199,6 +207,7 @@
 
 <section class="sec" id="div">
   <div class="sec-head"><div class="t"><span class="lo">LO-4</span><h2>Cash dividends<span class="acc">sinyal, tanggal &amp; efek</span></h2></div><button class="done" data-done="k6-div"></button></div>
+  <div class="terms" data-terms="DPS|Payout|Dividend yield|Record date"></div>
   <div class="dates"><div><b>Declaration date</b><p class="small">Dewan mengumumkan dividen.</p></div><div><b>Date of record</b><p class="small">Daftar pemegang saham berhak ditetapkan.</p></div><div><b>Date of payment</b><p class="small">Dividen dibayarkan.</p></div></div>
   <div class="grid" style="--min:240px">
     <div class="card"><h4>Efek</h4><p class="small">Kas ↓ &amp; RE ↓ (contoh $10 jt). <b>Tidak lewat laba rugi.</b> JNJ: dividen $9.494 jt &lt; laba $15.297 jt → RE naik.</p></div>
@@ -225,6 +234,7 @@
 
 <section class="sec" id="split">
   <div class="sec-head"><div class="t"><span class="lo">LO-4</span><h2>Dividend in arrears<span class="acc">&amp; stock split</span></h2></div><button class="done" data-done="k6-split"></button></div>
+  <div class="terms" data-terms="Arrears|Cumulative|Stock split|Stock dividend"></div>
   <p class="def"><b>Dividend in arrears</b> = tunggakan dividen saham preferen <b>kumulatif</b> yang harus dilunasi dulu sebelum saham biasa dapat dividen.</p>
   <div class="widget">
     <div class="w-title">15.000 preferen kumulatif × $50 × 8% = $60.000/tahun · 50.000 saham biasa</div>
@@ -246,6 +256,7 @@
 
 <section class="sec" id="aoci">
   <div class="sec-head"><div class="t"><span class="lo">LO-5</span><h2>Accumulated other<span class="acc">comprehensive income</span></h2></div><button class="done" data-done="k6-aoci"></button></div>
+  <div class="terms" data-terms="OCI|AOCI|AFS|Translation"></div>
   <p class="sec-lead">Aset/liabilitas tertentu dicatat pada fair value, tapi untung/rugi belum direalisasi tidak masuk laba bersih maupun RE. Agar neraca seimbang, ditampung di AOCI sampai dijual/diselesaikan.</p>
   <div class="flips">
     <button class="flip"><span class="flip-in"><span class="face front"><h4>Foreign currency translation</h4><span class="hint">ketuk</span></span><span class="face back">Laporan anak usaha asing diterjemahkan ke $US. Dolar menguat → rugi; melemah → untung. JNJ 2018: rugi translasi <b>$1.518 jt</b>.</span></span></button>
@@ -261,6 +272,7 @@
 
 <section class="sec" id="conv">
   <div class="sec-head"><div class="t"><span class="lo">LO-6</span><h2>Convertible securities<span class="acc">obligasi/preferen → saham biasa</span></h2></div><button class="done" data-done="k6-conv"></button></div>
+  <div class="terms" data-terms="Convertible|Conversion price|Dilution"></div>
   <div class="vs">
     <div class="card c-blue"><div class="card-h">Bagi investor</div><p class="small"><b>Kinerja buruk:</b> tetap dapat bunga/dividen, dibayar dulu saat likuidasi. <b>Kinerja bagus:</b> tukar ke saham &amp; ikut kenaikan nilai.</p></div>
     <span class="mid">VS</span>
@@ -313,6 +325,7 @@
 
 <section class="sec" id="qna">
   <div class="sec-head"><div class="t"><span class="lo">Sesi Tanya Jawab</span><h2>Q&amp;A presentasi</h2></div><button class="done" data-done="k6-qna"></button></div>
+  <div class="terms" data-terms="TSR|PPh 21|BEI"></div>
   <div>
     <details class="qa"><summary><span>Payout JNJ 62% (S&amp;P 30%). Apakah membatasi dana riset/akuisisi?<span class="who">Ajeng · dijawab Fabian</span></span></summary><div class="ans"><ul><li><b>Payout dihitung setelah R&amp;D:</b> biaya riset sudah mengurangi laba sebelum payout.</li><li><b>RE bukan kas:</b> riset &amp; akuisisi dibayar dengan kas.</li><li><b>Pendanaan eksternal:</b> akuisisi bisa dibiayai utang/saham.</li><li>Opsi: <b>menahan dividen</b> untuk operasi/ekspansi.</li></ul></div></details>
     <details class="qa"><summary><span>Apakah stock-based compensation bebas pajak bagi karyawan?<span class="who">Hasbie · dijawab Gabriel</span></span></summary><div class="ans"><p>Tetap dikenakan pajak: (1) saat menerima manfaat, selisih harga pasar vs harga dibayar = penghasilan kerja → <b>PPh 21</b> progresif (UU HPP, PMK 66/2023: natura objek pajak); (2) saat dijual: saham BEI <b>PPh final 0,1%</b> nilai transaksi; tidak tercatat → tarif normal.</p></div></details>
@@ -330,8 +343,9 @@
 <footer class="foot">Disusun dari presentasi Kelompok 6 · EMS Chapter 8 · Analisis Laporan Keuangan 2026/2027.</footer>
 </main>
 
-<script src="assets/quiz-data.js?v=5"></script>
-<script src="assets/app.js?v=5"></script>
+<script src="assets/quiz-data.js?v=7"></script>
+<script src="assets/glossary.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
 <script>
 (function(){
   var A=window.ALK,$=A.$,fmt=A.fmt;

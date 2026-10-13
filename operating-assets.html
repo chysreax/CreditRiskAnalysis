@@ -8,7 +8,7 @@
 <meta name="description" content="Rangkuman visual materi Kelompok 4: Asset Recognition and Operating Assets (EMS Module 6).">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@500;600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=5">
+<link rel="stylesheet" href="assets/style.css?v=7">
 <style>
   .layers{display:grid;gap:4px}
   .layer{display:flex;height:38px;border-radius:8px;overflow:hidden;font:600 12px var(--f-mono)}
@@ -32,7 +32,7 @@
 
 <main class="wrap">
 <section class="hero">
-  <span class="blob" aria-hidden="true"></span>
+  <span class="blob deco" aria-hidden="true"></span>
   <div class="hero-tag"><span class="pill bad" style="background:transparent;padding:0">EMS · FINANCIAL STATEMENT ANALYSIS &amp; VALUATION</span></div>
   <h1>Asset Recognition<br><span style="color:var(--k)">and Operating Assets</span></h1>
   <p class="hero-sub">Persediaan, utang usaha, dan aset tetap: dari pilihan metode akuntansi hingga rasio.</p>
@@ -46,6 +46,7 @@
 
 <section class="sec" id="flow">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-1 · 6-4</span><h2>Cost Flow <span class="acc">Fundamentals</span></h2></div><button class="done" data-done="k4-flow"></button></div>
+  <div class="terms" data-terms="COGAFS|COGS|PPE|DM / DL / MOH|R&amp;D"></div>
   <div class="flow"><span class="step">Expenditure (beli · produksi · bangun)</span><span class="arr">→ dikapitalisasi →</span><span class="step on">Balance sheet: Inventory · PPE</span><span class="arr">→ dipakai →</span><span class="step">Income statement: COGS · Depreciation</span></div>
   <div class="flow"><span class="step">Expenditure</span><span class="arr">→ TIDAK dikapitalisasi →</span><span class="step">Langsung beban: R&amp;D · SG&amp;A · iklan</span></div>
   <div class="formula"><span>Beginning inventory + Inventory acquired</span><span class="op">=</span><span class="n">Goods available for sale</span><span class="op">=</span><span>Ending inventory (BS) + COGS (IS)</span></div>
@@ -57,6 +58,7 @@
 
 <section class="sec" id="method">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-1</span><h2>Inventory Costing: <span class="acc">FIFO, LIFO, AC</span></h2></div><button class="done" data-done="k4-method"></button></div>
+  <div class="terms" data-terms="FIFO|LIFO|AC|PSAK 202"></div>
   <div class="tbl fit"><table><thead><tr><th>Exhibit 6.3</th><th class="n">Unit @ harga</th><th class="n">Total</th></tr></thead><tbody>
     <tr><td>Awal</td><td class="n">500 @ $100</td><td class="n">$50.000</td></tr><tr><td>Pembelian</td><td class="n">200 @ $150</td><td class="n">$30.000</td></tr><tr class="tot"><td>Tersedia</td><td class="n">700 unit</td><td class="n">$80.000</td></tr><tr class="hl"><td>Terjual</td><td class="n">450 @ $250</td><td class="n">$112.500</td></tr></tbody></table></div>
   <div class="widget">
@@ -81,6 +83,7 @@
 
 <section class="sec" id="effects">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-1</span><h2>Efek ke <span class="acc">laporan keuangan</span></h2></div><button class="done" data-done="k4-effects"></button></div>
+  <div class="terms" data-terms="IRS"></div>
   <div class="tbl"><table><thead><tr><th>Exhibit 6.4 ($)</th><th class="n">FIFO</th><th class="n">LIFO</th><th class="n">Average</th></tr></thead><tbody>
     <tr><td>Sales</td><td class="n">112.500</td><td class="n">112.500</td><td class="n">112.500</td></tr>
     <tr><td>COGS</td><td class="n">45.000</td><td class="n">55.000</td><td class="n">51.429</td></tr>
@@ -105,6 +108,7 @@
 
 <section class="sec" id="lcm">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-2</span><h2>Lower of <span class="acc">Cost or Market</span></h2></div><button class="done" data-done="k4-lcm"></button></div>
+  <div class="terms" data-terms="LCM|NRV|ASU"></div>
   <div class="grid" style="--min:280px">
     <div class="card"><h4>Contoh numerik</h4>
       <div class="bars"><div class="bar"><span class="lab">Cost</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">27.000</span></div><div class="bar"><span class="lab">Market</span><span class="tr"><span class="fill" style="--w:85%;--c:#E23A4E"></span></span><span class="v">23.000</span></div></div>
@@ -121,6 +125,7 @@
 
 <section class="sec" id="reserve">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-1 · 6-2</span><h2>LIFO Reserve &amp; <span class="acc">LIFO Liquidation</span></h2></div><button class="done" data-done="k4-reserve"></button></div>
+  <div class="terms" data-terms="LIFO reserve|LIFO liquidation"></div>
   <div class="grid" style="--min:280px">
     <div class="formula"><span class="n">FIFO inventory</span><span class="op">=</span><span>LIFO inventory + LIFO reserve</span></div>
     <div class="formula"><span class="n">FIFO COGS</span><span class="op">=</span><span>LIFO COGS − ↑ΔReserve</span></div>
@@ -148,6 +153,7 @@
 
 <section class="sec" id="rim">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-2</span><h2>Disclosures &amp; <span class="acc">Retail Inventory Method</span></h2></div><button class="done" data-done="k4-rim"></button></div>
+  <div class="terms" data-terms="RIM|SKU"></div>
   <div class="grid" style="--min:280px">
     <div class="card"><div class="card-h">Yang diungkap footnote</div><ol class="small"><li>Metode biaya &amp; dasar ukur (LCM/NRV)</li><li>Komposisi: raw materials, WIP, finished goods</li><li>LIFO reserve (wajib bagi pengguna LIFO)</li><li>Write-down, obsolescence, shrink</li><li>Likuidasi LIFO &amp; metode campuran</li></ol></div>
     <div class="card"><div class="card-h">Retail method · contoh EMS</div>
@@ -164,6 +170,7 @@
 
 <section class="sec" id="inv">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-3</span><h2>Inventory Analysis: <span class="acc">GPM, Turnover &amp; DIO</span></h2></div><button class="done" data-done="k4-inv"></button></div>
+  <div class="terms" data-terms="GPM|INVT|DIO|JIT"></div>
   <div class="grid" style="--min:260px">
     <div class="card"><div class="card-h">① Seberapa untung? GPM</div>
       <div class="bars"><div class="bar"><span class="lab">FY2016</span><span class="tr"><span class="fill" style="--w:99.7%"></span></span><span class="v">34,2%</span></div><div class="bar"><span class="lab">FY2017</span><span class="tr"><span class="fill" style="--w:99.1%"></span></span><span class="v">34,0%</span></div><div class="bar"><span class="lab">FY2018</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">34,3%</span></div></div>
@@ -177,6 +184,7 @@
 
 <section class="sec" id="ccc">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-3</span><h2>Accounts Payable &amp; <span class="acc">Cash Conversion Cycle</span></h2></div><button class="done" data-done="k4-ccc"></button></div>
+  <div class="terms" data-terms="APT|DPO|DSO|CCC|2/10, net 30"></div>
   <div class="grid" style="--min:260px">
     <div class="card"><div class="card-h">AP turnover = COGS ÷ Avg AP</div><p class="mono small">Avg AP = (7.755 + 7.244) ÷ 2 = 7.499,5<br>69.703 ÷ 7.499,5 = <b class="k">9,29×</b></p></div>
     <div class="card"><div class="card-h">DPO = 365 ÷ APT</div><p class="mono small">365 ÷ 9,29 = <b class="k">39,3 hari</b></p><p class="small muted">Sedikit di atas termin umum 30 hari (tanpa adj. 53 minggu: 38,5).</p></div>
@@ -196,6 +204,7 @@
 
 <section class="sec" id="ppe">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-4</span><h2>PPE Capitalization: <span class="acc">apa yang masuk neraca?</span></h2></div><button class="done" data-done="k4-ppe"></button></div>
+  <div class="terms" data-terms="CAPEX|CIP|PSAK 216"></div>
   <div class="vs">
     <div class="card c-mint"><h4 style="color:#16804A">✓ Dikapitalisasi (CAPEX)</h4><ul class="small"><li>Harga beli</li><li>Transportasi, bea masuk, pajak</li><li>Instalasi &amp; pengujian</li><li>Lease yang mengalihkan risk &amp; rewards</li><li>Fasilitas &amp; peralatan R&amp;D <b>general-use</b></li></ul></div>
     <span class="mid">VS</span>
@@ -217,6 +226,7 @@
 
 <section class="sec" id="dep">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-4</span><h2>Depreciation: <span class="acc">metode &amp; perhitungan</span></h2></div><button class="done" data-done="k4-dep"></button></div>
+  <div class="terms" data-terms="SL|DDB|MACRS|NBV|AD|Salvage value|Units-of-production|Component approach"></div>
   <div class="grid" style="--min:200px">
     <div class="card"><h4>1 · Useful life</h4><p class="small">Periode aset memberi manfaat.</p></div>
     <div class="card"><h4>2 · Salvage value</h4><p class="small">Nilai saat aset dilepas.</p></div>
@@ -264,6 +274,7 @@
 
 <section class="sec" id="imp">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-5</span><h2>Asset <span class="acc">Impairments</span></h2></div><button class="done" data-done="k4-imp"></button></div>
+  <div class="terms" data-terms="Impairment|Recoverability|FVLCD|VIU|Catch-up depreciation|PSAK 236"></div>
   <div class="widget">
     <div class="w-title">Uji impairment US GAAP (default: Review 6-5, HD subsidiary)</div>
     <div class="w-grid">
@@ -285,6 +296,7 @@
 
 <section class="sec" id="restr">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-5</span><h2>Restructuring <span class="acc">Costs</span></h2></div><button class="done" data-done="k4-restr"></button></div>
+  <div class="terms" data-terms="Cookie jar|PSAK 237"></div>
   <div class="grid" style="--min:240px">
     <div class="card c-blue"><h4>1 · Severance / relocation</h4><p class="small">Pesangon, outplacement, relokasi → expense &amp; liability saat program diumumkan.</p></div>
     <div class="card c-pink"><h4>2 · Asset write-downs</h4><p class="small">PPE, goodwill, persediaan fasilitas yang ditutup. Tanpa efek kas kecuali pajak.</p></div>
@@ -308,6 +320,7 @@
 
 <section class="sec" id="tools">
   <div class="sec-head"><div class="t"><span class="lo">LO 6-6</span><h2>PPE Tools: <span class="acc">turnover, umur, % terpakai</span></h2></div><button class="done" data-done="k4-tools"></button></div>
+  <div class="terms" data-terms="PPET|% used up"></div>
   <div class="grid" style="--min:260px">
     <div class="card"><div class="card-h">① Seberapa produktif? PPET</div><p class="mono small">Sales ÷ avg net PPE<br>106.161 ÷ 22.225</p>
       <div class="bars"><div class="bar"><span class="lab">Home Depot</span><span class="tr"><span class="fill" style="--w:100%"></span></span><span class="v">4,8×</span></div><div class="bar"><span class="lab">Lowe's</span><span class="tr"><span class="fill" style="--w:77%;--c:#9AA6B6"></span></span><span class="v">3,7×</span></div></div>
@@ -325,6 +338,7 @@
 
 <section class="sec" id="global">
   <div class="sec-head"><div class="t"><span class="lo">Global</span><h2>GAAP vs IFRS + <span class="acc">PSAK</span></h2></div><button class="done" data-done="k4-global"></button></div>
+  <div class="terms" data-terms="GAAP|IFRS|PSAK 202|PSAK 216|PSAK 236|PSAK 237|PSAK 238"></div>
   <div class="tbl"><table><thead><tr><th>Topik</th><th>US GAAP</th><th>IFRS</th><th>PSAK</th></tr></thead><tbody>
     <tr><td>Metode persediaan</td><td>FIFO, LIFO, AC</td><td>LIFO dilarang</td><td>202: FIFO / rata-rata</td></tr>
     <tr><td>Reversal write-down persediaan</td><td>Tidak boleh</td><td>Boleh</td><td>202: boleh, maks. write-down awal</td></tr>
@@ -341,6 +355,7 @@
 
 <section class="sec" id="syn">
   <div class="sec-head"><div class="t"><span class="lo">Module 6</span><h2>Sintesis: <span class="acc">semua terhubung</span></h2></div><button class="done" data-done="k4-syn"></button></div>
+  <div class="terms" data-terms="Recast"></div>
   <div class="tbl"><table><thead><tr><th>Akun</th><th>Pilihan / estimasi</th><th>Dampak laba rugi</th><th>Alat analisis</th><th>Adjustment</th></tr></thead><tbody>
     <tr><td><b>Inventory</b></td><td>FIFO/LIFO/AC · LCM/NRV · retail</td><td>COGS → GP, pajak</td><td>GPM · INVT · DIO</td><td>LIFO → FIFO; keluarkan LIFO liquidation</td></tr>
     <tr><td><b>Accounts payable</b></td><td>Termin supplier (2/10, net 30)</td><td>— (dana tanpa bunga)</td><td>APT · DPO · CCC</td><td>Proksi purchases dgn COGS; adj. 53 minggu</td></tr>
@@ -376,8 +391,9 @@
 <footer class="foot">Disusun dari presentasi Kelompok 4 · EMS Module 6 · PSAK 202 &amp; 216 · Analisis Laporan Keuangan 2026/2027.</footer>
 </main>
 
-<script src="assets/quiz-data.js?v=5"></script>
-<script src="assets/app.js?v=5"></script>
+<script src="assets/quiz-data.js?v=7"></script>
+<script src="assets/glossary.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
 <script>
 (function(){
   var A=window.ALK,$=A.$,fmt=A.fmt;
@@ -385,7 +401,8 @@
   var M={fifo:{old:[450,50],nw:[0,200],cogs:45000,ei:35000,d:'Unit pertama dibeli dianggap pertama dijual: biaya <b>tertua</b> → COGS; persediaan akhir ≈ biaya terkini. Diizinkan GAAP, IFRS, PSAK 202.'},
          lifo:{old:[250,250],nw:[200,0],cogs:55000,ei:25000,d:'Unit terakhir dibeli dianggap pertama dijual: biaya <b>terbaru</b> → COGS; persediaan akhir memuat biaya lama. Hanya US GAAP/IRS (Caterpillar, Kroger).'},
          ac:{old:[321.4,178.6],nw:[128.6,71.4],cogs:51429,ei:28571,d:'Rata-rata tertimbang: $80.000 ÷ 700 = <b>$114,286</b>/unit. Meratakan fluktuasi harga (CVS). Diizinkan GAAP, IFRS, PSAK 202.'}};
-  function lay(el,a,tot){el.innerHTML='<div class="cg" style="flex-basis:'+(a[0]/tot*100)+'%">'+(a[0]>40?'COGS '+Math.round(a[0]):'')+'</div><div class="ei" style="flex-basis:'+(a[1]/tot*100)+'%">'+(a[1]>40?'Sisa '+Math.round(a[1]):'')+'</div>';}
+  function lay(el,a,tot){if(!el.children.length)el.innerHTML='<div class="cg"></div><div class="ei"></div>';var c=el.children;
+    c[0].style.flexBasis=(a[0]/tot*100)+'%';c[0].textContent=a[0]>40?'COGS '+Math.round(a[0]):'';c[1].style.flexBasis=(a[1]/tot*100)+'%';c[1].textContent=a[1]>40?'Sisa '+Math.round(a[1]):'';}
   A.seg($('#mSeg'),function(v){var m=M[v];lay($('#Lold'),m.old,500);lay($('#Lnew'),m.nw,200);$('#mDesc').innerHTML=m.d;
     var gp=112500-m.cogs;$('#mOut').innerHTML=[['COGS',m.cogs,'var(--bad)'],['Ending inventory',m.ei,'var(--good)'],['Gross profit',gp,'var(--k)'],['Kas operasi*',112500-30000-gp*0.21,'var(--ink)']].map(function(x){return '<div class="out"><span class="cap">'+x[0]+'</span><span class="big" style="font-size:22px;color:'+x[2]+'">$'+fmt(x[1])+'</span></div>';}).join('');});
 
